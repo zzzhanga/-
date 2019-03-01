@@ -25,7 +25,7 @@
             tag="li"
             class="bar-item"
           >    
-              <p class="iconfont icon">&#xe7b9;</p>
+              <p class="iconfont icon">&#xe64c;</p>
               <p class="item-text">想法</p>
           </router-link>
           

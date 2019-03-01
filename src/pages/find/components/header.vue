@@ -28,6 +28,7 @@ export default {
 
 </script>
 <style lang="stylus" scoped>
+@import '~styles/varibles.styl'
     .header-input
         border-radius .4rem
         margin .2rem
@@ -43,7 +44,7 @@ export default {
             float right
             .book-city
                 padding .18rem
-                color #87CEFA
+                color $Color
 
 
 </style>

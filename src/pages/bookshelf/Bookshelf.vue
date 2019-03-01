@@ -24,6 +24,7 @@ export default {
 <style lang="stylus" scoped>
     .header
       position fixed
+      z-index 2
       top 0
       background #fff
       width 100%
