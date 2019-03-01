@@ -50,6 +50,6 @@ export default {
         width 100%
         .swiper-img
             width 100%
-            height 80vh
+            height 10rem
 
 </style>
