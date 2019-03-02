@@ -48,8 +48,9 @@ export default {
     .card
         overflow hidden
         width 100%
+        height 11rem
         .swiper-img
             width 100%
-            height 10rem
+            
 
 </style>

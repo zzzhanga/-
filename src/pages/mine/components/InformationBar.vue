@@ -76,8 +76,11 @@ export default {
 <style lang="stylus"  scoped>
     .information-bar
         margin-top .4rem
+        padding-bottom 1rem
     .information-bar section:nth-child(2n+1)
-        border-top .2rem solid #ccc
+        border-top .15rem solid #dcdcdc
+    .information-bar section:last-child 
+        border-bottom .15rem solid #dcdcdc
     .bar-item
         padding .4rem .2rem
         width 100%
@@ -97,6 +100,9 @@ export default {
         .bar-right
             text-align right 
             line-height .8rem
+            .bar-second
+                font-size .20rem
+                color #999
 
 
 

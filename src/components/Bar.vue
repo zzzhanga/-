@@ -1,49 +1,53 @@
 <!--  -->
 <template>
-  <div class="bottom-bar">
-      <ul>
-          <router-link
-            to="/" 
-            tag="li"
-            class="bar-item"
-          >
-              <p class="iconfont icon">&#xe663;</p>
-              <p class="item-text">发现</p>
-          </router-link>
-          
-          <router-link
-            to="/book/"
-            tag="li"
-            class="bar-item"
-           >    
-              <p class="iconfont icon">&#xe60a;</p>
-              <p class="item-text">书架</p>
-          </router-link>
-
-          <router-link
-            to="/Idea/"
-            tag="li"
-            class="bar-item"
-          >    
-              <p class="iconfont icon">&#xe64c;</p>
-              <p class="item-text">想法</p>
-          </router-link>
-          
-          <router-link
-             to="/Mine"
-             tag="li"
-             class="bar-item"
-          >    
-              <p class="iconfont icon">&#xe62f;</p>
-              <p class="item-text">我的</p>
-          </router-link>                    
-      </ul>
-  </div>
+    <div class="bottom-bar">
+        <router-link  
+            :to="item.to" 
+            tag="div" 
+            class="bar-item" 
+            v-for="item of bars"
+            :key="item.id"
+        >
+            <p class="iconfont icon" v-html='item.icon'></p>
+            <p class="item-text">{{item.txt}}</p>
+        </router-link>
+    </div>
 </template>
 
 <script>
 export default {
-    name: 'BottomBar',    
+    name: 'BottomBar',
+    data() {
+        return {
+            index:0,
+            styObj:{
+                color:'0099CC'
+            },
+            bars:[{
+                id:'001',
+                to:'/',
+                icon:'&#xe663;',
+                txt:'发现'
+            },{
+                id:'002',
+                to:'/book/',
+                icon:'&#xe60a;',
+                txt:'书架'
+            },{
+                id:'003',
+                to:'/Idea/',
+                icon:'&#xe64c;',
+                txt:'想法'
+            },{
+                id:'004',
+                to:'/Mine/',
+                icon:'&#xe62f;',
+                txt:'我的'
+            }
+            ]
+        }
+    },
+      
 }
 
 </script>
@@ -51,15 +55,25 @@ export default {
     .bottom-bar
         position fixed  
         bottom 0
+        padding-top .2rem
+        width 100%
+        height 1rem
         text-align center
         background #fff
         .bar-item
             display inline-block
-            width 24vw
+            height 1rem
+            width 25vw
             .icon
                 font-size .5rem
             .item-text
-                margin-top .1rem
+                width 100%
+                padding-top .2rem
                 font-size .2rem   
+        .router-link-exact-active
+            color #0099CC
+
+                    
+
 
 </style>

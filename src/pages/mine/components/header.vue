@@ -27,8 +27,17 @@ export default {
         display flex
         justify-content space-between
         width 100%
-        padding .2rem .2rem
+        height 1rem
+        line-height 1rem
         box-sizing border-box
+        background #fff
+        font-size .24rem
+    .mine-header span:nth-child(1)
+        padding-left .4rem
+        font-size .36rem
+    .mine-header span:nth-child(3)   
+        padding-right .4rem  
+        font-size .36rem   
         
 
 </style>

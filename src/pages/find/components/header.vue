@@ -2,7 +2,7 @@
   <div class="header">
         <div class="header-input">  
             <span class="iconfont search">&#xe634;</span>
-            &nbsp;&nbsp;&nbsp;&nbsp;三体
+            <input type="text" placeholder="三体">
             <span class="icon-right">|&nbsp;&nbsp;
                 <span class="book-city" @click="toLink">书城</span>
             </span> 
@@ -39,6 +39,8 @@ export default {
         color : #ccc
         .search
             float left
+        input 
+            text-indent .2rem
         .icon-right
             height .6rem
             float right

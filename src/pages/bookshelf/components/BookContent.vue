@@ -9,6 +9,7 @@
             <img class="book-cover" :src="item.imgUrl">
             <p class="book-text">{{item.txt}}</p>
     </div>
+    <p class="item-bottom">{{this.public}}本公开阅读 · {{this.Private}}本私密阅读</p>
   </div>
 </template>
 
@@ -17,6 +18,8 @@ export default {
     name: "BookSearch",
     data() {
         return {
+            public:'142',
+            Private:'2',
             booklist:[{
                 id:"0001",
                 imgUrl:"../../../../static/image/item1.png",
@@ -256,6 +259,16 @@ export default {
                 id:"0048",
                 imgUrl:"../../../../static/image/item48.png",
                 txt:"为什么中国人勤劳而不富有"
+            },
+            {
+                id:"0049",
+                imgUrl:"../../../../static/image/item49.png",
+                txt:"2019"
+            },
+            {
+                id:"0050",
+                imgUrl:"../../../../static/image/item50.png",
+                txt:""
             }]
         }
     },
@@ -264,7 +277,7 @@ export default {
 </script>
 <style lang="stylus" scoped>
     .book-content
-        padding .4rem .1rem
+        padding .4rem .2rem 2rem .2rem
         .book-item
             position relative
             display inline-block
@@ -275,13 +288,20 @@ export default {
                 position absolute
                 top 0
                 width 100%
-                border .01rem solid #ccc
+                border .02rem solid #ccc
             .book-text
                 position absolute
                 bottom -.4rem
                 height 1rem
                 line-height .5rem
                 font-size .16rem
+        .item-bottom
+            margin-top 1rem
+            font-size .24rem
+            color #ccc
+            text-align center
+
+
 
 
 </style>
