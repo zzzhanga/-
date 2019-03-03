@@ -4,6 +4,7 @@ import Find from '@/pages/find/Find'
 import Book from '@/pages/bookshelf/Bookshelf'
 import Idea from '@/pages/idea/Idea'
 import Mine from '@/pages/mine/Mine'
+import Like from '@/pages/find/like/Like'
 
 Vue.use(Router)
 
@@ -28,6 +29,11 @@ export default new Router({
       path: '/mine',
       name: 'Mine',
       component: Mine
+    },
+    {
+      path: '/like',
+      name: 'Like',
+      component: Like
     }
 
   ]

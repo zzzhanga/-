@@ -1,7 +1,7 @@
 <template>
   <div class="header">
         <div class="header-input">  
-            <span class="iconfont search">&#xe634;</span>
+            <router-link to="/like" class="iconfont search" >&#xe634;</router-link>
             <input type="text" placeholder="三体">
             <span class="icon-right">|&nbsp;&nbsp;
                 <span class="book-city" @click="toLink">书城</span>

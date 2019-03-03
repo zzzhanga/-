@@ -1,6 +1,6 @@
 <template>
   <div>
-    <find-header></find-header>
+    <search-bar :link="link"></search-bar>
     <find-card></find-card>
     <bottom-bar></bottom-bar>
   </div>
@@ -8,12 +8,17 @@
 
 <script>
 import BottomBar from './../../components/Bar'
-import FindHeader  from './components/header'
+import SearchBar  from './../../components/SearchBar'
 import FindCard  from './components/card'
 export default {
     name: "Find",
+    data() {
+      return {
+        link:'/like/'
+      }
+    },
     components:{
-      FindHeader,
+      SearchBar,
       FindCard,
       BottomBar 
     }
