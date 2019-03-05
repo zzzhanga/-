@@ -5,7 +5,7 @@
             class="slide-card"
             v-for="item of swiperList" 
             :key="item.id">
-            <img class="swiper-img" :src="item.imgUrl">
+            <router-link tag="img" to="/detail" class="swiper-img" :src="item.imgUrl"></router-link>
         </swiper-slide>
     </swiper>
   </div>
