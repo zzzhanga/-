@@ -2,7 +2,7 @@
 <template>
   <div>
       <header class="header">
-          <span class="iconfont back">&#xe624;</span>
+          <router-link tag="span" to="/" class="iconfont back">&#xe624;</router-link>
           <span class="iconfont people">&#xe62f;</span>
       </header>
       <section class="content">
@@ -74,9 +74,14 @@ export default {
 @import '~styles/varibles.styl'
 @import '~styles/mixin.styl'
     .header
+        position fixed
+        top 0
+        z-index 2
         height 1rem
         line-height 1rem
         padding .1rem .2rem
+        background #fff
+        width 100%
         .back
             font-size .5rem
             float left
@@ -92,6 +97,7 @@ export default {
                 font-size .08rem
                 display inline
     .content
+        margin-top 1.2rem
         padding .1rem
         .one
             display flex
@@ -158,6 +164,7 @@ export default {
                     color #ccc
         .three
             margin-top .4rem
+            border-b
             .score
                 overflow hidden
                 :nth-child(1)
@@ -167,6 +174,7 @@ export default {
                     font-size .2rem
                 :nth-child(2)
                     float right 
+                    margin-right .4rem
                     font-size .6rem
                     color $Color
                     

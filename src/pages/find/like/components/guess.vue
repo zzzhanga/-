@@ -6,14 +6,9 @@
           <span @click="change">{{updata}}</span>
       </header>
       <section class="container">
-          <div 
-          
-          class="detail-item"
-          v-for="item of items"
-          :key="item.id"
-          >
+          <router-link to="./detail" tag="div" class="detail-item" v-for="item of items" :key="item.id" >
               <img :src="item.imgurl">
-          </div>
+          </router-link>
       </section>
   </div>
 </template>

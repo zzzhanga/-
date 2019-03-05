@@ -1,14 +1,16 @@
 <!--  -->
 <template>
   <div class="book-content">
-    <div 
+    <router-link 
+        tag="div"
+        to="/bookdetail"
         class="book-item"
         v-for="item of booklist"
         :key="item.id"
     >
             <img class="book-cover" :src="item.imgUrl">
             <p class="book-text">{{item.txt}}</p>
-    </div>
+    </router-link>
     <p class="item-bottom">{{this.public}}本公开阅读 · {{this.Private}}本私密阅读</p>
   </div>
 </template>

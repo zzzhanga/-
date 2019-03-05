@@ -1,6 +1,6 @@
 <template>
   <div class="idea">
-      <header class="head">想法  <span class="iconfont icon">&#xe7b9;</span></header>
+      <header class="head">想法  <router-link to="/ideawrite" tag="span" class="iconfont icon">&#xe7b9;</router-link></header>
       <message></message>
       <discuss></discuss>   
       <bottom-bar></bottom-bar>

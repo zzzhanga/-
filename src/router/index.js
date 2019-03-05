@@ -6,6 +6,8 @@ import Idea from '@/pages/idea/Idea'
 import Mine from '@/pages/mine/Mine'
 import Like from '@/pages/find/like/Like'
 import Detail from '@/pages/find/detail/Detail'
+import BookDetail from '@/pages/bookshelf/bookdetail'
+import IdeaWrite from '@/pages/idea/ideawrite'
 
 Vue.use(Router)
 
@@ -40,6 +42,16 @@ export default new Router({
       path: '/detail',
       name: 'Detail',
       component: Detail
+    },
+    {
+      path: '/bookdetail',
+      name: 'BookDetail',
+      component: BookDetail
+    },
+    {
+      path: '/ideawrite',
+      name: 'IdeaWrite',
+      component: IdeaWrite
     }
 
   ]
