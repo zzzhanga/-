@@ -2,7 +2,7 @@
   <div class="header">
         <div class="header-input">  
             <router-link to="/like" class="iconfont search" >&#xe634;</router-link>
-            <input type="text" placeholder="三体">
+            <input type="text" placeholder="三体" v-model.lazy="msg">
             <span class="icon-right">|&nbsp;&nbsp;
                 <span class="book-city" @click="toLink">书城</span>
             </span> 
@@ -15,6 +15,7 @@ export default {
     name: "FindHeader",
     data() {
         return {
+            msg:'',
             url:'http://book.3g.cn/'
         };
     },

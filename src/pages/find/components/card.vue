@@ -21,23 +21,23 @@ export default {
            },
            swiperList:[{
                id:'0001',
-               imgUrl:'../../../../static/image/banner1.png'
+               imgUrl:'/api/banner1.png'
            },
            {
                id:'0002',
-               imgUrl:'../../../../static/image/banner2.png'
+               imgUrl:'/api/banner2.png'
            },
            {
                id:'0003',
-               imgUrl:'../../../../static/image/banner3.png'
+               imgUrl:'/api/banner3.png'
            },
            {
                id:'0004',
-               imgUrl:'../../../../static/image/banner4.png'
+               imgUrl:'/api/banner4.png'
            },
            {
                id:'0005',
-               imgUrl:'../../../../static/image/banner5.png'
+               imgUrl:'/api/banner5.png'
            }] 
         }
     },

@@ -21,57 +21,57 @@ export default {
             list:[{
                 id:"001",
                 txt:"我,今年32岁,存款为0:三十不立,才是真实的人生",
-                imgUrl:"../../../../static/image/m1.png"
+                imgUrl:"/api/m1.png"
             },
             {
                 id:"002",
                 txt:"咪蒙消失了,我并不开心",
-                imgUrl:"../../../../static/image/m2.png"
+                imgUrl:"/api/m2.png"
             },
             {
                 id:"003",
                 txt:"刘德华负债4000万的背后,藏着8个人的秘密",
-                imgUrl:"../../../../static/image/m3.png"
+                imgUrl:"/api/m3.png"
             },
             {
                 id:"004",
                 txt:"春心莫共花争发,一寸相思一寸灰",
-                imgUrl:"../../../../static/image/m4.png"
+                imgUrl:"/api/m4.png"
             },
             {
                 id:"005",
                 txt:"终极好物清单|若能拥有这些,简直一生圆满",
-                imgUrl:"../../../../static/image/m5.png"
+                imgUrl:"/api/m5.png"
             },
             {
                 id:"006",
                 txt:"最强升级系统小说",
-                imgUrl:"../../../../static/image/m6.png"
+                imgUrl:"/api/m6.png"
             },
             {
                 id:"007",
                 txt:"人没朋友会死吗?",
-                imgUrl:"../../../../static/image/m7.png"
+                imgUrl:"/api/m7.png"
             },
             {
                 id:"008",
                 txt:"穿高跟鞋的女人,和穿平底鞋的女人",
-                imgUrl:"../../../../static/image/m8.png"
+                imgUrl:"/api/m8.png"
             },
             {
                 id:"009",
                 txt:"章子怡跌落『神坛』: 中国女人活该将就?",
-                imgUrl:"../../../../static/image/m9.png"
+                imgUrl:"/api/m9.png"
             },
             {
                 id:"010",
                 txt:"最能反映一个人的人生意义的事情",
-                imgUrl:"../../../../static/image/m10.png"
+                imgUrl:"/api/m10.png"
             },
             {
                 id:"011",
                 txt:"这就是我想要的幸福",
-                imgUrl:"../../../../static/image/m11.png"
+                imgUrl:"/api/m11.png"
             }]
         }
     },
@@ -109,8 +109,6 @@ export default {
 <style lang="stylus" scoped>
 @import '~styles/varibles.styl'
     .message
-        position absolute
-        top 1.5rem
         .message-item
             width 100%
             height 2rem

@@ -24,31 +24,31 @@ export default {
             items:[],
             list:[{
                 id:'001',
-                imgurl:'../../../../../static/image/guess1.png'
+                imgurl:'/api/guess1.png'
             },{
                 id:'002',
-                imgurl:'../../../../../static/image/guess2.png'
+                imgurl:'/api/guess2.png'
             },{
                 id:'003',
-                imgurl:'../../../../../static/image/guess3.png'
+                imgurl:'/api/guess3.png'
             },{
                 id:'004',
-                imgurl:'../../../../../static/image/guess4.png'
+                imgurl:'/api/guess4.png'
             },{
                 id:'005',
-                imgurl:'../../../../../static/image/guess5.png'
+                imgurl:'/api/guess5.png'
             },{
                 id:'006',
-                imgurl:'../../../../../static/image/guess6.png'
+                imgurl:'/api/guess6.png'
             },{
                 id:'007',
-                imgurl:'../../../../../static/image/guess7.png'
+                imgurl:'/api/guess7.png'
             },{
                 id:'008',
-                imgurl:'../../../../../static/image/guess8.png'
+                imgurl:'/api/guess8.png'
             },{
                 id:'009',
-                imgurl:'../../../../../static/image/guess9.png'
+                imgurl:'/api/guess9.png'
             }]
         };
     },

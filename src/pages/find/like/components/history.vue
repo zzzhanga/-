@@ -2,7 +2,7 @@
 <template>
   <div class="history">
       <header class="history-header">
-          <span>搜索历史</span>
+          <span>{{this.$store.state.keyword}}</span>
           <span @click="clear">清空</span>
       </header>
       <ul class="content">
@@ -21,43 +21,11 @@
 <script>
 export default {
     name:'LikeHistory',
-    props:{
-        value:String,
-        i:10
-    },
     data () {
         return {
-            lis:[{
-                id:'001',
-                txt:'皮囊'
-            },{
-                id:'002',
-                txt:'刻意练习'
-            },{
-                id:'003',
-                txt:'人月神话'
-            },{
-                id:'004',
-                txt:'滚雪球'
-            },{
-                id:'005',
-                txt:'巴菲特'
-            },{
-                id:'006',
-                txt:'马云这些年'
-            },{
-                id:'007',
-                txt:'这就是马云'
-            },{
-                id:'008',
-                txt:'谈话的力量'
-            },{
-                id:'009',
-                txt:'稀缺'
-            },{
-                id:'010',
-                txt:'好好说话'
-            },]
+            lis:[],
+            key:this.$store.state.keyword,
+            i:0,
         };
     },
     methods: {
@@ -66,12 +34,10 @@ export default {
         }
     },
     watch: {
-        value(){
+        key(){
+            console.log(this.key)
             this.i+1;
-            if(this.value){
-                this.lis.push({id:this.i,txt:this.value})
-            }
-
+            this.lis.push({id:this.i,txt:this.key})
         }
     },
 }

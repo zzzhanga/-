@@ -15,7 +15,7 @@ export default {
     name: "MineInfo",
     data () {
         return {
-            imgUrl:'../../../../static/image/avator.jpg',
+            imgUrl:'/api/avator.jpg',
             signature:'但行好事,莫问前程'
         };
     }

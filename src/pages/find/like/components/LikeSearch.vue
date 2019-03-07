@@ -3,7 +3,7 @@
         <router-link to="/" tag="span"  class="iconfont back">&#xe624;</router-link>
         <div class="header-input">  
             <span class="iconfont search" >&#xe634;</span>
-            <input type="text" v-model="message" placeholder="三体"  @keyup.13="show($event)">
+            <input type="text" v-model="keyword" placeholder="三体"  @keyup.13="show($event)">
       </div>
   </div>
 </template>
@@ -13,7 +13,7 @@ export default {
     name: "FindHeader",
     data() {
         return {
-            message:''
+            keyword:''
         }
     },
     // directives: {
@@ -32,13 +32,11 @@ export default {
     //     }
     // },
     methods: {
-        show:function (ev){
-            if(ev.keyCode == 13){
-                this.$emit('change',this.message)
-                this.message=''
-            }
+        show (ev) {
+            this.$store.state.keyword=this.keyword
+            this.$store.commit('changekeyword',this.keyword);
+            this.keyword=''
         }
-           
     },
 }
 
@@ -46,6 +44,10 @@ export default {
 <style lang="stylus" scoped>
 @import '~styles/varibles.styl'
     .header
+        position fixed
+        top 0
+        z-index 2
+        background #fff
         width 100%
         height .8rem
         display flex

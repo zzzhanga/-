@@ -3,7 +3,7 @@
   <div class="search-box">
         <div class="search-input">  
             <span class="iconfont search">&#xe634;</span>
-            <input type="text" placeholder="搜索">
+            <input type="text" placeholder="搜索" v-model.lazy="msg">
       </div>
       <div class="iconfont book-his">&#xe7d3;</div>
   </div>
@@ -12,6 +12,11 @@
 <script>
 export default {
     name: "BookSearch",
+    data() {
+        return {
+            msg:''
+        }
+    },
 }
 
 </script>
