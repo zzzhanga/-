@@ -1,60 +1,34 @@
 <!--  -->
 <template>
-  <div class="border-bottom">
+  <div class="border-bottom" v-if="guessItem.length">
       <header class="header">
           <span>{{guess}}</span>
           <span @click="change">{{updata}}</span>
       </header>
-      <section class="container">
-          <router-link to="./detail" tag="div" class="detail-item" v-for="item of items" :key="item.id" >
-              <img :src="item.imgurl">
-          </router-link>
-      </section>
+    <section class="container " >
+        <router-link to="./detail" tag="div" class="detail-item" v-for="item of items" :key="item.id" >
+            <img :src="item.imgurl">
+        </router-link>
+    </section>
   </div>
 </template>
 
 <script>
-
 export default {
     name:'LikeGuess',
+    props:{
+        guessItem: Array
+    },
     data () {
         return {
             guess:'猜你喜欢',
             updata:'换一批',
             items:[],
-            list:[{
-                id:'001',
-                imgurl:'/api/guess1.png'
-            },{
-                id:'002',
-                imgurl:'/api/guess2.png'
-            },{
-                id:'003',
-                imgurl:'/api/guess3.png'
-            },{
-                id:'004',
-                imgurl:'/api/guess4.png'
-            },{
-                id:'005',
-                imgurl:'/api/guess5.png'
-            },{
-                id:'006',
-                imgurl:'/api/guess6.png'
-            },{
-                id:'007',
-                imgurl:'/api/guess7.png'
-            },{
-                id:'008',
-                imgurl:'/api/guess8.png'
-            },{
-                id:'009',
-                imgurl:'/api/guess9.png'
-            }]
         };
     },
    computed: {
             changed:function(){
-            const r = Array.apply(null, { length: this.list.length })
+            const r = Array.apply(null, { length: this.guessItem.length })
                 .map((n, i) => i)
                 .map((n, i, all) => {
                     const j = i + Math.floor(Math.random() * (all.length - i));
@@ -64,19 +38,20 @@ export default {
                 })
                 .slice(0, 3)
                 .map(i => {
-                    return this.list[i];
+                    return this.guessItwm[i];
                 });
             return r
         }
    },
-   mounted() {
+   created() {
+       console.log(this.guessItem)
        this.items=this.changed;
    },
-    methods: {
+   methods: {  
         change:function(){
             this.items=this.changed;
-            this.list.push(this.items[0]);
-            this.list.pop();
+            this.guessItem.push(this.items[0]);
+            this.guessItem.pop();
         }
        
     }

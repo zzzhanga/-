@@ -2,7 +2,7 @@
 <template>
   <div class="history">
       <header class="history-header">
-          <span>{{this.$store.state.keyword}}</span>
+          <span>历史记录</span>
           <span @click="clear">清空</span>
       </header>
       <ul class="content">
@@ -19,14 +19,19 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
 export default {
     name:'LikeHistory',
     data () {
         return {
             lis:[],
-            key:this.$store.state.keyword,
-            i:0,
+            i:1,
         };
+    },
+    computed: {
+        ...mapState({
+            currentkeyword:'keyword'
+        })
     },
     methods: {
         clear:function(){
@@ -34,14 +39,13 @@ export default {
         }
     },
     watch: {
-        key(){
-            console.log(this.key)
-            this.i+1;
-            this.lis.push({id:this.i,txt:this.key})
-        }
-    },
+        currentkeyword(){
+            this.i++;
+            this.lis.push({id:this.i,txt:this.currentkeyword});
+            localStorage.item=this.lis
+    }
 }
-
+}
 </script>
 <style lang='stylus' scoped>
 @import '~styles/varibles.styl'

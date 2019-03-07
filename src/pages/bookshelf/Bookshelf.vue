@@ -4,7 +4,7 @@
       <div class="wrapper" ref="wrapper">
         <div>
           <book-search></book-search>
-          <book-content></book-content>
+          <book-content :booklist="booklist"></book-content>
         </div>
       </div>
 
@@ -17,14 +17,34 @@ import Bescroll from 'better-scroll'
 import BottomBar from '../../components/Bar'
 import BookSearch from './components/BookSearch'
 import BookContent from './components/BookContent'
+import axios from 'axios'
 export default {
     name: "bookshelf",
+    data () {
+      return {
+        booklist:[]
+      }
+    },
     components:{
       BottomBar,
       BookSearch,
       BookContent
     },
+    methods: {
+      getFindInfo(){
+        axios.get('./api/book.json')
+          .then(this.getFindInfoSucc)
+      },
+      getFindInfoSucc(res){
+        res=res.data
+        if(res.ret && res.data){
+          const data=res.data
+          this.booklist=data.booklist
+        }
+      }
+    },
     mounted () {
+      this.getFindInfo()
       this.scroll=new Bescroll(this.$refs.wrapper)
     }
 }

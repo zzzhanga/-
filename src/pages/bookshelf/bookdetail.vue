@@ -40,7 +40,7 @@ import Bscroll from 'better-scroll'
 export default {
   data () {
     return {
-      img:'/api/detail1.png',
+      img:'../../../static/image/detail1.png',
       name:'人类群星闪耀时',
       autor:'斯蒂芬·茨威格',
       num:'7.6',

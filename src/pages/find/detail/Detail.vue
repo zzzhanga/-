@@ -1,27 +1,32 @@
 <!--  -->
 <template>
     <div>
-      <header class="header">
-          <router-link tag="span" to="/" class="iconfont back">&#xe624;</router-link>
-          <span class="iconfont people">&#xe62f;</span>
-      </header>
+        <header class="header">
+            <router-link tag="span" to="/" class="iconfont back">&#xe624;</router-link>
+            <span class="iconfont people">&#xe62f;</span>
+        </header>
         <div class="wrapper" ref="wrapper">
             <div>
-                <detail-wonderful></detail-wonderful>
-                <detail-bar></detail-bar>
+                <detail-wonderful :detailList="detailList" :detailItem="detailItem"></detail-wonderful>
             </div>
         </div>
+        <detail-bar></detail-bar>
+
     </div>
+  
 </template>
 
 <script>
 import Bscroll from 'better-scroll'
 import DetailWonderful from './components/wonderful'
 import DetailBar from './components/detailbar'
+import axios from 'axios'
 export default {
     name:'Detail',
     data () {
         return {
+            detailList:{},
+            detailItem:[]
         };
     },
     components: {
@@ -29,7 +34,22 @@ export default {
         DetailBar
 
     },
+    methods: {
+      getFindInfo(){
+        axios.get('./api/find.json')
+          .then(this.getFindInfoSucc)
+      },
+      getFindInfoSucc(res){
+        res=res.data
+        if(res.ret && res.data){
+          const data=res.data
+          this.detailList=data.detailList
+          this.detailItem=data.detailItem
+        }
+      }
+    },
     mounted() {
+        this.getFindInfo()
         this.scroll=new Bscroll(this.$refs.wrapper)
     },
 }

@@ -3,18 +3,22 @@
         <router-link to="/" tag="span"  class="iconfont back">&#xe624;</router-link>
         <div class="header-input">  
             <span class="iconfont search" >&#xe634;</span>
-            <input type="text" v-model="keyword" placeholder="三体"  @keyup.13="show($event)">
+            <input type="text" v-model="key" placeholder="三体"  @keyup.13="show($event)">
       </div>
   </div>
 </template>
 
 <script>
+import { mapState } from 'vuex'
 export default {
     name: "FindHeader",
     data() {
         return {
-            keyword:''
+            key:''
         }
+    },
+    computed: {
+        ...mapState(['keyword'])
     },
     // directives: {
     //     debounce: {
@@ -33,9 +37,8 @@ export default {
     // },
     methods: {
         show (ev) {
-            this.$store.state.keyword=this.keyword
-            this.$store.commit('changekeyword',this.keyword);
-            this.keyword=''
+            this.$store.commit('changekeyword',this.key);
+            this.key=''
         }
     },
 }

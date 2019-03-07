@@ -5,7 +5,7 @@
           <img class="avator-img" :src="this.imgUrl" alt="">
           <span class="iconfont detail-enter">&#xe633;</span>
       </div>
-      <p class="mine-signature">{{this.signature}}</p>
+      <p class="mine-signature">{{  signature}}</p>
   </div>
 </template>
 
@@ -13,11 +13,9 @@
 
 export default {
     name: "MineInfo",
-    data () {
-        return {
-            imgUrl:'/api/avator.jpg',
-            signature:'但行好事,莫问前程'
-        };
+    props: {
+        imgUrl:String,
+        signature:String
     }
 }
 

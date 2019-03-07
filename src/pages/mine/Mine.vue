@@ -4,7 +4,7 @@
     <mine-header></mine-header>
     <div class="wrapper" ref="wrapper">
       <div>
-        <mine-info></mine-info>
+        <mine-info :signature="signature" :imgUrl="imgUrl"></mine-info>
         <information-bar></information-bar>
       </div>
     </div>
@@ -18,10 +18,13 @@ import BottomBar from '../../components/Bar'
 import MineHeader from './components/header'
 import MineInfo from './components/info'
 import InformationBar from './components/InformationBar'
+import axios from 'axios'
 export default {
     name: "Mine",
     data () {
         return {
+          imgUrl:'',
+          signature:''
         };
     },
     components: {
@@ -30,8 +33,23 @@ export default {
       MineInfo,
       InformationBar
     },
+    methods: {
+      getFindInfo(){
+        axios.get('./api/mine.json')
+          .then(this.getFindInfoSucc)
+      },
+      getFindInfoSucc(res){
+        res=res.data
+        if(res.ret && res.data){
+          const data=res.data
+          this.imgUrl=data.imgUrl
+          this.signature=data.signature
+        }
+      }
+    },
      mounted() {
-      this.scroll=new Bscroll(this.$refs.wrapper)
+       this.getFindInfo()
+        this.scroll=new Bscroll(this.$refs.wrapper)
    }  
 }
 

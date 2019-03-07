@@ -1,9 +1,9 @@
 <template>
   <div class="card">
-      <swiper :options="swiperOption">
+      <swiper :options="swiperOption" v-if="cardItem.length">
         <swiper-slide 
             class="slide-card"
-            v-for="item of swiperList" 
+            v-for="item of cardItem" 
             :key="item.id">
             <router-link tag="img" to="/detail" class="swiper-img" :src="item.imgUrl"></router-link>
         </swiper-slide>
@@ -14,32 +14,18 @@
 <script>
 export default {
     name: "FindCard",
+    props:{
+        cardItem: Array
+    },
     data() {
         return {
            swiperOption:{
                loop: true
-           },
-           swiperList:[{
-               id:'0001',
-               imgUrl:'/api/banner1.png'
-           },
-           {
-               id:'0002',
-               imgUrl:'/api/banner2.png'
-           },
-           {
-               id:'0003',
-               imgUrl:'/api/banner3.png'
-           },
-           {
-               id:'0004',
-               imgUrl:'/api/banner4.png'
-           },
-           {
-               id:'0005',
-               imgUrl:'/api/banner5.png'
-           }] 
+           }
         }
+    },
+    mounted() {
+        console.log(this.cardItem)
     },
    
 }

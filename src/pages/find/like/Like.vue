@@ -4,7 +4,7 @@
       <like-search></like-search>
       <div class="like" ref="wrapper">
           <div>
-              <like-guess></like-guess>
+              <like-guess :guessItem="guessItem"></like-guess>
               <like-history></like-history>
           </div>
       </div>
@@ -16,6 +16,7 @@ import Bscroll from 'better-scroll'
 import LikeSearch from './components/LikeSearch'
 import LikeGuess from './components/guess'
 import LikeHistory from './components/history'
+import axios from 'axios'
 export default {
   components: {
       LikeSearch,
@@ -24,11 +25,26 @@ export default {
   },
   data () {
     return {
+      guessItem:[]
     }
   },
   mounted() {
+      this.getFindInfo()
       this.scroll=new Bscroll(this.$refs.wrapper)
   },
+   methods: {
+      getFindInfo(){
+        axios.get('./api/find.json')
+          .then(this.getFindInfoSucc)
+      },
+      getFindInfoSucc(res){
+        res=res.data
+        if(res.ret && res.data){
+          const data=res.data
+          this.guessItem=data.guessItem
+        }
+      }
+    },
 
 }
 
