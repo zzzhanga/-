@@ -8,6 +8,7 @@ import Like from '@/pages/find/like/Like'
 import Detail from '@/pages/find/detail/Detail'
 import BookDetail from '@/pages/bookshelf/bookdetail'
 import IdeaWrite from '@/pages/idea/ideawrite'
+import Listener from '@/components/listener'
 
 Vue.use(Router)
 
@@ -44,7 +45,7 @@ export default new Router({
       component: Detail
     },
     {
-      path: '/bookdetail',
+      path: '/bookdetail/:id',
       name: 'BookDetail',
       component: BookDetail
     },
@@ -52,6 +53,11 @@ export default new Router({
       path: '/ideawrite',
       name: 'IdeaWrite',
       component: IdeaWrite
+    },
+    {
+      path: '/listener',
+      name: 'Listener',
+      component: Listener
     }
   ],
   scrollBehavior (to, from, savedPosition) {

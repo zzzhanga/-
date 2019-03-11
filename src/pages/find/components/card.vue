@@ -23,20 +23,22 @@ export default {
                loop: true
            }
         }
-    },
-    mounted() {
-        console.log(this.cardItem)
-    },
+    }
    
 }
 </script>
 <style lang="stylus" scoped>
-    .card
+    .slide-card
         overflow hidden
         width 100%
         height 11rem
+        display flex
+        justify-content center
         .swiper-img
-            width 100%
+            width auto
+            height auto
+            max-width 100%
+            max-height 100%
             
 
 </style>

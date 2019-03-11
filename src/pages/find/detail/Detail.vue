@@ -3,7 +3,7 @@
     <div>
         <header class="header">
             <router-link tag="span" to="/" class="iconfont back">&#xe624;</router-link>
-            <span class="iconfont people">&#xe62f;</span>
+            <span class="iconfont people">&#xe647;</span>
         </header>
         <div class="wrapper" ref="wrapper">
             <div>
@@ -71,7 +71,7 @@ export default {
             float right
             position relative
             right .6rem
-            font-size .5rem
+            font-size .4rem
             &:after
                 position absolute
                 top -0.1rem

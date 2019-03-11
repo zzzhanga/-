@@ -8,8 +8,8 @@
       <ul class="content">
           <li 
           class="items"
-          v-for="item of lis"
-          :key="item.id"
+          v-for="(item, index) of lis"
+          :key="index"
           >
           <span class="iconfont">&#xe634;</span>
             &nbsp; &nbsp;{{item.txt}}
@@ -24,25 +24,36 @@ export default {
     name:'LikeHistory',
     data () {
         return {
-            lis:[],
-            i:1,
+            lis:[]
         };
     },
+    mounted () {
+        //有缓存    使用缓存
+        if(localStorage.item){
+            this.lis=JSON.parse(localStorage.item)
+        }
+    },
     computed: {
+        //获取传过来的key值
         ...mapState({
             currentkeyword:'keyword'
         })
     },
     methods: {
+        //清空所有内容
         clear:function(){
-            this.lis=[];
+            localStorage.clear()
+            this.lis=[]
         }
     },
     watch: {
+        //检测搜索传过来的值
         currentkeyword(){
-            this.i++;
-            this.lis.push({id:this.i,txt:this.currentkeyword});
-            localStorage.item=this.lis
+            // 把传过来的值添加到数组
+            this.lis.push({txt:this.currentkeyword});
+            //把数组存储在缓存内
+            var data=JSON.stringify(this.lis) 
+            localStorage.item=data
     }
 }
 }

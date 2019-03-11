@@ -1,34 +1,35 @@
 <!--  -->
 <template>
-  <div class="border-bottom" v-if="guessItem.length">
+  <div class="border-bottom" >
       <header class="header">
           <span>{{guess}}</span>
-          <span @click="change">{{updata}}</span>
+          <span @click="change" >{{updata}}</span>
       </header>
-    <section class="container " >
-        <router-link to="./detail" tag="div" class="detail-item" v-for="item of items" :key="item.id" >
-            <img :src="item.imgurl">
+    <section class="container" v-if="this.Items.length">
+        <router-link to="./detail" tag="div" class="detail-item" v-for="item of Items" :key="item.id" >
+            <img :src="item.imgUrl">
         </router-link>
     </section>
   </div>
 </template>
 
 <script>
+import axios from 'axios'
 export default {
     name:'LikeGuess',
-    props:{
-        guessItem: Array
-    },
     data () {
         return {
             guess:'猜你喜欢',
             updata:'换一批',
-            items:[],
+            guessItem:[],
+            Items:[],
         };
     },
-   computed: {
-            changed:function(){
-            const r = Array.apply(null, { length: this.guessItem.length })
+    computed: {
+        //获取随机数
+        changed:function(){
+            if(this.guessItem.length){
+                const r = Array.apply(null, { length: this.guessItem.length })
                 .map((n, i) => i)
                 .map((n, i, all) => {
                     const j = i + Math.floor(Math.random() * (all.length - i));
@@ -38,19 +39,35 @@ export default {
                 })
                 .slice(0, 3)
                 .map(i => {
-                    return this.guessItwm[i];
+                    return this.guessItem[i];
                 });
-            return r
+                return r
+            }
         }
    },
-   created() {
-       console.log(this.guessItem)
-       this.items=this.changed;
+   mounted(){
+       this.getFindInfo()
    },
    methods: {  
+        getFindInfo(){
+        axios.get('./api/find.json')
+            .then(this.getFindInfoSucc)
+        },
+        getFindInfoSucc(res){
+        res=res.data
+        if(res.ret && res.data){
+            const data=res.data
+            this.guessItem=data.guessItem
+            this.Items=data.Items
+            
+        }
+        },
+
         change:function(){
-            this.items=this.changed;
-            this.guessItem.push(this.items[0]);
+            //当前现实的数组等于随机算出来的数组
+            this.Items=this.changed;
+            //更新数据
+            this.guessItem.push(this.guessItem[0]);
             this.guessItem.pop();
         }
        

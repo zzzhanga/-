@@ -3,7 +3,7 @@
   <div class="book-content">
     <router-link 
         tag="div"
-        to="/bookdetail"
+        :to="'/bookdetail/' + item.id "
         class="book-item"
         v-for="item of booklist"
         :key="item.id"

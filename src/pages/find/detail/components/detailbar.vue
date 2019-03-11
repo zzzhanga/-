@@ -2,9 +2,9 @@
 <template>
   <div>
       <footer class="footer border-top">
-          <router-link to='/' tag="span">{{listening}}</router-link>
-          <router-link to='/' tag="span">{{free}}</router-link>
-          <router-link to='/' tag="span">{{join}}</router-link>
+          <router-link to='/listener' >{{listening}}</router-link>
+          <router-link to='/bookdetail/0001'  >{{free}}</router-link>
+          <router-link to='/book'>{{join}}</router-link>
       </footer>
   </div>
 </template>
@@ -34,7 +34,7 @@ export default {
         width 100%
         height .8rem
         background #fff
-        span 
+        a 
             flex 1
             display inline-block
             text-align center

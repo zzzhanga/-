@@ -1,15 +1,20 @@
-<!--  -->
 <template>
     <div class="bottom-bar">
-        <router-link  
-            :to="item.to" 
-            tag="div" 
-            class="bar-item" 
-            v-for="item of bars"
-            :key="item.id"
-        >
-            <p class="iconfont icon" v-html='item.icon'></p>
-            <p class="item-text">{{item.txt}}</p>
+        <router-link  to="/" class="bar-item" >
+            <i class="iconfont" >&#xe663;</i>
+            <span class="item-text">发现</span>
+        </router-link>
+        <router-link  to="/book" class="bar-item" >
+            <i class="iconfont" >&#xe60a;</i>
+            <span class="item-text">书架</span>
+        </router-link>
+        <router-link  to="/idea" class="bar-item" >
+            <i class="iconfont" >&#xe64c;</i>
+            <span class="item-text">想法</span>
+        </router-link>
+        <router-link  to="/mine" class="bar-item" >
+            <i class="iconfont" >&#xe62f;</i>
+            <span class="item-text">我</span>
         </router-link>
     </div>
 </template>
@@ -20,60 +25,33 @@ export default {
     data() {
         return {
             index:0,
-            styObj:{
-                color:'0099CC'
-            },
-            bars:[{
-                id:'001',
-                to:'/',
-                icon:'&#xe663;',
-                txt:'发现'
-            },{
-                id:'002',
-                to:'/book/',
-                icon:'&#xe60a;',
-                txt:'书架'
-            },{
-                id:'003',
-                to:'/Idea/',
-                icon:'&#xe64c;',
-                txt:'想法'
-            },{
-                id:'004',
-                to:'/Mine/',
-                icon:'&#xe62f;',
-                txt:'我的'
-            }
-            ]
-        }
+        }    
     },
-      
 }
 
 </script>
 <style lang="stylus" scoped>
-    .bottom-bar
-        position fixed  
+    @import "~styles/varibles";
+    .bottom-bar 
+        position fixed
         bottom 0
-        padding-top .2rem
         width 100%
+        background #fff
+        display flex
         height 1rem
         text-align center
-        background #fff
-        .bar-item
-            display inline-block
-            height 1rem
-            width 25vw
-            .icon
-                font-size .5rem
-            .item-text
-                width 100%
-                padding-top .2rem
-                font-size .2rem   
+        color #000
         .router-link-exact-active
-            color #0099CC
-
-                    
-
-
+            color $Color
+        .bar-item
+            flex 1
+            display flex
+            justify-content: center;
+            flex-direction: column
+            align-items: center;
+            .iconfont
+                font-size .5rem
+                margin-bottom .1rem
+            .item-text
+                font-size .22rem
 </style>

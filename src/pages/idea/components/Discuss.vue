@@ -2,7 +2,7 @@
   <div class="discuss">
       <div 
         class="discuss-item"
-        v-for="item of items"
+        v-for="(item ,index) of items"
         :key="item.id"
       >
           <p class="item-top">
@@ -29,6 +29,14 @@
                     <span class="iconfont">&#xe664;</span>
                     <span class="iconfont">&#xe621;</span>
                 </div>
+                <div class="speak-box">
+                    <ul>
+                        <li class="speak-items" v-for="lis of items[index].speak" :key="lis.id">
+                           <span class="speak-name">{{lis.name}}</span> 
+                           <span class="speak-talk">{{lis.talk}}</span>
+                        </li>
+                    </ul>
+                </div>
           </div>
 
       </div>
@@ -39,7 +47,7 @@
 export default {
     name: "Discuss",
     props: {
-        items: Array
+        items: Array,
     }
 }
 
@@ -111,6 +119,15 @@ export default {
                         flex 1
                         text-align center  
                         font-size .4rem 
+                .speak-box
+                    margin-top .2rem
+                    background #f5f5f5
+                    padding .2rem
+                    .speak-items
+                        margin-top .4rem
+                        line-height .4rem
+                        .speak-name
+                            color #09c
 
 
 

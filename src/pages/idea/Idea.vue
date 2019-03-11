@@ -3,8 +3,8 @@
       <header class="head">想法  <router-link to="/ideawrite" tag="span" class="iconfont icon">&#xe7b9;</router-link></header>
       <div class="wrapper" ref="wrapper">
           <div>
-            <message ></message>
-            <discuss :items="items" ></discuss>   
+            <message></message>
+            <discuss :items="items"  ></discuss>   
           </div>
       </div>
       <bottom-bar></bottom-bar>
@@ -21,7 +21,8 @@ export default {
     name: "idea",
     data () {
         return {
-            items:[]
+            items:[],
+           
         }
     },
     components: {

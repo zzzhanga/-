@@ -1,6 +1,6 @@
 <template>
   <div>
-    <search-bar :link="link"></search-bar>
+    <search-bar></search-bar>
     <find-card :cardItem="cardItem"></find-card>
     <bottom-bar></bottom-bar>
   </div>
@@ -17,7 +17,7 @@ export default {
     data() {
       return {
         link:'/like/',
-        cardItem:[]
+        cardItem:[],
       }
     },
     components:{

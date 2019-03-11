@@ -10,7 +10,7 @@
                   <h3>{{detailList.booktitle}}</h3>
                   <router-link class="autor" tag="p" to="/">{{detailList.autor}}</router-link>
                   <p class="text-detail">{{detailList.detail}}</p>
-                  <p class="buy"><span>{{detailList.money}}</span> <span>{{detailList.member}}</span> <span>{{detailList.list}}</span></p>
+                  <p class="buy"><span class="iconfont">&#xe604;</span><span>{{detailList.money}}</span>  <span>{{detailList.list}}</span></p>
               </div>
           </div>
           <div class="two border-bottom">
@@ -35,10 +35,13 @@
               </div>
           </div>
           <div class="three">
-              <p class="score">
-                  <span>轻点评分</span>
-                  <span>☆☆☆☆☆</span>
-              </p>
+                  <p>
+                      轻点评分
+                  </p>
+                  <p class="xing">
+                      <span class="iconfont  lan">&#xe67c;&#xe67c;&#xe67c;&#xe67c;</span>
+                      <span class="iconfont  hei">&#xe67c;</span>
+                 </p>
           </div>
       </section>
 
@@ -118,7 +121,7 @@ export default {
                     margin-top .3rem
                     font-size .2rem
                     color #ccc
-                    :nth-child(1)
+                    :nth-child(2)
                         text-decoration line-through
                     :nth-child(3)
                         margin-left 1.5rem
@@ -153,19 +156,16 @@ export default {
                     color #ccc
         .three
             margin-top .4rem
-            .score
-                overflow hidden
-                :nth-child(1)
-                    margin-left .4rem
-                    margin-top .3rem
-                    float left
-                    font-size .2rem
-                :nth-child(2)
-                    float right 
-                    margin-right .4rem
-                    font-size .6rem
-                    color $Color
-                    
+            display flex
+            justify-content space-between
+            align-items center
+            height 1rem
+            padding 0 .2rem
+            span
+                font-size .5rem
+            .lan
+                color $Color
+
     .wonderful
         background #ccc
         overflow hidden

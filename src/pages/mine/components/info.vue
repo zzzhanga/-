@@ -5,7 +5,7 @@
           <img class="avator-img" :src="this.imgUrl" alt="">
           <span class="iconfont detail-enter">&#xe633;</span>
       </div>
-      <p class="mine-signature">{{  signature}}</p>
+      <p class="mine-signature">{{ signature}}</p>
   </div>
 </template>
 

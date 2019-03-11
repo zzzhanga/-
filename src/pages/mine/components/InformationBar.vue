@@ -7,7 +7,7 @@
             :key="item.id"
         >
             <div class="bar-left">
-                <img class="bar-icon" :src="item.imgUrl" alt="">
+                <span class="iconfont" v-html="item.icon"></span>
                 <span class="bar-name">{{item.name}}</span>
             </div>
             <div class="bar-right">
@@ -26,43 +26,42 @@ export default {
         return {
             bars:[{
                 id:'001',
-                imgUrl:'../../../../static/image/icon/zhanghu.png',
+                icon:'&#xe60e;',
                 name:'账户',
                 first:'113.06',
                 second:'已购80本书',
             },
             {
                 id:'002',
-                imgUrl:'../../../../static/image/icon/huiyuan.png',
+                icon:'&#xe619;',
                 name:'无限卡',
                 first:'还剩23天',
                 second:'已累计为你节省451.08元',
             },
             {
                 id:'003',
-                imgUrl:'../../../../static/image/icon/paiming.png',
+                icon:'&#xe605;',
                 name:'好友排名',
                 first:'第5名',
                 second:'',
-            }
-            ,
+            },
             {
                 id:'004',
-                imgUrl:'../../../../static/image/icon/guanzhu.png',
+                icon:'&#xe61e;',
                 name:'关注',
                 first:'27人关注我',
                 second:'已关注41人',
             },
             {
                 id:'005',
-                imgUrl:'../../../../static/image/icon/biji.png',
+                icon:'&#xe63f;',
                 name:'笔记',
                 first:'47本',
                 second:'9个赞3个评论',
             },
             {
                 id:'006',
-                imgUrl:'../../../../static/image/icon/shudan.png',
+                icon:'&#xe65f;',
                 name:'书单',
                 first:'1个',
                 second:'',

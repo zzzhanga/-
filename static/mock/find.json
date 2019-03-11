@@ -1,90 +1,121 @@
 {
     "ret": true,
     "data": {
-        "guessItem": [
+        "listener":{
+            "autor":"老齐",
+            "url":"../../static/audio/浪潮之巅1.mp3",
+            "title":"给予者",
+            "pic":"../../static/image/detail1.png"
+        },
+        "Title":{
+            "A":[
+            {            
+                "id":"0001",
+                "name":"三体",
+                "spell":"santi",
+                "img":"/static/image/search1.png"
+            }],
+            "B":[
+            {
+                "id":"0002",
+                "name":"围城",
+                "spell":"weicheng",
+                "img":"/static/image/search2.png"
+            }],
+            "C":[
+            {
+                "id":"0003",
+                "name":"鞋狗",
+                "spell":"xiegounaike",
+                "img":"/static/image/search3.png"
+            }]
+        },
+        "Items":[
             {
                 "id": "0001",
-                "imgUrl": "../../../../static/image/guess1.png"
+                "imgUrl": "../../../../../static/image/guess1.png"
             },
             {
                 "id": "0002",
-                "imgUrl": "../../../../static/image/guess2.png"
+                "imgUrl": "../../../../../static/image/guess2.png"
             },
             {
                 "id": "0003",
-                "imgUrl": "../../../../static/image/guess3.png"
-            },
+                "imgUrl": "../../../../../static/image/guess3.png"
+            }
+        ],
+        "guessItem": [
             {
                 "id": "0004",
-                "imgUrl": "../../../../static/image/guess4.png"
+                "imgUrl": "../../../../../static/image/guess4.png"
             },
             {
                 "id": "0005",
-                "imgUrl": "../../../../static/image/guess5.png"
+                "imgUrl": "../../../../../static/image/guess5.png"
             },
             {
                 "id": "0006",
-                "imgUrl": "../../../../static/image/guess6.png"
+                "imgUrl": "../../../../../static/image/guess6.png"
             },
             {
                 "id": "0007",
-                "imgUrl": "../../../../static/image/guess7.png"
+                "imgUrl": "../../../../../static/image/guess7.png"
             },
             {
                 "id": "0008",
-                "imgUrl": "../../../../static/image/guess8.png"
+                "imgUrl": "../../../../../static/image/guess8.png"
             },
             {
                 "id": "0009",
-                "imgUrl": "../../../../static/image/guess9.png"
+                "imgUrl": "../../../../../static/image/guess9.png"
             },
             {
                 "id": "0010",
-                "imgUrl": "../../../../static/image/guess10.png"
+                "imgUrl": "../../../../../static/image/guess10.png"
             },
             {
                 "id": "0011",
-                "imgUrl": "../../../../static/image/guess11.png"
+                "imgUrl": "../../../../../static/image/guess11.png"
             },
             {
                 "id": "0012",
-                "imgUrl": "../../../../static/image/guess12.png"
+                "imgUrl": "../../../../../static/image/guess12.png"
             },
             {
                 "id": "0013",
-                "imgUrl": "../../../../static/image/guess13.png"
+                "imgUrl": "../../../../../static/image/guess13.png"
             },
             {
                 "id": "0014",
-                "imgUrl": "../../../../static/image/guess14.png"
+                "imgUrl": "../../../../../static/image/guess14.png"
             },
             {
                 "id": "0015",
-                "imgUrl": "../../../../static/image/guess15.png"
+                "imgUrl": "../../../../../static/image/guess15.png"
             },
             {
                 "id": "0016",
-                "imgUrl": "../../../../static/image/guess16.png"
+                "imgUrl": "../../../../../static/image/guess16.png"
             },
             {
                 "id": "0017",
-                "imgUrl": "../../../../static/image/guess17.png"
+                "imgUrl": "../../../../../static/image/guess17.png"
             },
             {
                 "id": "0018",
-                "imgUrl": "../../../../static/image/guess18.png"
+                "imgUrl": "../../../../../static/image/guess18.png"
             },
             {
                 "id": "0019",
-                "imgUrl": "../../../../static/image/guess19.png"
+                "imgUrl": "../../../../../static/image/guess19.png"
             },
             {
                 "id": "0020",
-                "imgUrl": "../../../../static/image/guess20.png"
+                "imgUrl": "../../../../../static/image/guess20.png"
             },
             {
                 "id": "0021",
-                "imgUrl": "../../../../static/image/guess21.png"
+                "imgUrl": "../../../../../static/image/guess21.png"
             }
         ],
         "cardItem": [
@@ -107,7 +138,7 @@
             }
         ],
         "detailList": {
-            "imgUrl":"../../../../../static/image/bookcover1.png",
+            "imgUrl":"../../../../../../static/image/bookcover1.png",
             "booktitle":"给予者",
             "autor":"朱迪·罗宾奈特",
             "detail":"商业思想领袖朱迪·罗宾奈特(Judy Robinett)被<<福布斯>>等媒体称为超级给予者,在连接人脉",
