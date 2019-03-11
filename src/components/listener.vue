@@ -109,7 +109,7 @@ export default {
         methods: {
         // 调用ajax
         getFindInfo(){
-            axios.get('./api/listener.json')
+            axios.get('/static/mock/listener.json')
             .then(this.getFindInfoSucc)
         },
         // 获取数据

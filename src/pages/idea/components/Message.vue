@@ -45,7 +45,7 @@ export default {
     methods: {
 
         getFindInfo(){
-            axios.get('./api/idea.json')
+            axios.get('/static/mock/idea.json')
             .then(this.getFindInfoSucc)
         },
         getFindInfoSucc(res){

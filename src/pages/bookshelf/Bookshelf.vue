@@ -32,7 +32,7 @@ export default {
     },
     methods: {
       getFindInfo(){
-        axios.get('./api/book.json')
+        axios.get('/static/mock/book.json')
           .then(this.getFindInfoSucc)
       },
       getFindInfoSucc(res){

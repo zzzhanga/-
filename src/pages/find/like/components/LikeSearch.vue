@@ -50,7 +50,7 @@ export default {
         },
         //请求ajax
         getFindInfo(){
-            axios.get('./api/find.json')
+            axios.get('/static/find.json')
             .then(this.getFindInfoSucc)
         },
         //获取服务端数据
