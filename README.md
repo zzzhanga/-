@@ -1,21 +1,9 @@
-# wechat-reading
+ **VUE开发微信读书** 
 
-> A Vue.js project
+1. ![首页](https://images.gitee.com/uploads/images/2019/0325/145028_2152e75b_4830588.gif "GIF4.gif")
 
-## Build Setup
+2. ![首页2](https://images.gitee.com/uploads/images/2019/0325/145045_4b7c32ca_4830588.gif "GIF5.gif")
 
-``` bash
-# install dependencies
-npm install
+3. ![书架](https://images.gitee.com/uploads/images/2019/0325/145230_036ef477_4830588.gif "书架.gif")
 
-# serve with hot reload at localhost:8080
-npm run dev
-
-# build for production with minification
-npm run build
-
-# build for production and view the bundle analyzer report
-npm run build --report
-```
-
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+4. ![想法&我的](https://images.gitee.com/uploads/images/2019/0325/145248_96b39b5c_4830588.gif "GIF7.gif")
