@@ -1,4 +1,5 @@
  **VUE开发微信读书** 
+下载dist文件夹,把index.html和static文件夹放入服务器目录即可
 
 1. ![首页](https://images.gitee.com/uploads/images/2019/0325/145028_2152e75b_4830588.gif "GIF4.gif")
 
