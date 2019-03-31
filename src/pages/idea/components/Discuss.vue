@@ -58,7 +58,6 @@ export default {
         width 100%
         background #F5F5F5
         font-size .24rem
-        padding-bottom 1.2rem
         .discuss-item
             overflow hidden
             padding .2rem

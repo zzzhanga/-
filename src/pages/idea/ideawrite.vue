@@ -7,7 +7,7 @@
         </div>
       </div>
         <footer class="footer border-top">
-              <router-link to="idea" tag="div" class="back"><span class="iconfont">&#xe640;</span></router-link>
+              <div class="back" @click="goBack"><span class="iconfont">&#xe640;</span></div>
               <div class="menu">
                 <span class="iconfont">&#xe794;</span>
                 <span class="iconfont">&#xe635;</span>
@@ -28,6 +28,11 @@ export default {
     return {
     };
   },
+  methods: {
+    goBack(){
+      this.$router.back()
+    }
+  },
   mounted() {
   this.scroll=new Bscroll(this.$refs.wrapper)
   },
@@ -45,7 +50,7 @@ export default {
       bottom 0
       overflow hidden
     .footer
-      position fixed
+      position absolute
       bottom 0
       display flex
       justify-content space-between

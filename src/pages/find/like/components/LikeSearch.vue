@@ -1,29 +1,29 @@
 <template>
     <div>
-        <div class="header">
-                <router-link to="/" tag="span"  class="iconfont back">&#xe624;</router-link>
-                <div class="header-input">  
-                    <span class="iconfont search" >&#xe634;</span>
-                    <input type="text" v-model="key" placeholder="三体"  @keyup.13="show($event)">
-                </div>
-        </div>
+        <header class="head">
+            <span class="iconfont back" @click="goBack">&#xe624;</span>
+            <search-bar class="header"  v-show="visible">
+                <span class="iconfont search" slot="left">&#xe634;</span>
+                <input  type="text"  class="icon-center" slot="center" placeholder="三体" v-model="key" @keyup.13="show($event)">
+            </search-bar>
+        </header>
         <div class="search-content" ref="search" v-show="key">
             <ul>
-                <li class="search-item border-bottom" v-for="item of list" :key="item.id">
+                <li class="search-item border-bottom " v-for="item of list" :key="item.id">
                     <img :src="item.img" alt="">
-                    <router-link to='/detail' tag="p" class="no1 border-top">没搜到想找的?把你想找的书告诉我们</router-link>
                 </li>
                 <div class="search-item border-bottom none" v-show="hasData">
-                    <p></p>
-                    <p>没有找到相关的书籍</p> 
-                    <router-link to='/detail' tag="p" class="no2 border-top">没搜到?把你想找的书告诉我们</router-link>
+                    <p class="no2">没有找到相关的书籍</p> 
                 </div>
             </ul>
+             <router-link to='/' tag="p" class="no1 border-top">没搜到?把你想找的书告诉我们</router-link>
         </div>
+       
     </div>  
 </template>
 
 <script>
+import SearchBar from "./../../../../components/SearchBar";
 import Bscroll from 'better-scroll'
 import axios from 'axios'
 export default {
@@ -33,8 +33,12 @@ export default {
             key:'',
             Title:[],
             list:[],
-            timer:null
+            timer:null,
+            visible:true
         }
+    },
+    components: {
+        SearchBar
     },
     computed: {
         //如果没有搜到数据,显示没有相关的书籍.有数据的话就不显示
@@ -43,6 +47,9 @@ export default {
         }
     },
     methods: {
+        goBack(){
+            this.$router.history.go(-1);
+        },
         show (ev) {
             //传递key值,因为历史记录里要用
             this.$store.commit('changekeyword',this.key);
@@ -50,7 +57,7 @@ export default {
         },
         //请求ajax
         getFindInfo(){
-            axios.get('/static/find.json')
+            axios.get('/static/mock/find.json')
             .then(this.getFindInfoSucc)
         },
         //获取服务端数据
@@ -101,32 +108,27 @@ export default {
 </script>
 <style lang="stylus" scoped>
 @import '~styles/varibles.styl'
-    .header
-        background #fff
+    .header >>> .mine-navbar
         width 100%
-        line-height .7rem
-        display flex
+        border 1px solid #ccc
+        border-radius .8rem
+    .head
         margin-top .2rem
-        padding-right .2rem
+        display flex
+        overflow hidden
         .back
+            width 1rem
+            font-size .8rem
+            color #999
+        .header
             flex 1
-            font-size .6rem
-            color #ccc
-        .header-input
-            flex 9
-            padding-left .2rem
-            margin-right .2rem
-            border-radius .5rem
-            border .01rem solid #ccc
-            color : #ccc
-            background #F5F5F5
-            .search
-                float left
-            input 
-                width 5.8rem
-                height .7rem
-                text-indent .2rem
-                background #F5F5F5
+            display flex
+            float right
+            .header-input
+                flex 1
+                input 
+                    width 90%
+                    height .7rem
     .search-content
         overflow hidden
         position relative
@@ -144,26 +146,15 @@ export default {
             img 
                 width auto 
                 max-width 100%
-            .no1
-                position fixed
-                bottom 0
-                width 100%
-                color $Color
-                text-align center
-                font-size .22rem
-                padding-bottom .2rem
-        .none
-            position relative
-            display flex
-            flex-direction column
-            justify-content space-between
-            align-items center
-            height 12.5rem
-            .no 
-                width 100%
-                color $Color
-                text-align center
-                font-size .22rem
-                line-height 1rem
-                padding-bottom .2rem
+        .no1
+            position fixed
+            left 0
+            bottom 0
+        .no1
+        .no2 
+            color $Color
+            font-size .24rem
+            width 100%
+            text-align center
+            line-height 1rem
 </style>

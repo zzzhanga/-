@@ -2,8 +2,8 @@
 <template>
   <div>
       <footer class="footer border-top">
-          <router-link to='/listener' >{{listening}}</router-link>
-          <router-link to='/bookdetail/0001'  >{{free}}</router-link>
+          <span @click="goTo">{{listening}}</span>
+          <router-link to='/bookdetail/0001'>{{free}}</router-link>
           <router-link to='/book'>{{join}}</router-link>
       </footer>
   </div>
@@ -18,6 +18,11 @@ export default {
             free:'免费阅读',
             join:'加入书架'
         };
+    },
+    methods: {
+        goTo(){
+            this.$router.push('/listener')
+        }
     }
 }
 
@@ -25,7 +30,7 @@ export default {
 <style lang="stylus" scoped>
 @import '~styles/varibles.styl'
     .footer
-        position fixed
+        position absolute
         bottom 0
         z-index 2
         display flex
@@ -34,7 +39,8 @@ export default {
         width 100%
         height .8rem
         background #fff
-        a 
+        a,
+        span
             flex 1
             display inline-block
             text-align center

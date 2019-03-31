@@ -1,68 +1,27 @@
 <template>
   <div class="message">
      <div 
-        class="message-item" 
-        v-for="item of mhome"
+        class="message-item animated fadeInUp" 
+        v-for="item of dataList"
         :key="item.id"
      >
          <span class="message-title">{{item.txt}}</span>
-         <img class="message-img" :src="item.imgUrl" alt="">
+         <img  class="message-img " :src="item.imgUrl" alt="">
      </div>
-     <p class="message-updata border-bottom" @click="change">换一批</p>
+     <p class="message-updata border-bottom nimated fadeInUp" @click="updata" >下拉刷新哦</p>
   </div>
 </template>
 
 <script>
-import axios from 'axios'
 export default {
     name: "Message",
-    data() {
-        return {
-            message:[],
-            mhome:[]
-        }
+    props: {
+        dataList:Array
     },
-    computed: {
-        changed:function(){
-            const r = Array.apply(null, { length: this.message.length })
-                .map((n, i) => i)
-                .map((n, i, all) => {
-                    const j = i + Math.floor(Math.random() * (all.length - i));
-                    const v = all[j];
-                    all[j] = n;
-                    return v;
-                })
-                .slice(0, 3)
-                .map(i => {
-                    return this.message[i];
-                });
-            return r
+    methods:{
+        updata(){
+            this.$emit('UpData')
         }
-    },
-    mounted(){
-       this.getFindInfo()
-   },
-    methods: {
-
-        getFindInfo(){
-            axios.get('/static/mock/idea.json')
-            .then(this.getFindInfoSucc)
-        },
-        getFindInfoSucc(res){
-            res=res.data
-            if(res.ret && res.data){
-            const data=res.data
-            this.mhome=data.mhome
-            this.message=data.message
-            }
-        },
-
-        change:function(){
-            this.mhome=this.changed;
-            this.message.push(this.message[0]);
-            this.message.pop();
-        }
-       
     }
 }
 
@@ -73,16 +32,18 @@ export default {
         .message-item
             width 100%
             height 2rem
+            display flex
+            margin-top .2rem
             .message-title
-                float left
-                width 4rem
-                line-height .6rem
-                margin-left .2rem
-                margin-right .6rem
+                flex 1
+                font-size .24rem
+                line-height .4rem
+                margin .4rem .6rem .2rem .2rem
             .message-img 
-                float right
                 width 2rem
+                padding  .2rem
         .message-updata
+            font-size .2rem
             text-align center
             color $Color
             padding-bottom .2rem

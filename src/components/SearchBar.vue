@@ -1,24 +1,30 @@
 <template>
   <div class="header">
-        <div class="header-input">  
-            <router-link to="/like" class="iconfont search" >&#xe634;
-            <input type="text" placeholder="三体" v-model.lazy="msg">
-            </router-link>
-            <span class="icon-right">|&nbsp;&nbsp;
-                <span class="book-city" @click="toLink">书城</span>
-            </span> 
+    <div class="mine-navbar">
+      <div class="mine-navbar-left" v-if="$slots.left">
+        <slot name="left"></slot>
       </div>
+      <div class="mine-navbar-center" v-if="$slots.center">
+        <slot name="center"></slot>
+      </div>
+      <div class="mine-navbar-right" v-if="$slots.right">
+        <slot name="right"></slot>
+      </div>
+      <h1 class="mine-navbar-title" v-if="title">
+        <span class="mine-navbar-text" v-text="title"></span>
+      </h1>
+    </div>
   </div>
 </template>
 
 <script>
 export default {
-    name: "FindHeader",
-    data() {
-        return {
-            msg:'',
-            url:'http://book.3g.cn/'
-        };
+    name: "SearchBar",
+    props: {
+      title: {
+        type: String,
+        default: ''
+      }
     },
     methods: {
         toLink(){
@@ -31,24 +37,47 @@ export default {
 </script>
 <style lang="stylus" scoped>
 @import '~styles/varibles.styl'
-    .header-input
-        border-radius .4rem
-        margin .2rem
-        padding .1rem .4rem
-        height .6rem
-        line-height .6rem
-        border .01rem solid #ccc
-        color : #ccc
-        .search
-            float left
-        input 
-            text-indent .2rem
-        .icon-right
-            height .6rem
-            float right
-            .book-city
-                padding .18rem
-                color $Color
+@import '~styles/mixin.styl'
 
+  .mine-navbar
+    position relative
+    flex-between()
+    height .8rem
+    background-color #fff
+    &-left 
+       margin-left .4rem
+       ~.mine-navbar-right
+        position static
+    &-center 
+      flex 1
+      margin 0 .4rem
+      ~.mine-navbar-right
+        position static
+    &-right
+      margin-right .4rem
+      position absolute
+      right 0
+      flex-center()
+      height 100%
+    &-title
+      position absolute
+      top 0
+      bottom 0
+      left 20%
+      right 20%
+      flex-center()
+      text-align center
+    &-text
+      width 100%
+      line-height 1.5
+      font-size 0.36rem
+      -webkit-line-clamp 1
+      ellipsis()
+
+
+
+
+
+  
 
 </style>

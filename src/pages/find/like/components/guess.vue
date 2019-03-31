@@ -7,7 +7,7 @@
       </header>
     <section class="container" v-if="this.Items.length">
         <router-link to="./detail" tag="div" class="detail-item" v-for="item of Items" :key="item.id" >
-            <img :src="item.imgUrl">
+            <img class="animated fadeInRight" :src="item.imgUrl">
         </router-link>
     </section>
   </div>
@@ -59,7 +59,6 @@ export default {
             const data=res.data
             this.guessItem=data.guessItem
             this.Items=data.Items
-            
         }
         },
 
@@ -79,7 +78,6 @@ export default {
 <style lang="stylus" scoped>
 @import '~styles/varibles.styl'
     .header
-        margin-top .4rem
         padding 0 .2rem
         font-size .24rem
         display flex

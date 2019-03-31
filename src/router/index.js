@@ -1,14 +1,5 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Find from '@/pages/find/Find'
-import Book from '@/pages/bookshelf/Bookshelf'
-import Idea from '@/pages/idea/Idea'
-import Mine from '@/pages/mine/Mine'
-import Like from '@/pages/find/like/Like'
-import Detail from '@/pages/find/detail/Detail'
-import BookDetail from '@/pages/bookshelf/bookdetail'
-import IdeaWrite from '@/pages/idea/ideawrite'
-import Listener from '@/components/listener'
 
 Vue.use(Router)
 
@@ -17,47 +8,47 @@ export default new Router({
     {
       path: '/',
       name: 'Find',
-      component: Find
+      component:() => import('@/pages/find/Find')
     },
     {
       path: '/book',
       name: 'Book',
-      component: Book
+      component: () => import('@/pages/bookshelf/Bookshelf')
     },
     {
       path: '/idea',
       name: 'Idea',
-      component: Idea
+      component: () => import('@/pages/idea/Idea')
     },
     {
       path: '/mine',
       name: 'Mine',
-      component: Mine
+      component: () => import('@/pages/mine/Mine')
     },
     {
       path: '/like',
       name: 'Like',
-      component: Like
+      component: () => import('@/pages/find/like/Like')
     },
     {
       path: '/detail',
       name: 'Detail',
-      component: Detail
+      component: () => import('@/pages/find/detail/Detail')
     },
     {
       path: '/bookdetail/:id',
       name: 'BookDetail',
-      component: BookDetail
+      component: () => import('@/pages/bookshelf/bookdetail')
     },
     {
       path: '/ideawrite',
       name: 'IdeaWrite',
-      component: IdeaWrite
+      component: () => import('@/pages/idea/ideawrite')
     },
     {
       path: '/listener',
       name: 'Listener',
-      component: Listener
+      component: () => import('@/components/listener')
     }
   ],
   scrollBehavior (to, from, savedPosition) {

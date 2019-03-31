@@ -2,7 +2,7 @@
 <template>
   <div class="listener-box" @click="close();close2()">
         <div class="head">
-            <router-link tag="span" to="/detail" class="iconfont">&#xe624;</router-link>
+            <span class="iconfont" @click="goBack">&#xe624;</span>
             <span class="iconfont f4">&#xe672;</span>
         </div>
         <div class="listener" ref="outerNode">
@@ -107,6 +107,9 @@ export default {
             this.getFindInfo()
         },
         methods: {
+        goBack(){
+            this.$router.back()
+        },
         // 调用ajax
         getFindInfo(){
             axios.get('/static/mock/listener.json')
@@ -157,16 +160,12 @@ export default {
         mission:function(e){
             this.$refs.line.style.width = this.$refs.voice.currentTime / this.$refs.voice.duration * 100 + '%';
             this.styObj.left=this.$refs.voice.currentTime / this.$refs.voice.duration * 100 + '%';
-            this.s = Math.floor(e.target.currentTime) % 60
-            this.m = Math.floor(e.target.currentTime % 3600 /60)
-            if(this.m<10) this.m='0'+this.m
-            if(this.s<10) this.s='0'+this.s
+            this.s = String(Math.floor(e.target.currentTime) % 60).padStart(2,0)
+            this.m = String(Math.floor(e.target.currentTime % 3600 /60)).padStart(2,0)
             this.cTime= this.m + ':' + this.s
-            
-            this.se = Math.floor(e.target.duration-e.target.currentTime) % 60
-            this.me = Math.floor(e.target.duration% 3600 /60 -e.target.currentTime % 3600 /60)
-            if(this.me<10) this.me='0'+this.me
-            if(this.se<10) this.se='0'+this.se
+    
+            this.se = String(Math.floor(e.target.duration-e.target.currentTime) % 60).padStart(2,0);
+            this.me = String(Math.floor(e.target.duration% 3600 /60 -e.target.currentTime % 3600 /60)).padStart(2,0);
             this.dTime=this.me + ':' + this.se
         },
         // 点击读条到相应位置
@@ -198,6 +197,7 @@ export default {
         four:function(){
             this.$refs.voice.playbackRate=2
         },
+        
           // 定时
         timing:function(){
             this.show=!this.show

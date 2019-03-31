@@ -1,5 +1,5 @@
 <template>
-    <div class="bottom-bar">
+    <div class="bottom-bar border-top">
         <router-link  to="/" class="bar-item" >
             <i class="iconfont" >&#xe663;</i>
             <span class="item-text">发现</span>
@@ -33,14 +33,15 @@ export default {
 <style lang="stylus" scoped>
     @import "~styles/varibles";
     .bottom-bar 
-        position fixed
+        position absolute
         bottom 0
-        width 100%
-        background #fff
+        width 100vw
         display flex
         height 1rem
         text-align center
         color #000
+        border 1px solid #e5e8e6
+        background #fff
         .router-link-exact-active
             color $Color
         .bar-item

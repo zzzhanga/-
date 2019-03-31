@@ -2,12 +2,12 @@
 <template>
     <div>
         <header class="header">
-            <router-link tag="span" to="/" class="iconfont back">&#xe624;</router-link>
-            <span class="iconfont people">&#xe647;</span>
+            <span class="iconfont back" slot="left" @click="goBack">&#xe624;</span>
+            <span class="iconfont people" slot="right">&#xe647;</span>
         </header>
         <div class="wrapper" ref="wrapper">
             <div>
-                <detail-wonderful :detailList="detailList" :detailItem="detailItem"></detail-wonderful>
+                <detail-wonderful :detailList.sync="detailList" :detailItem.sync="detailItem"></detail-wonderful>
             </div>
         </div>
         <detail-bar></detail-bar>
@@ -17,6 +17,7 @@
 </template>
 
 <script>
+import BottomBar from "./../../../components/Bar";
 import Bscroll from 'better-scroll'
 import DetailWonderful from './components/wonderful'
 import DetailBar from './components/detailbar'
@@ -26,7 +27,8 @@ export default {
     data () {
         return {
             detailList:{},
-            detailItem:[]
+            detailItem:[],
+            visible: true
         };
     },
     components: {
@@ -35,6 +37,9 @@ export default {
 
     },
     methods: {
+      goBack(){
+          this.$router.push('/')
+      },
       getFindInfo(){
         axios.get('/static/mock/find.json')
           .then(this.getFindInfoSucc)
@@ -56,19 +61,12 @@ export default {
 </script>
 <style lang='stylus' scoped>
     .header
-        position fixed
-        top 0
-        z-index 2
-        height 1rem
         line-height 1rem
-        padding .1rem .2rem
-        background #fff
-        width 100%
         .back
+        float left
             font-size .5rem
-            float left
         .people
-            float right
+            float right 
             position relative
             right .6rem
             font-size .4rem
@@ -77,7 +75,6 @@ export default {
                 top -0.1rem
                 content "19"
                 font-size .08rem
-                display inline
     .wrapper
         position absolute
         top 1rem

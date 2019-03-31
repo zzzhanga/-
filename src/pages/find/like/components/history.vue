@@ -42,6 +42,7 @@ export default {
     methods: {
         //清空所有内容
         clear:function(){
+            console.log(1)
             localStorage.clear()
             this.lis=[]
         }

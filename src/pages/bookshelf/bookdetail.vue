@@ -41,15 +41,15 @@
 import Bscroll from 'better-scroll'
 import axios from 'axios'
 export default {
+  name:'bookdetail',
   data () {
-    name:'bookdetail'
     return {
       bookTxt:[]
     };
   },
   methods: {
     getDetailInfo(){
-      axios.get('./api/book.json',{
+      axios.get('/static/mock/book.json',{
         params:{
             id : this.$route.params.id
         }
