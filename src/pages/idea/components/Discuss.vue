@@ -2,7 +2,7 @@
   <div class="discuss">
       <div 
         class="discuss-item"
-        v-for="(item ,index) of items"
+        v-for="(item ,index) of speak"
         :key="item.id"
       >
           <p class="item-top">
@@ -31,7 +31,7 @@
                 </div>
                 <div class="speak-box">
                     <ul>
-                        <li class="speak-items" v-for="lis of items[index].speak" :key="lis.id">
+                        <li class="speak-items" v-for="lis of speak[index].speak" :key="lis.id">
                            <span class="speak-name">{{lis.name}}</span> 
                            <span class="speak-talk">{{lis.talk}}</span>
                         </li>
@@ -47,7 +47,7 @@
 export default {
     name: "Discuss",
     props: {
-        items: Array,
+        speak: Array,
     }
 }
 

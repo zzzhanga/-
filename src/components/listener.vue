@@ -1,9 +1,8 @@
 <!--  -->
 <template>
-  <div class="listener-box" @click="close();close2()">
+  <div class="listener-box" id="listener-box" @click="close();close2()">
         <div class="head">
-            <span class="iconfont" @click="goBack">&#xe624;</span>
-            <span class="iconfont f4">&#xe672;</span>
+            <i class="cubeic-back" @click="goBack"></i>
         </div>
         <div class="listener" ref="outerNode">
  
@@ -52,12 +51,12 @@
                     <img :src="listenerItem.autorurl">
                     <span>{{listenerItem.autor}}</span>
                 </div>
-                <div>
-                    <span class="attention" @click="attention">{{this.atten}}</span>
+                <div class="attention">
+                    <cube-button class="cube-btn" id="cube=btn"  @click="attention">{{atten}}</cube-button>
                 </div>
         </div>
-        <audio :src="listenerItem.url"  ref="voice" @timeupdate="mission" ></audio>
-        <div class="publish"> 
+        <audio :src="listenerItem.url"  ref="voice" @timeupdate="mission" preload="auto"></audio>
+        <div class="publish border-bottom-1px"> 
             <span class="publish-time">{{listenerItem.publishtime}}</span>
             <span class="listen-in">{{listenerItem.listenin}}</span>
         </div>
@@ -96,17 +95,18 @@ export default {
                 items:[],
                 show:false,
                 ratestatu:false,
-                cTime:null,
-                dTime:null,
+                cTime:'',
+                dTime:'',
                 atten:'关注'
                 
             };
         },
-        mounted() {
+        created() {
             // 发送ajax
             this.getFindInfo()
         },
         methods: {
+        //返回
         goBack(){
             this.$router.back()
         },
@@ -125,17 +125,36 @@ export default {
             }
         },
         attention(){
-                if(this.atten=='已关注'){
-                    var r=  confirm("取消关注后将不再受到该用户的动态信息")
-                    if(r){
-                        this.atten='关注';
-                    }else{
-                       this.atten='已关注'; 
-                    }
-                }else{
-                    this.atten='已关注';
+            if(this.atten==='已关注'){
+                this.atten='关注'
+                this.$createDialog({
+                type: 'confirm',
+                icon: '',
+                content: '取消关注后将不再收到该用户的动态信息',
+                confirmBtn: {
+                text: '取消关注',
+                active: true,
+                disabled: false,
+                href: 'javascript:;'
+                },
+                cancelBtn: {
+                text: '关闭',
+                active: false,
+                disabled: false,
+                href: 'javascript:;'
+                },
+                onConfirm: () => {
+                    this.atten='关注'
+                this.$createToast({
+                    type: 'correct',
+                    time: 1000,
+                    txt: '已取消关注'
+                }).show()
                 }
-                
+            }).show()
+            }else{
+                this.atten='已关注'
+            }
         },
         //开始暂停
         playPause:function(ev){
@@ -164,8 +183,9 @@ export default {
             this.m = String(Math.floor(e.target.currentTime % 3600 /60)).padStart(2,0)
             this.cTime= this.m + ':' + this.s
     
-            this.se = String(Math.floor(e.target.duration-e.target.currentTime) % 60).padStart(2,0);
-            this.me = String(Math.floor(e.target.duration% 3600 /60 -e.target.currentTime % 3600 /60)).padStart(2,0);
+            this.se = String(Math.floor(e.target.duration - e.target.currentTime) % 60).padStart(2,0);
+            this.me = String(Math.floor(e.target.duration % 3600 /60 -e.target.currentTime % 3600 /60)).padStart(2,0);
+          
             this.dTime=this.me + ':' + this.se
         },
         // 点击读条到相应位置
@@ -219,15 +239,17 @@ export default {
 
 </script>
 <style lang="stylus" scoped>
+@import '~styles/varibles.styl'
+    .attention >>> .cube-btn
+        background #fff
+        color #000
+        font-size .24rem
     .head
-        margin .5rem 
-        display flex
-        justify-content space-between
-        .iconfont
-            font-size .5rem
-        .f4
-            font-size .32rem
-        
+        height 1rem
+        line-height 1rem
+        margin-left .2rem
+        .cubeic-back
+            font-size .4rem
     .avator-info
         padding 0 .4rem
         margin-top .4rem
@@ -242,13 +264,6 @@ export default {
                 width 1rem
                 height 1rem
                 border-radius 50%
-            span 
-                position absolute
-                right .2rem
-                font-size .24rem
-        .attention 
-            margin .4rem
-            font-size .26rem
     .listener
         position relative
         top .1rem
@@ -261,9 +276,10 @@ export default {
         border-radius .6rem
         padding .1rem
         .listener-title
-            font-size .24rem
+            font-size .28rem
+            letter-spacing .028rem
         .book-name
-            font-size .24rem
+            font-size .36rem
             margin-left .4rem
             .iconfont
                 float right 
@@ -327,7 +343,7 @@ export default {
         font-size .24rem
         display flex
         justify-content space-between
-        margin .8rem .5rem 0 .4rem
+        margin .4rem .5rem 0 .4rem
         color #ccc
     .discuss
         margin-top .8rem

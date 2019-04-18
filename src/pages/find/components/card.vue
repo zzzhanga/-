@@ -1,11 +1,11 @@
 <template>
-  <div class="card">
-    <swiper :options="swiperOption" v-if="cardItem.length">
-      <swiper-slide class="slide-card" v-for="item of cardItem" :key="item.id">
-        <img class="swiper-img" :src="item.imgUrl" @click="goTo" />
-      </swiper-slide>
-    </swiper>
-  </div>
+  <cube-slide ref="slide" :data="cardItem" :loop="true"  :auto-play="false" :showDots="false">
+    <cube-slide-item class="slide-card" v-for="(item, index) in cardItem" :key="index" >
+      <router-link :to="item.linkUrl">
+        <img class="swiper-img" :src="item.imgUrl">
+      </router-link>
+    </cube-slide-item>
+  </cube-slide>
 </template>
 
 <script>
@@ -16,15 +16,9 @@ export default {
   },
   data() {
     return {
-      swiperOption: {
-        loop: true,
-      }
     };
   },
   methods: {
-    goTo(){
-      this.$router.push('/detail')
-    }
   }
 };
 </script>

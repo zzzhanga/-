@@ -2,17 +2,16 @@
 <template>
     <div>
       <like-search class="like-search"></like-search>
-      <div class="like" ref="wrapper">
-          <div>
-              <like-guess ></like-guess>
+      <div class="like">
+          <cube-scroll ref="scroll">
+              <like-guess></like-guess>
               <like-history></like-history>
-          </div>
+          </cube-scroll>
       </div>
     </div>
 </template>
 
 <script>
-import Bscroll from 'better-scroll'
 import LikeSearch from './components/LikeSearch'
 import LikeGuess from './components/guess'
 import LikeHistory from './components/history'
@@ -23,9 +22,6 @@ export default {
         LikeGuess,
         LikeHistory
     },
-    mounted() {
-        this.scroll=new Bscroll(this.$refs.wrapper)
-    }
 }
 
 </script>

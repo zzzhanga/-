@@ -1,13 +1,11 @@
 <!--  -->
 <template>
   <div>
-      <div class="wrapper" ref="wrapper">
-        <div>
-            <textarea cols="49" rows="40" placeholder="写下这一刻的想法..." maxlength=2000 style="overflow-y:hidden;" onpropertychange="this.style.height=this.scrollHeight + 'px'" oninput="this.style.height=this.scrollHeight + 'px'"></textarea>
-        </div>
+      <div class="wrapper">
+          <textarea cols="49" rows="40" placeholder="写下这一刻的想法..." maxlength="140"></textarea>
       </div>
-        <footer class="footer border-top">
-              <div class="back" @click="goBack"><span class="iconfont">&#xe640;</span></div>
+        <footer class="footer border-top-1px">
+              <div class="back" @click="goBack"><i class="cubeic-close"></i></div>
               <div class="menu">
                 <span class="iconfont">&#xe794;</span>
                 <span class="iconfont">&#xe635;</span>
@@ -22,7 +20,6 @@
 </template>
 
 <script>
-import Bscroll from 'better-scroll'
 export default {
   data () {
     return {
@@ -32,9 +29,6 @@ export default {
     goBack(){
       this.$router.back()
     }
-  },
-  mounted() {
-  this.scroll=new Bscroll(this.$refs.wrapper)
   },
 
 }
@@ -48,6 +42,7 @@ export default {
       left .2rem
       right 0
       bottom 0
+      height 90vh
       overflow hidden
     .footer
       position absolute
@@ -56,11 +51,11 @@ export default {
       justify-content space-between
       align-items center
       width 100%
-      height 1rem
+      height 10vh
       background #fff
       .back
         flex 1
-        span 
+        i
           margin-left .2rem
           font-size .4rem
       .menu

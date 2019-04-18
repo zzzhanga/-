@@ -2,7 +2,7 @@
 <template>
   <div>
       <div class="book-text" ref="wrapper" >
-        <div>
+        <cube-scroll ref="scroll">
             <div v-for="item of this.bookTxt" :key="item.id">
                 <header class="header border">
                   <div class="header-img">
@@ -32,13 +32,12 @@
                       </div>
                 </section>
             </div>
-          </div>
+          </cube-scroll>
     </div>
   </div>
 </template>
 
 <script>
-import Bscroll from 'better-scroll'
 import axios from 'axios'
 export default {
   name:'bookdetail',
@@ -65,7 +64,6 @@ export default {
   },
   mounted() {
     this.getDetailInfo();
-    this.scroll=new Bscroll(this.$refs.wrapper)
   },
 }
 

@@ -19,7 +19,7 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import { mapGetters , mapMutations } from 'vuex'
 export default {
     name:'LikeHistory',
     data () {
@@ -34,24 +34,27 @@ export default {
         }
     },
     computed: {
-        //获取传过来的key值
-        ...mapState({
-            currentkeyword:'keyword'
-        })
+        //获取传过来的keyword值
+        ...mapGetters([
+            "keyword"
+        ])
     },
     methods: {
+        //设置keyword
+        ...mapMutations({
+            setKeyWord:"SET_KEY_WORD"
+        }),
         //清空所有内容
         clear:function(){
-            console.log(1)
             localStorage.clear()
             this.lis=[]
         }
     },
     watch: {
         //检测搜索传过来的值
-        currentkeyword(){
+        keyword(){
             // 把传过来的值添加到数组
-            this.lis.push({txt:this.currentkeyword});
+            this.lis.push({txt:this.keyword});
             //把数组存储在缓存内
             var data=JSON.stringify(this.lis) 
             localStorage.item=data

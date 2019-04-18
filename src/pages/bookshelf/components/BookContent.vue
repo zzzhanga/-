@@ -1,17 +1,20 @@
 <!--  -->
 <template>
-  <div class="book-content">
-    <router-link
-      tag="div"
-      :to="'/bookdetail/' + item.id "
-      class="book-item"
-      v-for="item of booklist"
-      :key="item.id"
-    >
-      <img class="book-cover" :src="item.imgUrl">
-      <p class="book-text">{{item.txt}}</p>
-    </router-link>
-    <p class="item-bottom">{{this.public}}本公开阅读 · {{this.Private}}本私密阅读</p>
+  <div>
+    <div class="book-content"  v-if="booklist.length">
+      <router-link
+        tag="div"
+        :to="'/bookdetail/' + item.id "
+        class="book-item"
+        v-for="item of booklist"
+        :key="item.id"
+      >
+        <img class="book-cover" :src="item.imgUrl">
+        <p class="book-text">{{item.txt}}</p>
+      </router-link>
+      <p class="item-bottom">{{this.public}}本公开阅读 · {{this.Private}}本私密阅读</p>
+    </div>
+    <cube-loading class="loading" v-else :size="40"></cube-loading>
   </div>
 </template>
 
@@ -81,11 +84,16 @@ export default {
 };
 </script>
 <style lang="stylus" scoped>
-.book-content {
+.loading
+  display flex
+  height 10rem
+  justify-content center
+  align-items center
+.book-content 
   padding: 0.2rem 0.2rem 3rem .2rem;
   width: 100%;
   overflow: hidden;
-  .book-item {
+  .book-item 
     position: relative;
     display: inline-block;
     float: left;
@@ -94,30 +102,25 @@ export default {
     height: 0;
     padding-bottom: 45%;
     overflow: hidden;
-
-    .book-cover {
+    .book-cover 
       position: absolute;
       top: 0;
       width: 100%;
       border: 0.02rem solid #ccc;
-    }
-
-    .book-text {
+    .book-text 
       position: absolute;
       bottom: 0;
       width: 100%;
       text-align: center;
       line-height: 0.3rem;
       font-size: 0.16rem;
-    }
-  }
-
-  .item-bottom {
+  .item-bottom 
     float: left;
     width: 100%;
     font-size: 0.24rem;
     color: #ccc;
     text-align: center;
-  }
-}
+
+  
+
 </style>

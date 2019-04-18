@@ -1,25 +1,23 @@
 <template>
   <div class="head">
       <header id="header">书架</header>
-      <div class="wrapper" ref="wrapper">
-        <div>
-          <search-bar>
+      <div class="wrapper scroll-list-wrap">
+        <cube-scroll ref="scroll">
+          <search>
                   <router-link to="/like" class="iconfont search" slot="left">&#xe634;</router-link>
                   <router-link to="/like"  class="icon-center" slot="center">三体</router-link>
-          </search-bar>
+          </search>
           <book-content :booklist="booklist"></book-content>
-        </div>
+        </cube-scroll>
       </div>
-
-      <bottom-bar></bottom-bar>
+      <tab-bar></tab-bar>
   </div>
 </template>
 
 <script>
-import Bescroll from 'better-scroll'
-import SearchBar from "./../../components/SearchBar";
-import BottomBar from '../../components/Bar'
-import BookContent from './components/BookContent'
+import TabBar from "./../../components/TabBar";
+import Search from "./../../components/Search";
+import BookContent from './components/BookContent';
 import axios from 'axios'
 export default {
     name: "bookshelf",
@@ -30,9 +28,9 @@ export default {
       }
     },
     components:{
-      BottomBar,
+      Search,
       BookContent,
-      SearchBar
+      TabBar
     },
     methods: {
       getFindInfo(){
@@ -49,7 +47,6 @@ export default {
     },
     mounted () {
       this.getFindInfo()
-      this.scroll=new Bescroll(this.$refs.wrapper)
     }
 }
 

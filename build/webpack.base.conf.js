@@ -4,6 +4,7 @@ const utils = require('./utils')
 const config = require('../config')
 const vueLoaderConfig = require('./vue-loader.conf')
 const webpack = require('webpack')
+var PostCompilePlugin = require('webpack-post-compile-plugin')
 
 function resolve (dir) {
   return path.join(__dirname, '..', dir)
@@ -19,20 +20,15 @@ const createLintingRule = () => ({
   //   emitWarning: !config.dev.showEslintErrorsInOverlay
   // }
 })
-module.exports = {
-  plugins: [
-    new webpack.ProvidePlugin({
-      $: 'jquery',
-      jQuery: 'jquery',
-      'windows.jQuery': 'jquery'
-    })
-  ]
-}
+
 module.exports = {
   context: path.resolve(__dirname, '../'),
   entry: {
     app: './src/main.js'
   },
+  plugins: [
+    new PostCompilePlugin()
+  ],
   output: {
     path: config.build.assetsRoot,
     filename: '[name].js',

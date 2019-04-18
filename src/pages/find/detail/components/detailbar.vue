@@ -1,7 +1,7 @@
 <!--  -->
 <template>
   <div>
-      <footer class="footer border-top">
+      <footer class="footer border-top-1px">
           <span @click="goTo">{{listening}}</span>
           <router-link to='/bookdetail/0001'>{{free}}</router-link>
           <router-link to='/book'>{{join}}</router-link>

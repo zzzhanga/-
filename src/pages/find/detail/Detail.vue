@@ -2,23 +2,20 @@
 <template>
     <div>
         <header class="header">
-            <span class="iconfont back" slot="left" @click="goBack">&#xe624;</span>
-            <span class="iconfont people" slot="right">&#xe647;</span>
+            <span class="cubeic-back" slot="left" @click="goBack"></span>
+            <span class="cubeic-person" slot="right"></span>
         </header>
-        <div class="wrapper" ref="wrapper">
-            <div>
+        <div class="wrapper">
+            <cube-scroll ref="scroll">
                 <detail-wonderful :detailList.sync="detailList" :detailItem.sync="detailItem"></detail-wonderful>
-            </div>
+            </cube-scroll>
         </div>
         <detail-bar></detail-bar>
-
     </div>
   
 </template>
 
 <script>
-import BottomBar from "./../../../components/Bar";
-import Bscroll from 'better-scroll'
 import DetailWonderful from './components/wonderful'
 import DetailBar from './components/detailbar'
 import axios from 'axios'
@@ -55,21 +52,20 @@ export default {
     },
     mounted() {
         this.getFindInfo()
-        this.scroll=new Bscroll(this.$refs.wrapper)
     },
 }
 </script>
 <style lang='stylus' scoped>
     .header
         line-height 1rem
-        .back
-        float left
-            font-size .5rem
-        .people
-            float right 
-            position relative
-            right .6rem
-            font-size .4rem
+        display flex
+        justify-content space-between
+        font-size .4rem
+        color #666
+        .cubeic-back
+            margin-left .2rem
+        .cubeic-person
+            margin-right .4rem
             &:after
                 position absolute
                 top -0.1rem

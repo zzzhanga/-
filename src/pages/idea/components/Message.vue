@@ -1,28 +1,63 @@
 <template>
-  <div class="message">
-     <div 
-        class="message-item animated fadeInUp" 
-        v-for="item of dataList"
-        :key="item.id"
-     >
-         <span class="message-title">{{item.txt}}</span>
-         <img  class="message-img " :src="item.imgUrl" alt="">
-     </div>
-     <p class="message-updata border-bottom nimated fadeInUp" @click="updata" >下拉刷新哦</p>
-  </div>
+    <div class="message scroll-list-wrap">
+        <cube-scroll
+        ref="scroll"
+        :data="message"
+        :options="options"
+        @pulling-down="onPullingDown"
+       >
+            <div 
+                class="message-item animated fadeIn" 
+                v-for="item of message"
+                :key="item.id"
+            >
+                <span class="message-title">{{item.txt}}</span>
+                <img  class="message-img " :src="item.imgUrl" alt="">
+            </div>
+            <p class="message-updata border-bottom" @click="onPullingDown">下拉刷新哦</p>
+         </cube-scroll>
+    </div>
 </template>
 
 <script>
+import axios from 'axios'
+
 export default {
     name: "Message",
-    props: {
-        dataList:Array
-    },
-    methods:{
-        updata(){
-            this.$emit('UpData')
+    data() {
+        return {
+            message:[],
+            options: {  
+                pullDownRefresh: {
+                threshold: 30,
+                stopTime: 600,
+                txt: '更新成功'
+                },
+            },
         }
-    }
+    },
+    methods: {
+        onPullingDown() {
+            setTimeout(() => {
+                this.getIdeaInfo()
+            }, 200)
+        },
+        getIdeaInfo(){
+            axios.get('/static/mock/idea.json')
+            .then(this.getIdeaInfoSucc)
+        },
+        getIdeaInfoSucc(res){
+            let i = Math.floor(Math.random()*9) 
+            res=res.data
+            if(res.ret && res.data){
+            const data=res.data
+            this.message=data.message.splice(i,3)
+            }
+        },
+    },
+    mounted() {
+        this.getIdeaInfo()
+    },
 }
 
 </script>
@@ -43,9 +78,11 @@ export default {
                 width 2rem
                 padding  .2rem
         .message-updata
+            height .8rem
+            line-height .8rem
             font-size .2rem
             text-align center
             color $Color
-            padding-bottom .2rem
+
 
 </style>

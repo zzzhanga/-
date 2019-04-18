@@ -38,9 +38,8 @@
                   <p>
                       轻点评分
                   </p>
-                  <p class="xing">
-                      <span class="iconfont  lan">&#xe67c;&#xe67c;&#xe67c;&#xe67c;</span>
-                      <span class="iconfont  hei">&#xe67c;</span>
+                  <p class="star">
+                     <cube-rate class="cube-rate" v-model="starNumber"></cube-rate>
                  </p>
           </div>
       </section>
@@ -81,7 +80,22 @@ export default {
     props:{
         detailList: Object,
         detailItem: Array
-    }
+    },
+    data() {
+        return {
+            starNumber:4.8
+        }
+    },
+    watch: {
+        starNumber(){
+            const toast = this.$createToast({
+                type:'correct',
+                txt: '点评成功',
+                time: 1000,
+            })
+            toast.show()
+        }
+    },
 
 }
 
@@ -159,12 +173,10 @@ export default {
             display flex
             justify-content space-between
             align-items center
-            height 1rem
+            height 1.8rem
             padding 0 .2rem
-            span
-                font-size .5rem
-            .lan
-                color $Color
+            p
+                font-size .28rem
 
     .wonderful
         background #ccc

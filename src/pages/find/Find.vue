@@ -1,18 +1,18 @@
 <template>
   <div>
-    <search-bar class="header"  v-show="visible">
+    <search class="header"  v-show="visible">
       <span class="iconfont search" slot="left" @click="goToSearch">&#xe634;</span>
       <span class="icon-center" slot="center" @click="goToSearch">三体</span>
       <i  class="icon-right" slot="right">|&nbsp;&nbsp;书城</i>
-    </search-bar>
+    </search>
     <find-card :cardItem.sync="cardItem"></find-card>
-    <bottom-bar></bottom-bar>
+    <tab-bar></tab-bar>
   </div>
 </template>
 
 <script>
-import BottomBar from "./../../components/Bar";
-import SearchBar from "./../../components/SearchBar";
+import TabBar from "./../../components/TabBar";
+import Search from "./../../components/Search";
 import FindCard from "./components/card";
 import axios from "axios";
 export default {
@@ -26,9 +26,9 @@ export default {
     };
   },
   components: {
-    SearchBar,
+    Search,
     FindCard,
-    BottomBar
+    TabBar
   },
   methods: {
     goToSearch(){

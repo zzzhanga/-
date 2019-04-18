@@ -25,115 +25,414 @@
             "C":[
             {
                 "id":"0003",
-                "name":"鞋狗",
+                "name":"鞋狗耐克",
                 "spell":"xiegounaike",
                 "img":"/static/image/search3.png"
             }]
         },
         "Items":[
             {
-                "id": "0001",
-                "imgUrl": "../../../../../static/image/guess1.png"
+                "item":{
+                    "id": "0001",
+                    "imgUrl": "../../../../../static/image/guess1.png"
+                },
+                "btns": [
+                    {
+                      "action": "clear",
+                      "text": "不再关注",
+                      "color": "#c8c7cd"
+                    },
+                    {
+                      "action": "delete",
+                      "text": "删除",
+                      "color": "#ff3a32"
+                    }
+                  ]
             },
             {
-                "id": "0002",
-                "imgUrl": "../../../../../static/image/guess2.png"
+                "item":{
+                    "id": "0002",
+                    "imgUrl": "../../../../../static/image/guess2.png"
+                },
+                "btns": [
+                    {
+                      "action": "clear",
+                      "text": "不再关注",
+                      "color": "#c8c7cd"
+                    },
+                    {
+                      "action": "delete",
+                      "text": "删除",
+                      "color": "#ff3a32"
+                    }
+                  ]
             },
             {
-                "id": "0003",
-                "imgUrl": "../../../../../static/image/guess3.png"
+                "item":{
+                    "id": "0003",
+                    "imgUrl": "../../../../../static/image/guess3.png"
+                },
+                "btns": [
+                    {
+                      "action": "clear",
+                      "text": "不再关注",
+                      "color": "#c8c7cd"
+                    },
+                    {
+                      "action": "delete",
+                      "text": "删除",
+                      "color": "#ff3a32"
+                    }
+                  ]
             }
         ],
         "guessItem": [
             {
-                "id": "0004",
-                "imgUrl": "../../../../../static/image/guess4.png"
+                "item":{
+                    "id": "0004",
+                    "imgUrl": "../../../../../static/image/guess4.png"
+                },
+                "btns": [
+                    {
+                      "action": "clear",
+                      "text": "不再关注",
+                      "color": "#c8c7cd"
+                    },
+                    {
+                      "action": "delete",
+                      "text": "删除",
+                      "color": "#ff3a32"
+                    }
+                  ]
             },
             {
-                "id": "0005",
-                "imgUrl": "../../../../../static/image/guess5.png"
+                "item":{
+                    "id": "0005",
+                    "imgUrl": "../../../../../static/image/guess5.png"
+                },
+                "btns": [
+                    {
+                      "action": "clear",
+                      "text": "不再关注",
+                      "color": "#c8c7cd"
+                    },
+                    {
+                      "action": "delete",
+                      "text": "删除",
+                      "color": "#ff3a32"
+                    }
+                  ]
             },
             {
-                "id": "0006",
-                "imgUrl": "../../../../../static/image/guess6.png"
+                "item":{
+                    "id": "0006",
+                    "imgUrl": "../../../../../static/image/guess6.png"
+                },
+                "btns": [
+                    {
+                      "action": "clear",
+                      "text": "不再关注",
+                      "color": "#c8c7cd"
+                    },
+                    {
+                      "action": "delete",
+                      "text": "删除",
+                      "color": "#ff3a32"
+                    }
+                  ]
             },
             {
-                "id": "0007",
-                "imgUrl": "../../../../../static/image/guess7.png"
+                "item":{
+                    "id": "0007",
+                    "imgUrl": "../../../../../static/image/guess7.png"
+                },
+                "btns": [
+                    {
+                      "action": "clear",
+                      "text": "不再关注",
+                      "color": "#c8c7cd"
+                    },
+                    {
+                      "action": "delete",
+                      "text": "删除",
+                      "color": "#ff3a32"
+                    }
+                  ]
             },
             {
-                "id": "0008",
-                "imgUrl": "../../../../../static/image/guess8.png"
+                "item":{
+                    "id": "0008",
+                    "imgUrl": "../../../../../static/image/guess8.png"
+                },
+                "btns": [
+                    {
+                      "action": "clear",
+                      "text": "不再关注",
+                      "color": "#c8c7cd"
+                    },
+                    {
+                      "action": "delete",
+                      "text": "删除",
+                      "color": "#ff3a32"
+                    }
+                  ]
             },
             {
-                "id": "0009",
-                "imgUrl": "../../../../../static/image/guess9.png"
+                "item":{
+                    "id": "0009",
+                    "imgUrl": "../../../../../static/image/guess9.png"
+                },
+                "btns": [
+                    {
+                      "action": "clear",
+                      "text": "不再关注",
+                      "color": "#c8c7cd"
+                    },
+                    {
+                      "action": "delete",
+                      "text": "删除",
+                      "color": "#ff3a32"
+                    }
+                  ]
             },
             {
-                "id": "0010",
-                "imgUrl": "../../../../../static/image/guess10.png"
+                "item":{
+                    "id": "00010",
+                    "imgUrl": "../../../../../static/image/guess10.png"
+                },
+                "btns": [
+                    {
+                      "action": "clear",
+                      "text": "不再关注",
+                      "color": "#c8c7cd"
+                    },
+                    {
+                      "action": "delete",
+                      "text": "删除",
+                      "color": "#ff3a32"
+                    }
+                  ]
             },
             {
-                "id": "0011",
-                "imgUrl": "../../../../../static/image/guess11.png"
+                "item":{
+                    "id": "00011",
+                    "imgUrl": "../../../../../static/image/guess11.png"
+                },
+                "btns": [
+                    {
+                      "action": "clear",
+                      "text": "不再关注",
+                      "color": "#c8c7cd"
+                    },
+                    {
+                      "action": "delete",
+                      "text": "删除",
+                      "color": "#ff3a32"
+                    }
+                  ]
             },
             {
-                "id": "0012",
-                "imgUrl": "../../../../../static/image/guess12.png"
+                "item":{
+                    "id": "0012",
+                    "imgUrl": "../../../../../static/image/guess12.png"
+                },
+                "btns": [
+                    {
+                      "action": "clear",
+                      "text": "不再关注",
+                      "color": "#c8c7cd"
+                    },
+                    {
+                      "action": "delete",
+                      "text": "删除",
+                      "color": "#ff3a32"
+                    }
+                  ]
             },
             {
-                "id": "0013",
-                "imgUrl": "../../../../../static/image/guess13.png"
+                "item":{
+                    "id": "0013",
+                    "imgUrl": "../../../../../static/image/guess13.png"
+                },
+                "btns": [
+                    {
+                      "action": "clear",
+                      "text": "不再关注",
+                      "color": "#c8c7cd"
+                    },
+                    {
+                      "action": "delete",
+                      "text": "删除",
+                      "color": "#ff3a32"
+                    }
+                  ]
             },
             {
-                "id": "0014",
-                "imgUrl": "../../../../../static/image/guess14.png"
+                "item":{
+                    "id": "0014",
+                    "imgUrl": "../../../../../static/image/guess14.png"
+                },
+                "btns": [
+                    {
+                      "action": "clear",
+                      "text": "不再关注",
+                      "color": "#c8c7cd"
+                    },
+                    {
+                      "action": "delete",
+                      "text": "删除",
+                      "color": "#ff3a32"
+                    }
+                  ]
             },
             {
-                "id": "0015",
-                "imgUrl": "../../../../../static/image/guess15.png"
+                "item":{
+                    "id": "0015",
+                    "imgUrl": "../../../../../static/image/guess15.png"
+                },
+                "btns": [
+                    {
+                      "action": "clear",
+                      "text": "不再关注",
+                      "color": "#c8c7cd"
+                    },
+                    {
+                      "action": "delete",
+                      "text": "删除",
+                      "color": "#ff3a32"
+                    }
+                  ]
             },
             {
-                "id": "0016",
-                "imgUrl": "../../../../../static/image/guess16.png"
+                "item":{
+                    "id": "0016",
+                    "imgUrl": "../../../../../static/image/guess16.png"
+                },
+                "btns": [
+                    {
+                      "action": "clear",
+                      "text": "不再关注",
+                      "color": "#c8c7cd"
+                    },
+                    {
+                      "action": "delete",
+                      "text": "删除",
+                      "color": "#ff3a32"
+                    }
+                  ]
             },
             {
-                "id": "0017",
-                "imgUrl": "../../../../../static/image/guess17.png"
+                "item":{
+                    "id": "0017",
+                    "imgUrl": "../../../../../static/image/guess17.png"
+                },
+                "btns": [
+                    {
+                      "action": "clear",
+                      "text": "不再关注",
+                      "color": "#c8c7cd"
+                    },
+                    {
+                      "action": "delete",
+                      "text": "删除",
+                      "color": "#ff3a32"
+                    }
+                  ]
             },
             {
-                "id": "0018",
-                "imgUrl": "../../../../../static/image/guess18.png"
+                "item":{
+                    "id": "0018",
+                    "imgUrl": "../../../../../static/image/guess18.png"
+                },
+                "btns": [
+                    {
+                      "action": "clear",
+                      "text": "不再关注",
+                      "color": "#c8c7cd"
+                    },
+                    {
+                      "action": "delete",
+                      "text": "删除",
+                      "color": "#ff3a32"
+                    }
+                  ]
             },
             {
-                "id": "0019",
-                "imgUrl": "../../../../../static/image/guess19.png"
+                "item":{
+                    "id": "0019",
+                    "imgUrl": "../../../../../static/image/guess19.png"
+                },
+                "btns": [
+                    {
+                      "action": "clear",
+                      "text": "不再关注",
+                      "color": "#c8c7cd"
+                    },
+                    {
+                      "action": "delete",
+                      "text": "删除",
+                      "color": "#ff3a32"
+                    }
+                  ]
             },
             {
-                "id": "0020",
-                "imgUrl": "../../../../../static/image/guess20.png"
+                "item":{
+                    "id": "0020",
+                    "imgUrl": "../../../../../static/image/guess20.png"
+                },
+                "btns": [
+                    {
+                      "action": "clear",
+                      "text": "不再关注",
+                      "color": "#c8c7cd"
+                    },
+                    {
+                      "action": "delete",
+                      "text": "删除",
+                      "color": "#ff3a32"
+                    }
+                  ]
             },
             {
-                "id": "0021",
-                "imgUrl": "../../../../../static/image/guess21.png"
+                "item":{
+                    "id": "0021",
+                    "imgUrl": "../../../../../static/image/guess21.png"
+                },
+                "btns": [
+                    {
+                      "action": "clear",
+                      "text": "不再关注",
+                      "color": "#c8c7cd"
+                    },
+                    {
+                      "action": "delete",
+                      "text": "删除",
+                      "color": "#ff3a32"
+                    }
+                  ]
             }
         ],
         "cardItem": [
             {
                 "id": "0001",
+                "linkUrl":"/detail",
                 "imgUrl": "../../../static/image/banner1.png"
             },
             {
                 "id": "0002",
+                "linkUrl":"/",
                 "imgUrl": "../../../static/image/banner2.png"
             },            {
                 "id": "0003",
+                "linkUrl":"/",
                 "imgUrl": "../../../static/image/banner3.png"
             },            {
                 "id": "0004",
+                "linkUrl":"/",
                 "imgUrl": "../../../static/image/banner4.png"
             },            {
                 "id": "0005",
+                "linkUrl":"/",
                 "imgUrl": "../../../static/image/banner5.png"
             }
         ],

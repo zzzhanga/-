@@ -1,30 +1,30 @@
 <template>
     <div>
         <header class="head">
-            <span class="iconfont back" @click="goBack">&#xe624;</span>
-            <search-bar class="header"  v-show="visible">
-                <span class="iconfont search" slot="left">&#xe634;</span>
+            <i class="cubeic-back" @click="goBack"></i>
+            <search class="header"  v-show="visible">
+                <span class="cubeic-search" slot="left"></span>
                 <input  type="text"  class="icon-center" slot="center" placeholder="三体" v-model="key" @keyup.13="show($event)">
-            </search-bar>
+            </search>
         </header>
         <div class="search-content" ref="search" v-show="key">
-            <ul>
-                <li class="search-item border-bottom " v-for="item of list" :key="item.id">
-                    <img :src="item.img" alt="">
-                </li>
-                <div class="search-item border-bottom none" v-show="hasData">
-                    <p class="no2">没有找到相关的书籍</p> 
-                </div>
-            </ul>
-             <router-link to='/' tag="p" class="no1 border-top">没搜到?把你想找的书告诉我们</router-link>
+            <cube-scroll ref="scroll">
+                <ul>
+                    <li class="search-item border-bottom " v-for="item of list" :key="item.id">
+                        <img :src="item.img" alt="">
+                    </li>
+                    <div class="search-item border-bottom-1px none" v-show="hasData">
+                        <p class="none">没有找到相关的书籍</p> 
+                    </div>
+                </ul>
+             </cube-scroll>
         </div>
-       
     </div>  
 </template>
 
 <script>
-import SearchBar from "./../../../../components/SearchBar";
-import Bscroll from 'better-scroll'
+import Search from "./../../../../components/Search";
+import {mapMutations} from 'vuex'
 import axios from 'axios'
 export default {
     name: "FindHeader",
@@ -38,7 +38,7 @@ export default {
         }
     },
     components: {
-        SearchBar
+        Search
     },
     computed: {
         //如果没有搜到数据,显示没有相关的书籍.有数据的话就不显示
@@ -52,7 +52,7 @@ export default {
         },
         show (ev) {
             //传递key值,因为历史记录里要用
-            this.$store.commit('changekeyword',this.key);
+            this.setKeyWord(this.key)
             this.key=''
         },
         //请求ajax
@@ -67,12 +67,14 @@ export default {
             const data=res.data
             this.Title=data.Title
             }
-        }
+        },
+        ...mapMutations({
+            setKeyWord:"SET_KEY_WORD"
+        })
     },
     mounted() {
         //调用ajax
         this.getFindInfo();
-        this.scroll=new Bscroll(this.$refs.search)
     },
     watch: {
         //检测输入值变化
@@ -110,51 +112,46 @@ export default {
 @import '~styles/varibles.styl'
     .header >>> .mine-navbar
         width 100%
-        border 1px solid #ccc
         border-radius .8rem
+        background #f5f5f5
+        height .6rem
     .head
         margin-top .2rem
         display flex
         overflow hidden
-        .back
-            width 1rem
-            font-size .8rem
+        .cubeic-back
+            font-size .5rem
+            line-height .6rem
             color #999
+            margin 0 .2rem
         .header
             flex 1
             display flex
             float right
-            .header-input
-                flex 1
-                input 
-                    width 90%
-                    height .7rem
+            border 1px solid #ccc
+            border-radius 1rem
+            margin-right .2rem
+            .icon-center
+                background #f5f5f5
+            .cubeic-search
+                font-size .4rem
+                color #999
+                
     .search-content
-        overflow hidden
-        position relative
-        top .2rem
-        left 0
-        right 0
-        bottom 0
         z-index 2
         line-height 1rem
         min-height 12.5rem
         background #fff
-        .search-item
-            margin-top .4rem
-            text-indent .1rem
-            img 
-                width auto 
-                max-width 100%
-        .no1
-            position fixed
-            left 0
-            bottom 0
-        .no1
-        .no2 
-            color $Color
-            font-size .24rem
-            width 100%
-            text-align center
-            line-height 1rem
+    .search-item
+        margin-top .4rem
+        text-indent .1rem
+        img 
+            width auto 
+            max-width 100%
+    .none 
+        color $Color
+        font-size .24rem
+        width 100%
+        text-align center
+        line-height 1rem
 </style>

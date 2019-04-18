@@ -1,25 +1,24 @@
 <!--  -->
 <template>
   <div>
-    <search-bar class="mine-header">
+    <search class="mine-header">
       <span class="iconfont" slot="left">&#xe623;</span>
       <span slot="center">{{this.name}}</span>
-      <span slot="right" class="iconfont">&#xe632;</span>
-    </search-bar>
-    <div class="wrapper" ref="wrapper">
-      <div>
+      <span slot="right" class="iconfont" @click="goSetting">&#xe632;</span>
+    </search>
+    <div class="wrapper">
+      <cube-scroll   ref="scroll">
         <mine-info :signature="signature" :imgUrl="imgUrl"></mine-info>
         <information-bar></information-bar>
-      </div>
+      </cube-scroll>
     </div>
-    <bottom-bar></bottom-bar>
+    <tab-bar></tab-bar>
   </div>
 </template>
 
 <script>
-import Bscroll from 'better-scroll'
-import BottomBar from '../../components/Bar'
-import SearchBar from "./../../components/SearchBar";
+import TabBar from "./../../components/TabBar";
+import Search from "./../../components/Search";
 import MineInfo from './components/info'
 import InformationBar from './components/InformationBar'
 import axios from 'axios'
@@ -34,8 +33,8 @@ export default {
         };
     },
     components: {
-      BottomBar,
-      SearchBar,
+      TabBar,
+      Search,
       MineInfo,
       InformationBar
     },
@@ -51,11 +50,13 @@ export default {
           this.imgUrl=data.imgUrl
           this.signature=data.signature
         }
+      },
+      goSetting(){
+        this.$router.push("/setting")
       }
     },
      mounted() {
        this.getFindInfo()
-        this.scroll=new Bscroll(this.$refs.wrapper)
    }  
 }
 

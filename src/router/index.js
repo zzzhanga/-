@@ -49,7 +49,12 @@ export default new Router({
       path: '/listener',
       name: 'Listener',
       component: () => import('@/components/listener')
-    }
+    },
+    {
+      path: '/setting',
+      name: 'Setting',
+      component: () => import('@/pages/mine/setting/setting')
+    },
   ],
   scrollBehavior (to, from, savedPosition) {
     return {x: 0, y: 0}
