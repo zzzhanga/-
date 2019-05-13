@@ -1,7 +1,7 @@
 <!--  -->
 <template>
   <div>
-    <div class="book-content"  v-if="booklist.length">
+    <div class="book-content" v-if="booklist.length">
       <router-link
         tag="div"
         :to="'/bookdetail/' + item.id "
@@ -19,81 +19,84 @@
 </template>
 
 <script>
-import storage from "../../../assets/js/storage.js";
+import storage from '../../../assets/js/storage.js'
 import {
   CATEGORY_CONTENT_KEY,
   CATEGORY_CONTENT_UPDATE_TIME_INTERVAL
-} from "./../components/config.js";
+} from './../components/config.js'
 export default {
-  name: "BookSearch",
+  name: 'BookSearch',
   props: {
     booklist: Array
   },
-  data() {
+  data () {
     return {
-      public: "142",
-      Private: "2"
-    };
+      public: '142',
+      Private: '2'
+    }
   },
   methods: {
-    getContent(id) {
-      let contents = storage.get(CATEGORY_CONTENT_KEY);
-      let updateTime;
-      const curTime = new Date().getTime();
+    getContent (id) {
+      let contents = storage.get(CATEGORY_CONTENT_KEY)
+      let updateTime
+      const curTime = new Date().getTime()
 
-    if (contents) {
-        updateTime=contents[id].updateTime||0;
-        if(curTime - updateTime <= CATEGORY_CONTENT_UPDATE_TIME_INTERVAL){
-          return  this.getContentByLocalStorage(contents[id]);
-        }else{
-            return this.getContentByHTTP(id).then(()=>{
-                this.updateLocalStorage(contents,id,curTime);
-            });
+      if (contents) {
+        updateTime = contents[id].updateTime || 0
+        if (curTime - updateTime <= CATEGORY_CONTENT_UPDATE_TIME_INTERVAL) {
+          return this.getContentByLocalStorage(contents[id])
+        } else {
+          return this.getContentByHTTP(id).then(() => {
+            this.updateLocalStorage(contents, id, curTime)
+          })
         }
-      }else{
-            return this.getContentByHTTP(id).then(()=>{
-                this.updateLocalStorage(contents,id,curTime);
-            });
+      } else {
+        return this.getContentByHTTP(id).then(() => {
+          this.updateLocalStorage(contents, id, curTime)
+        })
       }
     },
-    updateLocalStorage(contents, id, curTime) {
-        contents = contents || {};
-        contents[id] = {};
-        contents[id].data = this.content;
-        contents[id].updateTime = curTime;
-        storage.set(CATEGORY_CONTENT_KEY, contents);
-      },
-    getContentByLocalStorage(content) {
-        this.content = content.data;
-        return Promise.resolve();
-      },
-    getContentByHTTP(id) {
-        return getCategoryContent(id).then(data => {
-          return new Promise(resolve => {
-            if (data) {
-              this.content = data;
-              resolve();
-            }
-          });
-        });
-      },
-    updateScroll() {
-        this.$refs.scroll && this.$refs.scroll.update();
-      }
+    updateLocalStorage (contents, id, curTime) {
+      contents = contents || {}
+      contents[id] = {}
+      contents[id].data = this.content
+      contents[id].updateTime = curTime
+      storage.set(CATEGORY_CONTENT_KEY, contents)
+    },
+    getContentByLocalStorage (content) {
+      this.content = content.data
+      return Promise.resolve()
+    },
+    getContentByHTTP (id) {
+      // return getCategoryContent(id).then(data => {
+      //   return new Promise(resolve => {
+      //     if (data) {
+      //       this.content = data
+      //       resolve()
+      //     }
+      //   })
+      // })
+    },
+    updateScroll () {
+      this.$refs.scroll && this.$refs.scroll.update()
+    }
   }
-};
+}
 </script>
 <style lang="stylus" scoped>
-.loading
-  display flex
-  height 10rem
-  justify-content center
-  align-items center
-.book-content 
-  padding: 0.2rem 0.2rem 3rem .2rem;
+.loading {
+  display: flex;
+  height: 10rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.book-content {
+  padding: 0.2rem 0.2rem 3rem 0.2rem;
   width: 100%;
   overflow: hidden;
-  .book-item 
+
+  .book-item {
     position: relative;
     display: inline-block;
     float: left;
@@ -102,25 +105,30 @@ export default {
     height: 0;
     padding-bottom: 45%;
     overflow: hidden;
-    .book-cover 
+
+    .book-cover {
       position: absolute;
       top: 0;
       width: 100%;
       border: 0.02rem solid #ccc;
-    .book-text 
+    }
+
+    .book-text {
       position: absolute;
       bottom: 0;
       width: 100%;
       text-align: center;
       line-height: 0.3rem;
       font-size: 0.16rem;
-  .item-bottom 
+    }
+  }
+
+  .item-bottom {
     float: left;
     width: 100%;
     font-size: 0.24rem;
     color: #ccc;
     text-align: center;
-
-  
-
+  }
+}
 </style>

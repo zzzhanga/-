@@ -1,6 +1,6 @@
 <template>
-  <cube-slide ref="slide" :data="cardItem" :loop="true"  :auto-play="false" :showDots="false">
-    <cube-slide-item class="slide-card" v-for="(item, index) in cardItem" :key="index" >
+  <cube-slide ref="slide" :data="cardItem" :loop="true" :auto-play="false" :showDots="false">
+    <cube-slide-item class="slide-card" v-for="(item, index) in cardItem" :key="index">
       <router-link :to="item.linkUrl">
         <img class="swiper-img" :src="item.imgUrl">
       </router-link>
@@ -10,26 +10,23 @@
 
 <script>
 export default {
-  name: "FindCard",
+  name: 'FindCard',
   props: {
     cardItem: Array
-  },
-  data() {
-    return {
-    };
-  },
-  methods: {
   }
-};
+}
 </script>
 <style lang="stylus" scoped>
-.slide-card 
-  height: 80vh;
-  display flex
-  justify-content center
-  .swiper-img 
-    width auto
-    height auto
-    max-width 100%
-    max-height 100%
+.slide-card {
+  height: 84vh;
+  display: flex;
+  justify-content: center;
+
+  .swiper-img {
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: 100%;
+  }
+}
 </style>
