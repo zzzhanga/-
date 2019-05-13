@@ -321,7 +321,6 @@ export default {
     fifteen: function () {
       setTimeout(() => {
         this.$refs.voice.pause()
-        this.playStatu = false
       }, 2000)
       this.show = !this.show
     }
