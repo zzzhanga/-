@@ -57,27 +57,20 @@ export default {
 }
 </script>
 <style lang='stylus' scoped>
-@import '~styles/variable.styl';
+@import '~styles/variable.styl'
 
-.history-header {
-  display: flex;
-  height: 1rem;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 0.2rem;
-  font-size: 0.24rem;
-
-  :nth-child(2) {
-    color: $Color;
-  }
-}
-
-.content {
-  padding: 0.1rem;
-
-  .items {
-    font-size: 0.24rem;
-    padding: 0.4rem 0.2rem;
-  }
-}
+.history-header
+  display: flex
+  height: 1rem
+  justify-content: space-between
+  align-items: center
+  padding: 0 0.2rem
+  font-size: 0.24rem
+  :nth-child(2)
+    color: $Color
+.content
+  padding: 0.1rem
+  .items
+    font-size: 0.24rem
+    padding: 0.4rem 0.2rem
 </style>

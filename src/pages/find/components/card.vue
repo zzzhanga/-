@@ -17,16 +17,13 @@ export default {
 }
 </script>
 <style lang="stylus" scoped>
-.slide-card {
-  height: 84vh;
-  display: flex;
-  justify-content: center;
-
-  .swiper-img {
-    width: auto;
-    height: auto;
-    max-width: 100%;
-    max-height: 100%;
-  }
-}
+.slide-card
+  height: 84vh
+  display: flex
+  justify-content: center
+  .swiper-img
+    width: auto
+    height: auto
+    max-width: 100%
+    max-height: 100%
 </style>

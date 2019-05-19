@@ -84,51 +84,40 @@ export default {
 }
 </script>
 <style lang="stylus" scoped>
-.loading {
-  display: flex;
-  height: 10rem;
-  justify-content: center;
-  align-items: center;
-}
-
-.book-content {
-  padding: 0.2rem 0.2rem 3rem 0.2rem;
-  width: 100%;
-  overflow: hidden;
-
-  .book-item {
-    position: relative;
-    display: inline-block;
-    float: left;
-    margin: 0.2rem 0.2rem 0.4rem 0.2rem;
-    width: 26%;
-    height: 0;
-    padding-bottom: 45%;
-    overflow: hidden;
-
-    .book-cover {
-      position: absolute;
-      top: 0;
-      width: 100%;
-      border: 0.02rem solid #ccc;
-    }
-
-    .book-text {
-      position: absolute;
-      bottom: 0;
-      width: 100%;
-      text-align: center;
-      line-height: 0.3rem;
-      font-size: 0.16rem;
-    }
-  }
-
-  .item-bottom {
-    float: left;
-    width: 100%;
-    font-size: 0.24rem;
-    color: #ccc;
-    text-align: center;
-  }
-}
+.loading
+  display: flex
+  height: 10rem
+  justify-content: center
+  align-items: center
+.book-content
+  margin: 0.2rem 0.2rem 3rem 0.2rem
+  width: 100%
+  overflow: hidden
+  .book-item
+    position: relative
+    display: inline-block
+    float: left
+    margin: 0.2rem 0.2rem 0.4rem 0.2rem
+    width: 26%
+    height: 0
+    padding-bottom: 45%
+    overflow: hidden
+    .book-cover
+      position: absolute
+      top: 0
+      width: 100%
+      border: 0.02rem solid #ccc
+    .book-text
+      position: absolute
+      bottom: 0
+      width: 100%
+      text-align: center
+      line-height: 0.3rem
+      font-size: 0.16rem
+  .item-bottom
+    float: left
+    width: 100%
+    font-size: 0.24rem
+    color: #ccc
+    text-align: center
 </style>

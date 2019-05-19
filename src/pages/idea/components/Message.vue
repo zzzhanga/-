@@ -51,33 +51,25 @@ export default {
 }
 </script>
 <style lang="stylus" scoped>
-@import '~styles/variable.styl';
+@import '~styles/variable.styl'
 
-.message {
-  .message-item {
-    width: 100%;
-    height: 2rem;
-    display: flex;
-    margin-top: 0.2rem;
-
-    .message-title {
-      flex: 1;
-      font-size: 0.24rem;
-      line-height: 0.4rem;
-      margin: 0.4rem 0.6rem 0.2rem 0.2rem;
-    }
-
-    .message-img {
-      width: 2rem;
-      padding: 0.2rem;
-    }
-  }
-
-  .message-updata {
-    line-height: 0.8rem;
-    font-size: 0.2rem;
-    text-align: center;
-    color: $Color;
-  }
-}
+.message
+  .message-item
+    width: 100%
+    height: 2rem
+    display: flex
+    margin-top: 0.2rem
+    .message-title
+      flex: 1
+      font-size: 0.24rem
+      line-height: 0.4rem
+      margin: 0.4rem 0.6rem 0.2rem 0.2rem
+    .message-img
+      width: 2rem
+      padding: 0.2rem
+  .message-updata
+    line-height: 0.8rem
+    font-size: 0.2rem
+    text-align: center
+    color: $Color
 </style>

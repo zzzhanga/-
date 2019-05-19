@@ -12,12 +12,11 @@
         <information-bar></information-bar>
       </cube-scroll>
     </div>
-    <tab-bar></tab-bar>
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-import TabBar from './../../components/TabBar'
 import Search from './../../components/Search'
 import MineInfo from './components/info'
 import InformationBar from './components/InformationBar'
@@ -33,7 +32,6 @@ export default {
     }
   },
   components: {
-    TabBar,
     Search,
     MineInfo,
     InformationBar
@@ -51,7 +49,7 @@ export default {
       }
     },
     goSetting () {
-      this.$router.push('/setting')
+      this.$router.push('/mine/setting')
     }
   },
   mounted () {
@@ -60,16 +58,15 @@ export default {
 }
 </script>
 <style lang='stylus' scoped>
-.mine-header >>> .mine-navbar-center {
-  text-align: center;
-}
+.mine-header >>> .mine-navbar-center
+  text-align: center
 
-.wrapper {
-  position: absolute;
-  top: 8vh;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  overflow: hidden;
-}
+.wrapper
+  position: absolute
+  top: 8vh
+  left: 0
+  right: 0
+  bottom: 0
+  overflow: hidden
+
 </style>

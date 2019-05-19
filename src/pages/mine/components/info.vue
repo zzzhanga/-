@@ -19,31 +19,22 @@ export default {
 }
 </script>
 <style lang="stylus"  scoped>
-.mine-info {
-  margin-top: 1rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-  .info-avator {
-    display: flex;
-    align-items: center;
-    width: 1.5rem;
-    height: 1.5rem;
-
-    .avator-img {
-      border-radius: 50%;
-      width: 100%;
-    }
-
-    .detail-enter {
-      margin-left: 2rem;
-    }
-  }
-
-  .mine-signature {
-    margin-top: 0.5rem;
-    color: #999;
-  }
-}
+.mine-info
+  margin-top: 1rem
+  display: flex
+  flex-direction: column
+  align-items: center
+  .info-avator
+    display: flex
+    align-items: center
+    width: 1.5rem
+    height: 1.5rem
+    .avator-img
+      border-radius: 50%
+      width: 100%
+    .detail-enter
+      margin-left: 2rem
+  .mine-signature
+    margin-top: 0.5rem
+    color: #999
 </style>

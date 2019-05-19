@@ -68,50 +68,36 @@ export default {
 }
 </script>
 <style lang="stylus"  scoped>
-.information-bar {
-  margin-top: 0.4rem;
-  padding-bottom: 1rem;
-}
+.information-bar
+  margin-top: 0.4rem
+  padding-bottom: 1rem
 
-.information-bar section:nth-child(2n+1) {
-  border-top: 0.15rem solid #dcdcdc;
-}
+.information-bar section:nth-child(2n+1)
+  border-top: 0.15rem solid #dcdcdc
 
-.information-bar section:last-child {
-  border-bottom: 0.15rem solid #dcdcdc;
-}
+.information-bar section:last-child
+  border-bottom: 0.15rem solid #dcdcdc
 
-.bar-item {
-  padding: 0.4rem 0.2rem;
-  width: 100%;
-  background: #fff;
-  display: flex;
-  justify-content: space-between;
-  box-sizing: border-box;
-
-  .bar-left {
-    margin-left: 0.2rem;
-    overflow: hidden;
-    line-height: 0.8rem;
-
-    .bar-icon {
-      width: 0.4rem;
-      height: 0.4rem;
-    }
-
-    .bar-name {
-      margin-left: 0.4rem;
-    }
-  }
-
-  .bar-right {
-    text-align: right;
-    line-height: 0.8rem;
-
-    .bar-second {
-      font-size: 0.2rem;
-      color: #999;
-    }
-  }
-}
+.bar-item
+  padding: 0.4rem 0.2rem
+  width: 100%
+  background: #fff
+  display: flex
+  justify-content: space-between
+  box-sizing: border-box
+  .bar-left
+    margin-left: 0.2rem
+    overflow: hidden
+    line-height: 0.8rem
+    .bar-icon
+      width: 0.4rem
+      height: 0.4rem
+    .bar-name
+      margin-left: 0.4rem
+  .bar-right
+    text-align: right
+    line-height: 0.8rem
+    .bar-second
+      font-size: 0.2rem
+      color: #999
 </style>

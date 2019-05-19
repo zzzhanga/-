@@ -470,6 +470,7 @@ export default {
         color #ccc
     .discuss
         margin-top .8rem
+        margin-bottom .8rem
         .book-review
           text-indent 1em
         .discuss-item
@@ -478,6 +479,7 @@ export default {
             justify-content space-between
             padding 0 .2rem
             margin-top .4rem
+            margin-bottom .4rem
             .portrait
                 flex 1
                 width .5rem

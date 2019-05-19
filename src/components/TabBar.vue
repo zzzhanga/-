@@ -1,6 +1,6 @@
 <template>
   <div class="bottom-bar border-top-1px">
-    <router-link to="/" class="bar-item">
+    <router-link to="/find" class="bar-item">
       <i class="iconfont">&#xe663;</i>
       <span class="item-text">发现</span>
     </router-link>
@@ -30,38 +30,29 @@ export default {
 }
 </script>
 <style lang="stylus" scoped>
-@import "~styles/variable";
+@import "~styles/variable"
 
-.bottom-bar {
-  position: fixed;
-  bottom: 0;
-  width: 100vw;
-  height: 8vh;
-  display: flex;
-  text-align: center;
-  color: #000;
-  background: #fff;
-  z-index: 1;
-
-  .router-link-exact-active {
-    color: $Color;
-  }
-
-  .bar-item {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-
-    .iconfont {
-      font-size: 0.5rem;
-      margin-bottom: 0.1rem;
-    }
-
-    .item-text {
-      font-size: 0.22rem;
-    }
-  }
-}
+.bottom-bar
+  position: fixed
+  bottom: 0
+  width: 100%
+  height: 8vh
+  display: flex
+  text-align: center
+  color: #000
+  background: #fff
+  z-index: 1
+  .bar-item
+    flex: 1
+    display: flex
+    justify-content: center
+    flex-direction: column
+    align-items: center
+    &.router-link-active
+      color: $Color
+    .iconfont
+      font-size: 0.5rem
+      margin-bottom: 0.1rem
+    .item-text
+      font-size: 0.22rem
 </style>

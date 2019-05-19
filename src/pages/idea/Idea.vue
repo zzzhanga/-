@@ -10,12 +10,11 @@
         <discuss :speak="speak"></discuss>
       </cube-scroll>
     </div>
-    <tab-bar></tab-bar>
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-import TabBar from './../../components/TabBar'
 import Message from './components/Message'
 import Discuss from './components/Discuss'
 import axios from 'axios'
@@ -35,8 +34,7 @@ export default {
   },
   components: {
     Message,
-    Discuss,
-    TabBar
+    Discuss
   },
   methods: {
     getIdeaInfo () {
@@ -60,7 +58,7 @@ export default {
       }, 1000)
     },
     goTo () {
-      this.$router.push('/ideawrite')
+      this.$router.push('/idea/ideawrite')
     }
   },
   mounted () {
@@ -69,28 +67,22 @@ export default {
 }
 </script>
 <style lang="stylus" scoped>
-.scroll-list-wrap {
-  height: 90vh;
-}
+.scroll-list-wrap
+  height: 90vh
+.head
+  position: relative
+  z-index: 1
+  top: 0
+  background: #fff
+  width: 100%
+  line-height: 1rem
+  text-align: center
+  overflow: hidden
+  .icon
+    margin-right: 0.2rem
+    font-size: 0.4rem
+    float: right
+.message
+  height: 8rem
 
-.head {
-  position: relative;
-  z-index: 1;
-  top: 0;
-  background: #fff;
-  width: 100%;
-  line-height: 1rem;
-  text-align: center;
-  overflow: hidden;
-
-  .icon {
-    margin-right: 0.2rem;
-    font-size: 0.4rem;
-    float: right;
-  }
-}
-
-.message {
-  height: 8rem;
-}
 </style>

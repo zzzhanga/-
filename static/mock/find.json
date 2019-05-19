@@ -316,7 +316,7 @@
     ],
     "cardItem": [{
         "id": "0001",
-        "linkUrl": "/detail",
+        "linkUrl": "/find/detail",
         "imgUrl": "../../../static/image/banner1.png"
       },
       {

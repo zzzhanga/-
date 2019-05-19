@@ -1,17 +1,18 @@
 <template>
   <div>
-    <search class="header" v-show="visible">
-      <span class="iconfont search" slot="left" @click="goToSearch">&#xe634;</span>
-      <span class="icon-center" slot="center" @click="goToSearch">三体</span>
-      <i class="icon-right" slot="right">|&nbsp;&nbsp;书城</i>
-    </search>
-    <find-card :cardItem.sync="cardItem"></find-card>
-    <tab-bar></tab-bar>
+    <div class="find">
+      <search class="header" v-show="visible">
+        <router-link class="iconfont search" slot="left" to="find/like">&#xe634;</router-link>
+        <router-link class="icon-center" slot="center" to="find/like">三体</router-link>
+        <i class="icon-right" slot="right">|&nbsp;&nbsp;书城</i>
+      </search>
+      <find-card :cardItem.sync="cardItem"></find-card>
+    </div>
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-import TabBar from './../../components/TabBar'
 import Search from './../../components/Search'
 import FindCard from './components/card'
 import axios from 'axios'
@@ -19,7 +20,6 @@ export default {
   name: 'Find',
   data () {
     return {
-      link: '/like/',
       cardItem: [],
       msg: '',
       visible: true
@@ -27,13 +27,9 @@ export default {
   },
   components: {
     Search,
-    FindCard,
-    TabBar
+    FindCard
   },
   methods: {
-    goToSearch () {
-      this.$router.push('/like')
-    },
     // API
     show () {
       this.visible = true

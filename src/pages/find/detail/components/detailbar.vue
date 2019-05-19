@@ -38,11 +38,11 @@ export default {
 }
 </script>
 <style lang="stylus" scoped>
-@import '~styles/variable.styl';
+@import '~styles/variable.styl'
 .footer
   position: fixed
   bottom: 0
-  z-index: 1
+  z-index: 2
   display: flex
   justify-content: space-between
   width: 100%

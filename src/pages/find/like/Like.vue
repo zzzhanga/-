@@ -1,8 +1,8 @@
 <!--  -->
 <template>
-  <div>
-    <like-search class="like-search"></like-search>
-    <div class="like">
+  <div class="like">
+    <like-search class="search"></like-search>
+    <div class="scroll">
       <cube-scroll ref="scroll">
         <like-guess></like-guess>
         <like-history></like-history>
@@ -25,20 +25,25 @@ export default {
 }
 </script>
 <style lang='stylus' scoped>
-.like-search {
-  position: fixed;
-  top: 0;
-  z-index: 1;
-  width: 100%;
-}
-
-.like {
-  position: absolute;
-  top: 1.5rem;
-  left: 0;
-  right: 0;
-  bottom: 0;
+.like
+  position fixed
+  top 0
+  left 0
+  right 0
+  bottom 0
+  z-index 2
+  background #fff
+.search
+  position: fixed
+  top: 0
+  z-index: 1
+  width: 100%
+.scroll
+  position: absolute
+  top: 1.5rem
+  left: 0
+  right: 0
+  bottom: 0
   z-index 0
-  overflow: hidden;
-}
+  overflow: hidden
 </style>

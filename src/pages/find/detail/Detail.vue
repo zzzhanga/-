@@ -1,6 +1,6 @@
 <!--  -->
 <template>
-  <div>
+  <div class="detail">
     <header class="header">
       <span class="cubeic-back" slot="left" @click="goBack"></span>
       <span class="cubeic-person" slot="right"></span>
@@ -55,6 +55,15 @@ export default {
 }
 </script>
 <style lang='stylus' scoped>
+.detail
+  position fixed
+  top 0
+  left 0
+  right 0
+  bottom 0
+  z-index 2
+  background #fff
+
 .header
   line-height 1rem
   display flex

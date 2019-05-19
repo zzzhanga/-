@@ -1,59 +1,79 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-
+const FIND = () => import('@/pages/find/Find')
+const BOOK = () => import('@/pages/bookshelf/Bookshelf')
+const IDEA = () => import('@/pages/idea/Idea')
+const MINE = () => import('@/pages/mine/Mine')
+const LIKE = () => import('@/pages/find/like/Like')
+const DETAIL = () => import('@/pages/find/detail/Detail')
+const BOOKDETAIL = () => import('@/pages/bookshelf/bookdetail')
+const IDEAWRITE = () => import('@/pages/idea/ideawrite')
+const LISTENER = () => import('@/components/listener')
+const SETTING = () => import('@/pages/mine/setting/setting')
 Vue.use(Router)
 
 export default new Router({
-  routes: [{
-    path: '/',
-    name: 'Find',
-    component: () => import('@/pages/find/Find')
-  },
-  {
-    path: '/book',
-    name: 'Book',
-    component: () => import('@/pages/bookshelf/Bookshelf')
-  },
-  {
-    path: '/idea',
-    name: 'Idea',
-    component: () => import('@/pages/idea/Idea')
-  },
-  {
-    path: '/mine',
-    name: 'Mine',
-    component: () => import('@/pages/mine/Mine')
-  },
-  {
-    path: '/like',
-    name: 'Like',
-    component: () => import('@/pages/find/like/Like')
-  },
-  {
-    path: '/detail',
-    name: 'Detail',
-    component: () => import('@/pages/find/detail/Detail')
-  },
-  {
-    path: '/bookdetail/:id',
-    name: 'BookDetail',
-    component: () => import('@/pages/bookshelf/bookdetail')
-  },
-  {
-    path: '/ideawrite',
-    name: 'IdeaWrite',
-    component: () => import('@/pages/idea/ideawrite')
-  },
-  {
-    path: '/listener',
-    name: 'Listener',
-    component: () => import('@/components/listener')
-  },
-  {
-    path: '/setting',
-    name: 'Setting',
-    component: () => import('@/pages/mine/setting/setting')
-  }
+  routes: [
+    {
+      path: '/',
+      redirect: '/find'
+    },
+    {
+      path: '/find',
+      name: 'FIND',
+      component: FIND,
+      children: [
+        {
+          path: 'like',
+          name: 'Like',
+          component: LIKE
+        },
+        {
+          path: 'detail',
+          name: 'Detail',
+          component: DETAIL
+        }
+      ]
+    },
+    {
+      path: '/book',
+      name: 'Book',
+      component: BOOK
+    },
+    {
+      path: '/idea',
+      name: 'Idea',
+      component: IDEA,
+      children: [
+        {
+          path: 'ideawrite',
+          name: 'IdeaWrite',
+          component: IDEAWRITE
+        }
+      ]
+    },
+    {
+      path: '/mine',
+      name: 'Mine',
+      component: MINE,
+      children: [
+        {
+          path: 'setting',
+          name: 'Setting',
+          component: SETTING
+        }
+      ]
+    },
+    {
+      path: '/bookdetail/:id',
+      name: 'BookDetail',
+      component: BOOKDETAIL
+    },
+    {
+      path: '/listener',
+      name: 'Listener',
+      component: LISTENER
+    }
   ],
   scrollBehavior (to, from, savedPosition) {
     return {

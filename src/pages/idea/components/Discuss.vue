@@ -47,7 +47,7 @@ export default {
 }
 </script>
 <style lang="stylus" scoped>
-@import '~styles/mixin.styl';
+@import '~styles/mixin.styl'
 
 .discuss
     background #F5F5F5
@@ -57,6 +57,7 @@ export default {
         overflow hidden
         padding .2rem
         margin-top .2rem
+        margin-bottom .2rem
         background #fff
         .item-top
             line-height .8rem

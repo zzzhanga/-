@@ -10,12 +10,10 @@
         <book-content :booklist="booklist"></book-content>
       </cube-scroll>
     </div>
-    <tab-bar></tab-bar>
   </div>
 </template>
 
 <script>
-import TabBar from './../../components/TabBar'
 import Search from './../../components/Search'
 import BookContent from './components/BookContent'
 import axios from 'axios'
@@ -29,8 +27,7 @@ export default {
   },
   components: {
     Search,
-    BookContent,
-    TabBar
+    BookContent
   },
   methods: {
     getFindInfo () {
@@ -50,34 +47,28 @@ export default {
 }
 </script>
 <style lang="stylus" scoped>
-.header >>> .mine-navbar {
-  margin: 0 0.2rem;
-  height: 0.6rem;
-  border: 1px solid #ccc;
-  border-radius: 0.8rem;
-}
+.header >>> .mine-navbar
+  margin: 0 0.2rem
+  height: 0.6rem
+  border: 1px solid #ccc
+  border-radius: 0.8rem
+.header >>> .mine-navbar-center
+  float: left
+#header
+  position: absolute
+  z-index: 1
+  top: 0
+  background: #fff
+  width: 100%
+  line-height: 0.6rem
+  text-align: center
+  font-size: 0.32rem
+.wrapper
+  position: absolute
+  top: 1rem
+  left: 0
+  right: 0
+  bottom: 0
+  overflow: hidden
 
-.header >>> .mine-navbar-center {
-  float: left;
-}
-
-#header {
-  position: absolute;
-  z-index: 1;
-  top: 0;
-  background: #fff;
-  width: 100%;
-  line-height: 0.6rem;
-  text-align: center;
-  font-size: 0.32rem;
-}
-
-.wrapper {
-  position: absolute;
-  top: 1rem;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  overflow: hidden;
-}
 </style>

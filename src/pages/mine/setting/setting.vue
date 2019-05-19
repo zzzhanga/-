@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="setting">
     <div class="header border-bottom-1px">
       <i class="cubeic-back" @click="goBack"></i>
       <p class="header-title">设置</p>
@@ -129,71 +129,64 @@ export default {
 </script>
 
 <style lang='stylus' scoped>
-.header {
-  display: flex;
-  line-height: 1rem;
+.setting
+  position fixed
+  top 0
+  left 0
+  right 0
+  bottom 0
+  z-index 2
+  background #fff
+.header
+  display: flex
+  line-height: 1rem
+  .cubeic-back
+    margin-left: 0.2rem
+    font-size: 0.32rem
+    flex: 1
+  &-title
+    flex: 8
+    text-align: center
+    margin-right: 0.2rem
+.scroll-wrapper
+  height: 92vh
 
-  .cubeic-back {
-    margin-left: 0.2rem;
-    font-size: 0.32rem;
-    flex: 1;
-  }
+.hr, .hr1
+  background: #ccc
+  height: 0.1rem
+  width: 100%
 
-  &-title {
-    flex: 8;
-    text-align: center;
-    margin-right: 0.2rem;
-  }
-}
+.hr1
+  height: 0.2rem
 
-.scroll-wrapper {
-  height: 92vh;
-}
+.log-out
+  width: 100%
+  display: felx
+  justify-content: center
+  align-items: center
+  background: #fff
+  color: #FF0033
 
-.hr, .hr1 {
-  background: #ccc;
-  height: 0.1rem;
-  width: 100%;
-}
+.item
+  display: flex
+  justify-content: space-between
+  align-items: center
+  height: 1.5rem
+  margin: 0 0.2rem
 
-.hr1 {
-  height: 0.2rem;
-}
-
-.log-out {
-  width: 100%;
-  display: felx;
-  justify-content: center;
-  align-items: center;
-  background: #fff;
-  color: #FF0033;
-}
-
-.item {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  height: 1.5rem;
-  margin: 0 0.2rem;
-
-  .flipWay {
-    margin-top: 0.2rem;
-    height: 0.8rem;
-  }
-
-  .item-flex {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    color: #666;
-    font-size: 0.2rem;
-    line-height: 0.24rem;
-
-    .title {
-      font-size: 0.28rem;
-      color: #333;
-      margin-bottom: 0.2rem;
-    }
-  }
-}
+  .flipWay
+    margin-top: 0.2rem
+    margin-bottom: 0.2rem
+    height: 0.8rem
+  .item-flex
+    display: flex
+    flex-direction: column
+    justify-content: space-around
+    color: #666
+    font-size: 0.2rem
+    line-height: 0.24rem
+    .title
+      font-size: 0.28rem
+      color: #333
+      margin-bottom: 0.2rem
 </style>

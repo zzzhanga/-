@@ -102,39 +102,30 @@ export default {
 }
 </script>
 <style lang="stylus" scoped>
-@import '~styles/variable.styl';
+@import '~styles/variable.styl'
 
-.header {
-  padding: 0 0.2rem;
-  font-size: 0.24rem;
-  display: flex;
-  justify-content: space-between;
-
-  span:last-child {
-    color: $Color;
-  }
-}
-
-.container {
-  margin-top: 0.2rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  height: 6rem;
-  overflow: hidden;
-
-  .swipe-item-wrapper {
-    flex: 1;
-    width: 100%;
-    height: 1.8rem;
-    margin-top: 0.2rem;
-
-    img {
-      max-width: 100%;
-      max-height: 100%;
-      width: auto;
-      height: auto;
-    }
-  }
-}
+.header
+  padding: 0 0.2rem
+  font-size: 0.24rem
+  display: flex
+  justify-content: space-between
+  & span:last-child
+    color: $Color
+.container
+  margin-top: 0.2rem
+  display: flex
+  flex-direction: column
+  align-items: center
+  height: 6rem
+  overflow: hidden
+  .swipe-item-wrapper
+    flex: 1
+    width: 100%
+    height: 1.8rem
+    margin-top: 0.2rem
+    img
+      max-width: 100%
+      max-height: 100%
+      width: auto
+      height: auto
 </style>

@@ -119,66 +119,48 @@ export default {
 <style lang="stylus" scoped>
 @import '~styles/variable.styl';
 
-.header >>> .mine-navbar {
-  width: 100%;
-  border-radius: 0.8rem;
-  background: #f5f5f5;
-  height: 0.6rem;
-}
+.header >>> .mine-navbar
+  width: 100%
+  border-radius: 0.8rem
+  background: #f5f5f5
+  height: 0.6rem
+.head
+  margin-top: 0.2rem
+  display: flex
+  overflow: hidden
+  .cubeic-back
+    font-size: 0.5rem
+    line-height: 0.6rem
+    color: #999
+    margin: 0 0.2rem
+  .header
+    flex: 1
+    display: flex
+    float: right
+    border: 1px solid #ccc
+    border-radius: 1rem
+    margin-right: 0.2rem
+    .icon-center
+      background: #f5f5f5
+    .cubeic-search
+      font-size: 0.4rem
+      color: #999
+.search-content
+  z-index: 2
+  line-height: 1rem
+  min-height: 99vh
+  background: #fff
+.search-item
+  margin-top: 0.4rem
+  text-indent: 0.1rem
+  img
+    width: auto
+    max-width: 100%
+.none
+  color: $Color
+  font-size: 0.24rem
+  width: 100%
+  text-align: center
+  line-height: 1rem
 
-.head {
-  margin-top: 0.2rem;
-  display: flex;
-  overflow: hidden;
-
-  .cubeic-back {
-    font-size: 0.5rem;
-    line-height: 0.6rem;
-    color: #999;
-    margin: 0 0.2rem;
-  }
-
-  .header {
-    flex: 1;
-    display: flex;
-    float: right;
-    border: 1px solid #ccc;
-    border-radius: 1rem;
-    margin-right: 0.2rem;
-
-    .icon-center {
-      background: #f5f5f5;
-    }
-
-    .cubeic-search {
-      font-size: 0.4rem;
-      color: #999;
-    }
-  }
-}
-
-.search-content {
-  z-index: 2;
-  line-height: 1rem;
-  min-height: 99vh;
-  background: #fff;
-}
-
-.search-item {
-  margin-top: 0.4rem;
-  text-indent: 0.1rem;
-
-  img {
-    width: auto;
-    max-width: 100%;
-  }
-}
-
-.none {
-  color: $Color;
-  font-size: 0.24rem;
-  width: 100%;
-  text-align: center;
-  line-height: 1rem;
-}
 </style>

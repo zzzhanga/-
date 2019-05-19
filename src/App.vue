@@ -3,16 +3,19 @@
     <keep-alive include="bookdetail,idea,Listener">
       <router-view/>
     </keep-alive>
+    <tab-bar/>
     <listener></listener>
   </div>
 </template>
 
 <script>
 import Listener from './components/listener.vue'
+import TabBar from './components/TabBar'
 export default {
   name: 'App',
   components: {
-    Listener
+    Listener,
+    TabBar
   }
 }
 </script>
