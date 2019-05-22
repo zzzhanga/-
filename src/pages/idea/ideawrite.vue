@@ -2,7 +2,7 @@
 <template>
   <div class="ideawrite">
     <div class="wrapper">
-      <textarea cols="49" rows="40" placeholder="写下这一刻的想法..." maxlength="140"></textarea>
+      <textarea cols="49" rows="40" placeholder="写下这一刻的想法..." maxlength="140" v-model="write"></textarea>
     </div>
     <footer class="footer border-top-1px">
       <div class="back" @click="goBack">
@@ -24,7 +24,8 @@
 <script>
 export default {
   data () {
-    return {}
+    return {
+    }
   },
   methods: {
     goBack () {

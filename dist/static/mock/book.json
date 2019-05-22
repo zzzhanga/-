@@ -252,7 +252,7 @@
             "txt":""
         }],
         "bookTxt":[
-                {
+            {
                 "id":"0001",
                 "img":"../../../static/image/detail1.png",
                 "name":"给予者",
