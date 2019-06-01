@@ -1,50 +1,53 @@
 <!--  -->
 <template>
-  <div>
-    <div class="book-text" ref="wrapper">
-      <cube-scroll ref="scroll" :options="options">
-        <div v-for="item of this.bookTxt" :key="item.id">
-          <header class="header border">
-            <div class="header-img">
-              <img :src="item.img" alt>
-            </div>
-            <p class="name">{{item.name}}</p>
-            <p class="autor">{{item.autor}}</p>
-          </header>
-          <section class="rating">
-            <div class="rating-detail">
-              <div class="detail-left">
-                <p class="left-one">
-                  <span class="num">{{item.num}}</span>
-                  <span class="grade">{{item.grade}}</span>
-                </p>
-                <p class="review">{{item.review}}</p>
+  <transition name="slide">
+    <div class="book-detail">
+      <div class="book-text" ref="wrapper">
+        <cube-scroll ref="scroll" :options="options">
+          <div v-for="item in bookTxt" :key="item.id">
+            <header class="header border">
+              <div class="header-img">
+                <img :src="item.img" alt>
               </div>
-              <div class="detail-right">
-                <p class="right-one">
-                  <span class="peoplenum">{{item.peoplenum}}</span>
-                  <span class="unit">{{item.unit}}</span>
-                </p>
-                <p class="read">{{item.read}}</p>
+              <p class="name">{{item.name}}</p>
+              <p class="autor">{{item.autor}}</p>
+            </header>
+            <section class="rating">
+              <div class="rating-detail">
+                <div class="detail-left">
+                  <p class="left-one">
+                    <span class="num">{{item.num}}</span>
+                    <span class="grade">{{item.grade}}</span>
+                  </p>
+                  <p class="review">{{item.review}}</p>
+                </div>
+                <div class="detail-right">
+                  <p class="right-one">
+                    <span class="peoplenum">{{item.peoplenum}}</span>
+                    <span class="unit">{{item.unit}}</span>
+                  </p>
+                  <p class="read">{{item.read}}</p>
+                </div>
               </div>
-            </div>
-            <div class="profile">
-              <h3>{{item.title}}</h3>
-              <p class="profile-content">{{item.profile}}</p>
-              <h4>第一章</h4>
-              <div class="neirong">{{item.content}}</div>
-            </div>
-          </section>
-        </div>
-      </cube-scroll>
+              <div class="profile">
+                <h3>{{item.title}}</h3>
+                <p class="profile-content">{{item.profile}}</p>
+                <h4>第一章</h4>
+                <div class="neirong">{{item.content}}</div>
+              </div>
+            </section>
+          </div>
+        </cube-scroll>
+      </div>
     </div>
-  </div>
+  </transition>
 </template>
 
 <script>
-import axios from 'axios'
+import {BookMixin} from '../../assets/js/axios'
 export default {
   name: 'bookdetail',
+  mixins: [BookMixin],
   data () {
     return {
       bookTxt: []
@@ -62,32 +65,28 @@ export default {
       }
     }
   },
-  methods: {
-    getDetailInfo () {
-      axios
-        .get('/static/mock/book.json', {
-          params: {
-            id: this.$route.params.id
-          }
-        })
-        .then(this.handleGetDataSucc)
-    },
-    handleGetDataSucc (res) {
-      res = res.data
-      if (res.ret && res.data) {
-        const data = res.data
-        this.bookTxt = data.bookTxt
-      }
-    }
-  },
   mounted () {
-    this.getDetailInfo()
+    this.getBookInfo()
   }
 }
 </script>
 <style lang="stylus" scoped>
 @import '~styles/mixin.styl'
+@import '~styles/variable.styl'
 
+.slide-enter-active,.slide-leave-active
+  transition all .3s
+
+.slide-enter,.slide-leave-to
+  transform translate3d(100%,0,0)
+.book-detail
+  position fixed
+  z-index 3
+  top 0
+  left 0
+  right 0
+  bottom 0
+  background $#ebe5b7
 .book-text
   position: absolute
   top: 0

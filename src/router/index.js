@@ -38,7 +38,14 @@ export default new Router({
     {
       path: '/book',
       name: 'Book',
-      component: BOOK
+      component: BOOK,
+      children: [
+        {
+          path: ':id',
+          name: 'BookDetail',
+          component: BOOKDETAIL
+        }
+      ]
     },
     {
       path: '/idea',
@@ -63,11 +70,6 @@ export default new Router({
           component: SETTING
         }
       ]
-    },
-    {
-      path: '/bookdetail/:id',
-      name: 'BookDetail',
-      component: BOOKDETAIL
     },
     {
       path: '/listener',

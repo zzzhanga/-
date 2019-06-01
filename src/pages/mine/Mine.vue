@@ -20,9 +20,10 @@
 import Search from './../../components/Search'
 import MineInfo from './components/info'
 import InformationBar from './components/InformationBar'
-import axios from 'axios'
+import {MineMixin} from '../../assets/js/axios'
 export default {
   name: 'Mine',
+  mixins: [MineMixin],
   data () {
     return {
       imgUrl: '',
@@ -37,23 +38,12 @@ export default {
     InformationBar
   },
   methods: {
-    getFindInfo () {
-      axios.get('/static/mock/mine.json').then(this.getFindInfoSucc)
-    },
-    getFindInfoSucc (res) {
-      res = res.data
-      if (res.ret && res.data) {
-        const data = res.data
-        this.imgUrl = data.imgUrl
-        this.signature = data.signature
-      }
-    },
     goSetting () {
       this.$router.push('/mine/setting')
     }
   },
   mounted () {
-    this.getFindInfo()
+    this.getMineInfo()
   }
 }
 </script>

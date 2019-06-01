@@ -1,30 +1,33 @@
 <!--  -->
 <template>
-  <div class="ideawrite">
-    <div class="wrapper">
-      <textarea cols="49" rows="40" placeholder="写下这一刻的想法..." maxlength="140" v-model="write"></textarea>
+  <transition name="slide">
+    <div class="ideawrite">
+      <div class="wrapper">
+        <textarea cols="49" rows="40" placeholder="写下这一刻的想法..." maxlength="140" v-model="write"></textarea>
+      </div>
+      <footer class="footer border-top-1px">
+        <div class="back" @click="goBack">
+          <i class="cubeic-close"></i>
+        </div>
+        <div class="menu">
+          <span class="iconfont iconbaocun"></span>
+          <span class="iconfont iconxiaolian" ></span>
+          <span class="iconfont iconshudian_caijishuju"></span>
+          <span class="iconfont iconT"></span>
+        </div>
+        <div class="submit">
+          <span class="iconfont iconsend"></span>
+        </div>
+      </footer>
     </div>
-    <footer class="footer border-top-1px">
-      <div class="back" @click="goBack">
-        <i class="cubeic-close"></i>
-      </div>
-      <div class="menu">
-        <span class="iconfont">&#xe794;</span>
-        <span class="iconfont">&#xe635;</span>
-        <span class="iconfont">&#xe65f;</span>
-        <span class="iconfont">&#xe600;</span>
-      </div>
-      <div class="submit">
-        <span class="iconfont">&#xe6ad;</span>
-      </div>
-    </footer>
-  </div>
+    </transition>
 </template>
 
 <script>
 export default {
   data () {
     return {
+      write: ''
     }
   },
   methods: {
@@ -36,6 +39,11 @@ export default {
 </script>
 <style lang="stylus" scoped>
 @import '~styles/variable.styl'
+.slide-enter-active,.slide-leave-active
+  transition all .3s
+
+.slide-enter,.slide-leave-to
+  transform translate3d(100%,0,0)
 .ideawrite
   position fixed
   top 0
@@ -77,5 +85,5 @@ export default {
     flex: 1
     span
       font-size: 0.4rem
-      color: $Color
+      color: $theme-color
 </style>

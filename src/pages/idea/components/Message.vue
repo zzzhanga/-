@@ -11,10 +11,11 @@
 </template>
 
 <script>
-import axios from 'axios'
+import {IdeaMixin} from '../../../assets/js/axios'
 
 export default {
   name: 'Message',
+  mixins: [IdeaMixin],
   data () {
     return {
       message: [],
@@ -32,17 +33,6 @@ export default {
       setTimeout(() => {
         this.getIdeaInfo()
       }, 200)
-    },
-    getIdeaInfo () {
-      axios.get('/static/mock/idea.json').then(this.getIdeaInfoSucc)
-    },
-    getIdeaInfoSucc (res) {
-      let i = Math.floor(Math.random() * 9)
-      res = res.data
-      if (res.ret && res.data) {
-        const data = res.data
-        this.message = data.message.splice(i, 3)
-      }
     }
   },
   mounted () {
@@ -71,5 +61,5 @@ export default {
     line-height: 0.8rem
     font-size: 0.2rem
     text-align: center
-    color: $Color
+    color: $theme-color
 </style>

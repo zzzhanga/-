@@ -2,7 +2,7 @@
   <div class="idea">
     <header class="head">
       想法
-      <span class="iconfont icon" @click="goTo">&#xe7b9;</span>
+      <span class="iconfont icon iconxie" @click="goTo"></span>
     </header>
     <div class="scroll-list-wrap">
       <cube-scroll ref="scroll" :data="speak" @pulling-up="onPullingUp" :options="options">
@@ -17,12 +17,13 @@
 <script>
 import Message from './components/Message'
 import Discuss from './components/Discuss'
-import axios from 'axios'
+import {IdeaMixin} from '../../assets/js/axios'
 
 let i = 0
 
 export default {
   name: 'idea',
+  mixins: [IdeaMixin],
   data () {
     return {
       speak: [],
@@ -37,17 +38,6 @@ export default {
     Discuss
   },
   methods: {
-    getIdeaInfo () {
-      axios.get('/static/mock/idea.json').then(this.getIdeaInfoSucc)
-    },
-    getIdeaInfoSucc (res) {
-      res = res.data
-      const data = res.data
-      if (res.ret && res.data) {
-        this.speak = data.items.splice(0, 5)
-        this.items = data.items
-      }
-    },
     onPullingUp () {
       setTimeout(() => {
         if (i >= 14) {
@@ -55,7 +45,7 @@ export default {
         }
         this.speak = this.speak.concat(this.items.slice(i, i + 5))
         i = i + 5
-      }, 1000)
+      }, 20)
     },
     goTo () {
       this.$router.push('/idea/ideawrite')

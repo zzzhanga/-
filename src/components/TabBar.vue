@@ -49,7 +49,7 @@ export default {
     flex-direction: column
     align-items: center
     &.router-link-active
-      color: $Color
+      color: $theme-color
     .iconfont
       font-size: 0.5rem
       margin-bottom: 0.1rem

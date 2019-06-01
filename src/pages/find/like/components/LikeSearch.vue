@@ -5,6 +5,7 @@
       <search class="header" v-show="visible">
         <span class="cubeic-search" slot="left"></span>
         <input
+          ref="input"
           type="text"
           class="icon-center"
           slot="center"
@@ -32,9 +33,10 @@
 <script>
 import Search from './../../../../components/Search'
 import { mapMutations } from 'vuex'
-import axios from 'axios'
+import {FindMixin} from '../../../../assets/js/axios'
 export default {
   name: 'FindHeader',
+  mixins: [FindMixin],
   data () {
     return {
       key: '',
@@ -55,24 +57,13 @@ export default {
   },
   methods: {
     goBack () {
-      this.$router.history.go(-1)
+      this.$router.back()
     },
     show (ev) {
       // 传递key值,因为历史记录里要用
       this.setKeyWord(this.key)
       this.key = ''
-    },
-    // 请求ajax
-    getFindInfo () {
-      axios.get('/static/mock/find.json').then(this.getFindInfoSucc)
-    },
-    // 获取服务端数据
-    getFindInfoSucc (res) {
-      res = res.data
-      if (res.ret && res.data) {
-        const data = res.data
-        this.Title = data.Title
-      }
+      this.$refs.input.blur()
     },
     ...mapMutations({
       setKeyWord: 'SET_KEY_WORD'
@@ -157,7 +148,7 @@ export default {
     width: auto
     max-width: 100%
 .none
-  color: $Color
+  color: $theme-color
   font-size: 0.24rem
   width: 100%
   text-align: center

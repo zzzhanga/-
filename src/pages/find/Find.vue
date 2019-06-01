@@ -15,9 +15,10 @@
 <script>
 import Search from './../../components/Search'
 import FindCard from './components/card'
-import axios from 'axios'
+import {FindMixin} from '../../assets/js/axios'
 export default {
   name: 'Find',
+  mixins: [FindMixin],
   data () {
     return {
       cardItem: [],
@@ -36,18 +37,6 @@ export default {
     },
     hide () {
       this.visible = false
-    },
-    getFindInfo () {
-      axios
-        .get('/static/mock/find.json', { timeout: 10000 })
-        .then(this.getFindInfoSucc, this.getFindInfoFailed)
-    },
-    getFindInfoSucc (res) {
-      res = res.data
-      if (res.ret && res.data) {
-        const data = res.data
-        this.cardItem = data.cardItem
-      }
     }
   },
   mounted () {
@@ -71,5 +60,5 @@ export default {
   width: 100%
   line-height: 1rem
 .icon-right
-  color: $Color
+  color: $theme-color
 </style>

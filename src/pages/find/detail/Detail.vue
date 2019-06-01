@@ -1,25 +1,28 @@
 <!--  -->
 <template>
-  <div class="detail">
-    <header class="header">
-      <span class="cubeic-back" slot="left" @click="goBack"></span>
-      <span class="cubeic-person" slot="right"></span>
-    </header>
-    <div class="wrapper">
-      <cube-scroll ref="scroll">
-        <detail-wonderful :detailList.sync="detailList" :detailItem.sync="detailItem"></detail-wonderful>
-      </cube-scroll>
+  <transition name="slide">
+    <div class="detail">
+      <header class="header">
+        <span class="cubeic-back" slot="left" @click="back"></span>
+        <span class="cubeic-person" slot="right"></span>
+      </header>
+      <div class="wrapper">
+        <cube-scroll ref="scroll">
+          <detail-wonderful :detailList.sync="detailList" :detailItem.sync="detailItem"></detail-wonderful>
+        </cube-scroll>
+      </div>
+      <detail-bar :songs.sync="songs"></detail-bar>
     </div>
-    <detail-bar :songs.sync="songs"></detail-bar>
-  </div>
+  </transition>
 </template>
 
 <script>
 import DetailWonderful from './components/wonderful'
 import DetailBar from './components/detailbar'
-import axios from 'axios'
+import {FindMixin} from '../../../assets/js/axios'
 export default {
   name: 'Detail',
+  mixins: [FindMixin],
   data () {
     return {
       detailList: {},
@@ -33,20 +36,8 @@ export default {
     DetailBar
   },
   methods: {
-    goBack () {
-      this.$router.push('/')
-    },
-    getFindInfo () {
-      axios.get('/static/mock/find.json').then(this.getFindInfoSucc)
-    },
-    getFindInfoSucc (res) {
-      res = res.data
-      if (res.ret && res.data) {
-        const data = res.data
-        this.detailList = data.detailList
-        this.detailItem = data.detailItem
-        this.songs = data.listenerItem
-      }
+    back () {
+      this.$router.back()
     }
   },
   mounted () {
@@ -55,6 +46,12 @@ export default {
 }
 </script>
 <style lang='stylus' scoped>
+.slide-enter-active,.slide-leave-active
+  transition all .3s
+
+.slide-enter,.slide-leave-to
+  transform translate3d(100%,0,0)
+
 .detail
   position fixed
   top 0

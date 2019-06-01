@@ -3,22 +3,24 @@
     <header id="header">书架</header>
     <div class="wrapper scroll-list-wrap">
       <cube-scroll ref="scroll">
-        <search>
-          <router-link to="/like" class="iconfont search" slot="left">&#xe634;</router-link>
-          <router-link to="/like" class="icon-center" slot="center">三体</router-link>
+        <search @click.native="goLike">
+          <span class="iconfont search" slot="left">&#xe634;</span>
+          <span class="icon-center" slot="center">三体</span>
         </search>
         <book-content :booklist="booklist"></book-content>
       </cube-scroll>
     </div>
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
 import Search from './../../components/Search'
 import BookContent from './components/BookContent'
-import axios from 'axios'
+import {BookMixin} from '../../assets/js/axios'
 export default {
   name: 'bookshelf',
+  mixins: [BookMixin],
   data () {
     return {
       booklist: [],
@@ -29,20 +31,13 @@ export default {
     Search,
     BookContent
   },
-  methods: {
-    getFindInfo () {
-      axios.get('/static/mock/book.json').then(this.getFindInfoSucc)
-    },
-    getFindInfoSucc (res) {
-      res = res.data
-      if (res.ret && res.data) {
-        const data = res.data
-        this.booklist = data.booklist
-      }
-    }
-  },
   mounted () {
-    this.getFindInfo()
+    this.getBookInfo()
+  },
+  methods: {
+    goLike () {
+      this.$router.push('/find/like')
+    }
   }
 }
 </script>
@@ -60,12 +55,12 @@ export default {
   top: 0
   background: #fff
   width: 100%
-  line-height: 0.6rem
+  line-height: 8vh
   text-align: center
   font-size: 0.32rem
 .wrapper
   position: absolute
-  top: 1rem
+  top: 8vh
   left: 0
   right: 0
   bottom: 0

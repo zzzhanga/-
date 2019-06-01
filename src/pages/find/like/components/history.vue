@@ -3,7 +3,7 @@
   <div class="history">
     <header class="history-header">
       <span>历史记录</span>
-      <span @click="clear">清空</span>
+      <span @click="showConfirm">清空</span>
     </header>
     <ul class="content">
       <li class="items" v-for="(item, index) of lis" :key="index">
@@ -39,9 +39,30 @@ export default {
       setKeyWord: 'SET_KEY_WORD'
     }),
     // 清空所有内容
-    clear: function () {
+    clear () {
       localStorage.clear()
       this.lis = []
+    },
+    showConfirm () {
+      this.$createDialog({
+        type: 'confirm',
+        content: '是否清空历史列表',
+        confirmBtn: {
+          text: '清空',
+          active: true,
+          disabled: false,
+          href: 'javascript:;'
+        },
+        cancelBtn: {
+          text: '取消',
+          active: false,
+          disabled: false,
+          href: 'javascript:;'
+        },
+        onConfirm: () => {
+          this.clear()
+        }
+      }).show()
     }
   },
   watch: {
@@ -67,7 +88,7 @@ export default {
   padding: 0 0.2rem
   font-size: 0.24rem
   :nth-child(2)
-    color: $Color
+    color: $theme-color
 .content
   padding: 0.1rem
   .items

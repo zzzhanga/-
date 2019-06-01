@@ -27,9 +27,10 @@
 </template>
 
 <script>
-import axios from 'axios'
+import {FindMixin} from '../../../../assets/js/axios'
 export default {
   name: 'LikeGuess',
+  mixins: [FindMixin],
   data () {
     return {
       guess: '猜你喜欢',
@@ -70,18 +71,6 @@ export default {
         this.$refs.swipeItem[index].shrink()
       }
     },
-    getFindInfo () {
-      axios.get('/static/mock/find.json').then(this.getFindInfoSucc)
-    },
-    getFindInfoSucc (res) {
-      res = res.data
-      if (res.ret && res.data) {
-        const data = res.data
-        this.guessItem = data.guessItem
-        this.Items = data.Items
-      }
-    },
-
     change: function () {
       // 当前显示的数组等于随机算出来的数组
       this.Items = this.changed
@@ -110,7 +99,7 @@ export default {
   display: flex
   justify-content: space-between
   & span:last-child
-    color: $Color
+    color: $theme-color
 .container
   margin-top: 0.2rem
   display: flex

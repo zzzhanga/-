@@ -125,7 +125,7 @@ export default {
       .autor
         margin-top: 0.2rem
         font-size: 0.24rem
-        color: $Color
+        color: $theme-color
       .text-detail
         margin-top: 0.3rem
         font-size: 0.24rem
@@ -226,7 +226,7 @@ export default {
       align-items: center
       height: 1rem
       background: #fff
-      color: $Color
+      color: $theme-color
       font-size: 0.24rem
       padding-bottom: 1rem
 </style>

@@ -3,14 +3,16 @@
   <div class="player" v-if="playlist.length>0">
     <transition
     name="normal"
+    appear
     @enter="enter"
     @after-enter="afterEnter"
     @leave="leave"
     @after-leave="afterLeave"
+    appear-active-class="normal-leave-to normal-enter-active"
     >
-      <div class="normal-player" @click="close()" v-show="fullScreen">
+      <div class="normal-player" @click="close" v-show="fullScreen">
         <div class="head">
-          <i class="cubeic-back" @click="back()"></i>
+          <i class="cubeic-back" @click="back"></i>
           <i class="iconfont" @click.stop="rate">&#xe632;</i>
         </div>
         <div class="scroll-list-wrap">
@@ -33,34 +35,14 @@
                     </div>
                   </div>
                   <div class="menu">
-                    <span class="iconfont">&#xe604;</span>
-                    <span class="iconfont" @click="rewind">&#xe661;</span>
+                    <span class="iconfont icongouwuche"></span>
+                    <span class="iconfont icondiyiyeshouyeshangyishou" @click="prev"></span>
                     <span class="iconfont" @click="togglePlaying" :class="playIcon"></span>
-                    <span class="iconfont" @click="forward">&#xe65e;</span>
-                    <span class="iconfont" @click.stop="timing">&#xe6c3;</span>
+                    <span class="iconfont iconzuihouyiyemoyexiayishou" @click="next"></span>
+                    <span class="iconfont icondingshi" @click.stop="timing"></span>
                   </div>
                 </nav>
               </div>
-            </div>
-            <div v-show="ratestatu" class="rate-setting">
-              <i class="cubeic-select rate-setting-down"></i>
-              <span class="rate-setting-title">语速设置</span>
-              <ul>
-                <li @click="one">1x</li>
-                <li @click="two">1.25x</li>
-                <li @click="three">1.5x</li>
-                <li @click="four">2x</li>
-              </ul>
-            </div>
-            <div v-show="show" class="timer">
-              <i class="cubeic-select timer-down"></i>
-              <span class="timer-title">定时关闭</span>
-              <ul>
-                <li>听完当前章节</li>
-                <li @click.stop="fifteen">2秒钟后</li>
-                <li>30分钟后</li>
-                <li>60分钟后</li>
-              </ul>
             </div>
             <div class="avator-info">
               <div class="avator">
@@ -71,12 +53,11 @@
                 <cube-button @click="attention">{{atten}}</cube-button>
               </div>
             </div>
-            <audio :src="currentSong.url" ref="voice" @timeupdate="mission" preload="auto"></audio>
-            <div class="publish border-bottom-1px">
+            <div class="publish">
               <span class="publish-time">{{currentSong.publishtime}}</span>
               <span class="listen-in">{{currentSong.listenin}}</span>
             </div>
-            <div class="discuss border-top-1px" >
+            <div class="discuss" v-if="currentSong.items">
               <h5 class="book-review">书评</h5>
               <ul>
                 <li class="discuss-item border-top" v-for="item of currentSong.items" :key="item.id">
@@ -97,6 +78,26 @@
         </div>
       </div>
     </transition>
+    <div v-show="show" class="timer" @click.stop>
+      <i class="cubeic-select timer-down" @click="close"></i>
+      <span class="timer-title">定时关闭</span>
+      <ul>
+        <li>听完当前章节</li>
+        <li @click.stop="fifteen">2秒钟后</li>
+        <li>30分钟后</li>
+        <li>60分钟后</li>
+      </ul>
+    </div>
+    <div v-show="ratestatu" class="rate-setting" @click.stop>
+      <i class="cubeic-select rate-setting-down" @click="close"></i>
+      <span class="rate-setting-title">语速设置</span>
+      <ul>
+        <li @click="one">1x</li>
+        <li @click="two">1.25x</li>
+        <li @click="three">1.5x</li>
+        <li @click="four">2x</li>
+      </ul>
+    </div>
     <transition name="mini">
       <div class="mini-player"  v-show="trigger" @click="open">
         <div class="icon" >
@@ -104,6 +105,7 @@
         </div>
       </div>
     </transition>
+    <audio :src="currentSong.url" ref="voice" @timeupdate="mission" preload="auto" @canplay="canplay"></audio>
   </div>
 </template>
 
@@ -123,8 +125,8 @@ export default {
       },
       show: false,
       ratestatu: false,
-      cTime: '',
-      dTime: '',
+      cTime: '00:00',
+      dTime: '00:00',
       atten: '关注'
     }
   },
@@ -136,11 +138,12 @@ export default {
       return this.playing ? 'play' : 'play pause'
     },
     playIcon () {
-      return this.playing ? 'iconpause' : 'iconbofang'
+      return this.playing ? 'iconzanting' : 'iconicon-bofang'
     },
     ...mapGetters([
       'fullScreen',
       'playlist',
+      'currentIndex',
       'currentSong',
       'playing'
     ]),
@@ -182,7 +185,7 @@ export default {
         name: 'move',
         animation,
         presets: {
-          duration: 800,
+          duration: 400,
           easing: 'linear'
         }
       })
@@ -218,11 +221,6 @@ export default {
         scale
       }
     },
-    // 修改状态
-    ...mapMutations({
-      setFullScreen: 'SET_FULL_SCREEN',
-      setPlayingState: 'SET_PLAYING_STATE'
-    }),
     // 关注按钮
     attention () {
       if (this.atten === '已关注') {
@@ -259,30 +257,51 @@ export default {
     togglePlaying () {
       this.setPlayingState(!this.playing)
     },
-    // 快退快进
-    rewind: function () {
-      this.$refs.voice.currentTime = this.$refs.voice.currentTime - 5
+    // 上一首
+    prev () {
+      let index = this.currentIndex - 1
+      if (index < 0) {
+        return
+      }
+      this.setCurrentIndex(index)
+      this.setPlayingState(true)
     },
-    forward: function () {
-      this.$refs.voice.currentTime = this.$refs.voice.currentTime + 5
+    // 下一首
+    next () {
+      let index = this.currentIndex + 1
+      if (index > (this.playlist.length - 1)) {
+        return
+      }
+      this.setCurrentIndex(index)
+      this.setPlayingState(true)
+    },
+    canplay () {
     },
     // 已听时间 和 剩余时间
     mission: function (e) {
+      this.currentTime = this.$refs.voice.currentTime
+      this.duration = this.$refs.voice.duration
       // 计算进度条长度
-      this.$refs.line.style.width = (this.$refs.voice.currentTime / this.$refs.voice.duration) * 100 + '%'
+      this.$refs.line.style.width = (this.currentTime / this.duration) * 100 + '%'
       // 计算已读进度
-      this.styObj.left = (this.$refs.voice.currentTime / this.$refs.voice.duration) * 100 + '%'
+      this.styObj.left = (this.currentTime / this.duration) * 100 + '%'
       // 计算已读时间
-      this.s = String(Math.floor(e.target.currentTime) % 60).padStart(2, 0)
-      this.m = String(Math.floor((e.target.currentTime % 3600) / 60)).padStart(2, 0)
-      this.cTime = this.m + ':' + this.s
+      let s = String(Math.floor(this.currentTime) % 60).padStart(2, 0)
+      let m = String(Math.floor((this.currentTime % 3600) / 60)).padStart(2, 0)
+      this.cTime = m + ':' + s
       // 计算剩余时间
-      this.se = String(Math.floor(e.target.duration - e.target.currentTime) % 60).padStart(2, 0)
-      this.me = String(Math.floor((e.target.duration % 3600) / 60 - (e.target.currentTime % 3600) / 60)).padStart(2, 0)
-      this.dTime = this.me + ':' + this.se
+      let se = String(Math.floor(this.duration - this.currentTime) % 60).padStart(2, 0)
+      let me = String(Math.floor((this.duration % 3600) / 60 - (this.currentTime % 3600) / 60)).padStart(2, 0)
+      if (isNaN(me)) {
+        this.dTime = '00:00'
+      } else {
+        this.dTime = me + ':' + se
+      }
       // 播放完毕暂停
       if (this.styObj.left === '100%') {
         this.setPlayingState(false)
+        let index = this.currentIndex + 1
+        this.setCurrentIndex(index)
       }
     },
     // 点击读条到相应位置
@@ -320,22 +339,27 @@ export default {
     // 定时关闭
     fifteen: function () {
       setTimeout(() => {
-        this.$refs.voice.pause()
+        this.setPlayingState(false)
       }, 2000)
-      this.show = !this.show
-    }
+    },
+    // 修改状态
+    ...mapMutations({
+      setFullScreen: 'SET_FULL_SCREEN',
+      setPlayingState: 'SET_PLAYING_STATE',
+      setCurrentIndex: 'SET_CURRENT_INDEX'
+    })
   },
   watch: {
     // 检测播放暂停
-    // currentSong () {
-    //   setTimeout(() => {
-    //     this.$refs.voice.play()
-    //   }, 1000)
-    // },
+    currentSong () {
+      clearTimeout(this.timer)
+      this.timer = setTimeout(() => {
+        this.$refs.voice.play()
+      }, 1000)
+    },
     playing (newPlaying) {
-      const voice = this.$refs.voice
       this.$nextTick(() => {
-        newPlaying ? voice.play() : voice.pause()
+        newPlaying ? this.$refs.voice.play() : this.$refs.voice.pause()
       })
     }
   }
@@ -435,33 +459,6 @@ export default {
                 width 100%
                 justify-content space-between
                 font-size .24rem
-    .timer
-        position fixed
-        bottom 0
-        width 100%
-        z-index 3
-        background #ffffff
-        line-height 1rem
-        text-align center
-        .timer-down
-          float left
-          margin-left .6rem
-        .timer-title
-          margin-right .6rem
-    .rate-setting
-        position fixed
-        bottom 0
-        width 100%
-        z-index 3
-        background #ffffff
-        line-height 1rem
-        text-align center
-        background #fff
-        .rate-setting-down
-          float left
-          margin-left .6rem
-        .rate-setting-title
-          margin-right .6rem
     .publish
         font-size .24rem
         display flex
@@ -469,8 +466,8 @@ export default {
         margin .4rem .5rem 0 .4rem
         color #ccc
     .discuss
-        margin-top .8rem
-        margin-bottom .8rem
+        margin .8rem 0
+        padding-bottom 1rem
         .book-review
           text-indent 1em
         .discuss-item
@@ -547,4 +544,32 @@ export default {
   100%
     transform: rotate(360deg)
 
+.timer
+    position absolute
+    bottom 0
+    width 100%
+    z-index 3
+    background #ffffff
+    line-height 1rem
+    text-align center
+    .timer-down
+      float left
+      margin-left .6rem
+    .timer-title
+      margin-right .6rem
+.rate-setting
+    position fixed
+    left 0
+    bottom 0
+    width 100%
+    z-index 3
+    background #ffffff
+    line-height 1rem
+    text-align center
+    background #fff
+    .rate-setting-down
+      float left
+      margin-left .6rem
+    .rate-setting-title
+      margin-right .6rem
 </style>

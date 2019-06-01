@@ -3,14 +3,15 @@
   <div>
     <footer class="footer border-top-1px">
       <span @click="selectItem">{{listening}}</span>
-      <router-link to="/bookdetail/0001">{{free}}</router-link>
-      <router-link to="/book">{{join}}</router-link>
+      <span @click="go">{{free}}</span>
+      <span @click="gobook">{{join}}</span>
     </footer>
   </div>
 </template>
 
 <script>
-import { mapActions } from 'vuex'
+import {mapActions, mapMutations} from 'vuex'
+
 export default {
   name: 'DetailBar',
   props: {
@@ -25,6 +26,17 @@ export default {
     }
   },
   methods: {
+    go () {
+      this.$router.replace({
+        path: `/book/0001`
+      })
+      this.playing(false)
+    },
+    gobook () {
+      this.$router.replace({
+        path: `/book`
+      })
+    },
     selectItem (songs, index) {
       this.selectPlay({
         list: this.songs,
@@ -33,7 +45,10 @@ export default {
     },
     ...mapActions([
       'selectPlay'
-    ])
+    ]),
+    ...mapMutations({
+      playing: 'SET_PLAYING_STATE'
+    })
   }
 }
 </script>
@@ -52,5 +67,5 @@ export default {
     flex: 1
     display: inline-block
     text-align: center
-    color: $Color
+    color: $theme-color
 </style>
