@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <keep-alive include="bookdetail,idea,Listener">
+    <keep-alive include="idea,Listener" exclude="bookdetail">
       <router-view/>
     </keep-alive>
     <tab-bar/>

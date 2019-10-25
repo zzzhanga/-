@@ -519,11 +519,10 @@ export default {
     display: flex
     align-items: center
     position: fixed
-    left: 0
-    bottom: 1rem
+    left 20px
+    bottom 1.5rem
     z-index: 2
-    width: 100%
-    height: 1.5rem
+    width: 40px
     &.mini-enter-active, &.mini-leave-active
       transition: all 0.6s
     &.mini-enter, &.mini-leave-to
@@ -531,7 +530,6 @@ export default {
     .icon
       flex: 0 0 40px
       width: 40px
-      padding: 0 10px 0 20px
       img
         border-radius: 50%
         &.play
