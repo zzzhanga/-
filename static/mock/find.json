@@ -1,7 +1,8 @@
 {
   "ret": true,
   "data": {
-    "listenerItem": [{
+    "listenerItem": [
+      {
         "index": 0,
         "autor": "齐俊杰",
         "autorurl": "https://images.zsxq.com/Fg0E97hvjV8OggSQIpMTI9uOYw8O?e=1906272000&token=kIxbL07-8jAj8w1n4s9zv64FuZZNEATmlU_Vm6zD:ujrgdE7mk4IHehxgwk1th-CyW30=",
@@ -13,18 +14,18 @@
         "listenin": "收听1597",
         "items": [
           {
-          "id": "0001",
-          "portrait": "../../static/image/avator.jpg",
-          "discussname": "刘俊峰",
-          "submittime": "3月9日 19:04",
-          "speak": "深度剖析人脉资源管理,朋友圈一定要选择,管好自己的5+50+100"
+            "id": "0001",
+            "portrait": "../../static/image/avator.jpg",
+            "discussname": "刘俊峰",
+            "submittime": "3月9日 19:04",
+            "speak": "深度剖析人脉资源管理,朋友圈一定要选择,管好自己的5+50+100"
           },
           {
-          "id": "0002",
-          "portrait": "../../static/image/avator3.jpg",
-          "discussname": "北极星的眼泪",
-          "submittime": "3月10日 12:04",
-          "speak": "老师的这本书需要精读细读,朋友圈门槛很重要,一定要选好.谢谢老师分享"
+            "id": "0002",
+            "portrait": "../../static/image/avator3.jpg",
+            "discussname": "北极星的眼泪",
+            "submittime": "3月10日 12:04",
+            "speak": "老师的这本书需要精读细读,朋友圈门槛很重要,一定要选好.谢谢老师分享"
           }
         ]
       },
@@ -41,31 +42,39 @@
       }
     ],
     "Title": {
-      "A": [{
-        "id": "0001",
-        "name": "三体",
-        "spell": "santi",
-        "img": "/static/image/search1.png"
-      }],
-      "B": [{
-        "id": "0002",
-        "name": "围城",
-        "spell": "weicheng",
-        "img": "/static/image/search2.png"
-      }],
-      "C": [{
-        "id": "0003",
-        "name": "鞋狗耐克",
-        "spell": "xiegounaike",
-        "img": "/static/image/search3.png"
-      }]
+      "A": [
+        {
+          "id": "0001",
+          "name": "三体",
+          "spell": "santi",
+          "img": "/static/image/search1.png"
+        }
+      ],
+      "B": [
+        {
+          "id": "0002",
+          "name": "围城",
+          "spell": "weicheng",
+          "img": "/static/image/search2.png"
+        }
+      ],
+      "C": [
+        {
+          "id": "0003",
+          "name": "鞋狗耐克",
+          "spell": "xiegounaike",
+          "img": "/static/image/search3.png"
+        }
+      ]
     },
-    "Items": [{
+    "Items": [
+      {
         "item": {
           "id": "0001",
           "imgUrl": "../../../../../static/image/guess1.png"
         },
-        "btns": [{
+        "btns": [
+          {
             "action": "delete",
             "text": "不感兴趣",
             "color": "#c8c7cd"
@@ -77,7 +86,8 @@
           "id": "0002",
           "imgUrl": "../../../../../static/image/guess2.png"
         },
-        "btns": [{
+        "btns": [
+          {
             "action": "delete",
             "text": "不感兴趣",
             "color": "#c8c7cd"
@@ -89,7 +99,8 @@
           "id": "0003",
           "imgUrl": "../../../../../static/image/guess3.png"
         },
-        "btns": [{
+        "btns": [
+          {
             "action": "delete",
             "text": "不感兴趣",
             "color": "#c8c7cd"
@@ -97,12 +108,14 @@
         ]
       }
     ],
-    "guessItem": [{
+    "guessItem": [
+      {
         "item": {
           "id": "0004",
           "imgUrl": "../../../../../static/image/guess4.png"
         },
-        "btns": [{
+        "btns": [
+          {
             "action": "delete",
             "text": "不感兴趣",
             "color": "#c8c7cd"
@@ -114,7 +127,8 @@
           "id": "0005",
           "imgUrl": "../../../../../static/image/guess5.png"
         },
-        "btns": [{
+        "btns": [
+          {
             "action": "delete",
             "text": "不感兴趣",
             "color": "#c8c7cd"
@@ -126,7 +140,8 @@
           "id": "0006",
           "imgUrl": "../../../../../static/image/guess6.png"
         },
-        "btns": [{
+        "btns": [
+          {
             "action": "delete",
             "text": "不感兴趣",
             "color": "#c8c7cd"
@@ -138,7 +153,8 @@
           "id": "0007",
           "imgUrl": "../../../../../static/image/guess7.png"
         },
-        "btns": [{
+        "btns": [
+          {
             "action": "delete",
             "text": "不感兴趣",
             "color": "#c8c7cd"
@@ -150,7 +166,8 @@
           "id": "0008",
           "imgUrl": "../../../../../static/image/guess8.png"
         },
-        "btns": [{
+        "btns": [
+          {
             "action": "delete",
             "text": "不感兴趣",
             "color": "#c8c7cd"
@@ -162,7 +179,8 @@
           "id": "0009",
           "imgUrl": "../../../../../static/image/guess9.png"
         },
-        "btns": [{
+        "btns": [
+          {
             "action": "delete",
             "text": "不感兴趣",
             "color": "#c8c7cd"
@@ -174,7 +192,8 @@
           "id": "00010",
           "imgUrl": "../../../../../static/image/guess10.png"
         },
-        "btns": [{
+        "btns": [
+          {
             "action": "delete",
             "text": "不感兴趣",
             "color": "#c8c7cd"
@@ -186,7 +205,8 @@
           "id": "00011",
           "imgUrl": "../../../../../static/image/guess11.png"
         },
-        "btns": [{
+        "btns": [
+          {
             "action": "delete",
             "text": "不感兴趣",
             "color": "#c8c7cd"
@@ -198,7 +218,8 @@
           "id": "0012",
           "imgUrl": "../../../../../static/image/guess12.png"
         },
-        "btns": [{
+        "btns": [
+          {
             "action": "delete",
             "text": "不感兴趣",
             "color": "#c8c7cd"
@@ -210,7 +231,8 @@
           "id": "0013",
           "imgUrl": "../../../../../static/image/guess13.png"
         },
-        "btns": [{
+        "btns": [
+          {
             "action": "delete",
             "text": "不感兴趣",
             "color": "#c8c7cd"
@@ -222,7 +244,8 @@
           "id": "0014",
           "imgUrl": "../../../../../static/image/guess14.png"
         },
-        "btns": [{
+        "btns": [
+          {
             "action": "delete",
             "text": "不感兴趣",
             "color": "#c8c7cd"
@@ -234,7 +257,8 @@
           "id": "0015",
           "imgUrl": "../../../../../static/image/guess15.png"
         },
-        "btns": [{
+        "btns": [
+          {
             "action": "delete",
             "text": "不感兴趣",
             "color": "#c8c7cd"
@@ -246,7 +270,8 @@
           "id": "0016",
           "imgUrl": "../../../../../static/image/guess16.png"
         },
-        "btns": [{
+        "btns": [
+          {
             "action": "delete",
             "text": "不感兴趣",
             "color": "#c8c7cd"
@@ -258,7 +283,8 @@
           "id": "0017",
           "imgUrl": "../../../../../static/image/guess17.png"
         },
-        "btns": [{
+        "btns": [
+          {
             "action": "delete",
             "text": "不感兴趣",
             "color": "#c8c7cd"
@@ -270,7 +296,8 @@
           "id": "0018",
           "imgUrl": "../../../../../static/image/guess18.png"
         },
-        "btns": [{
+        "btns": [
+          {
             "action": "delete",
             "text": "不感兴趣",
             "color": "#c8c7cd"
@@ -282,7 +309,8 @@
           "id": "0019",
           "imgUrl": "../../../../../static/image/guess19.png"
         },
-        "btns": [{
+        "btns": [
+          {
             "action": "delete",
             "text": "不感兴趣",
             "color": "#c8c7cd"
@@ -294,7 +322,8 @@
           "id": "0020",
           "imgUrl": "../../../../../static/image/guess20.png"
         },
-        "btns": [{
+        "btns": [
+          {
             "action": "delete",
             "text": "不感兴趣",
             "color": "#c8c7cd"
@@ -306,7 +335,8 @@
           "id": "0021",
           "imgUrl": "../../../../../static/image/guess21.png"
         },
-        "btns": [{
+        "btns": [
+          {
             "action": "delete",
             "text": "不感兴趣",
             "color": "#c8c7cd"
@@ -314,28 +344,52 @@
         ]
       }
     ],
-    "cardItem": [{
-        "id": "0001",
-        "linkUrl": "/find/detail",
-        "imgUrl": "../../../static/image/banner1.png"
-      },
-      {
-        "id": "0002",
-        "linkUrl": "/",
-        "imgUrl": "../../../static/image/banner2.png"
-      }, {
-        "id": "0003",
-        "linkUrl": "/",
-        "imgUrl": "../../../static/image/banner3.png"
-      }, {
-        "id": "0004",
-        "linkUrl": "/",
-        "imgUrl": "../../../static/image/banner4.png"
-      }, {
-        "id": "0005",
-        "linkUrl": "/",
-        "imgUrl": "../../../static/image/banner5.png"
-      }
+    "cardItem": [
+      [
+        {
+          "id": "0001",
+          "linkUrl": "/find/detail",
+          "imgUrl": "../../../static/image/find-banner/第22条军规.png"
+        },
+        {
+          "id": "0006",
+          "linkUrl": "/find/detail",
+          "imgUrl": "../../../static/image/find-banner/给予者.png"
+        },
+        {
+          "id": "0007",
+          "linkUrl": "/find/detail",
+          "imgUrl": "../../../static/image/find-banner/时间的形状.png"
+        }
+      ],
+      [
+        {
+          "id": "0002",
+          "linkUrl": "/",
+          "imgUrl": "../../../static/image/find-banner/banner2.png"
+        }
+      ],
+      [
+        {
+          "id": "0003",
+          "linkUrl": "/",
+          "imgUrl": "../../../static/image/find-banner/banner3.png"
+        }
+      ],
+      [
+        {
+          "id": "0004",
+          "linkUrl": "/",
+          "imgUrl": "../../../static/image/find-banner/banner4.png"
+        }
+      ],
+      [
+        {
+          "id": "0005",
+          "linkUrl": "/",
+          "imgUrl": "../../../static/image/find-banner/banner5.png"
+        }
+      ]
     ],
     "detailList": {
       "imgUrl": "../../../../../../static/image/bookcover1.png",
@@ -353,51 +407,57 @@
       "title": "精彩点评",
       "more": "展开更多点评"
     },
-    "detailItem": [{
-      "id": "'0001'",
-      "img": "/static/image/avator6.png",
-      "name": "Vivi",
-      "review": "点评 ★★★★☆",
-      "reviewcontent": "每个人都有礼物等着给予或接受，每个人都有问题需要别人帮助或解决。不管自己现在处在什么层次，学会做一个给予者：开放、利他，有独到的眼光和解决问题的实际能力，在人脉生态圈里为别人带来或创造价值、互相增值。只有自己不断优秀了，人脉才叫人脉，不然那只能叫好友数量。",
-      "forward": "10",
-      "love": "134",
-      "message": "6"
-    }, {
-      "id": "0002",
-      "img": "/static/image/avator7.png",
-      "name": "孤独的寻觅者",
-      "review": "点评 ★★★★★'",
-      "reviewcontent": "在这个商业时代里，我们每个人都或多或少的需要别人的帮助或者被人需求。那么建立一个良好的人脉网络圈就非常的重要，《给予者》给我们指明了方式方法，让我们怎么去建立以及维护好自己高质量的人脉网络，它给我们分了三个级别，即:核心关系5人+关键关系50人+重要关系100人。",
-      "forward": "",
-      "love": "3",
-      "message": ""
-    }, {
-      "id": "0003",
-      "img": "/static/image/avator8.png",
-      "name": "R.I.W",
-      "review": "点评 ★★☆☆☆",
-      "reviewcontent": "生活中的每个圈子都是一个生态系统，进入到不同的生态系统可以得到不同的发展，在这些生态系统中同样是先要给予，其次才会有回报。自身的成长大多来自于自己付出的多少。",
-      "forward": "",
-      "love": "8",
-      "message": ""
-    }, {
-      "id": "0004",
-      "img": "/static/image/avator14.png",
-      "name": "邱静洁",
-      "review": "点评 ★★★★☆",
-      "reviewcontent": "其实，《给予者》就是一个连接者，即中间人，把两个不认识的又有同样需要的人链接起来并使之产生价值就是给予者最好的诠释。而且在给予的同时我们要明白是否是他们所需要的，给予的目标，时间和地点是否正确。",
-      "forward": "1",
-      "love": "",
-      "message": ""
-    }, {
-      "id": "0005",
-      "img": "/static/image/avator10.png",
-      "name": "诺诺",
-      "review": "点评 ★★★★☆",
-      "reviewcontent": "这个世界，最怕冷静又疯狂的人：这个世界，不怕冷静的人，因为人一冷静，骨子里的热血就会冷下来，少了勇往直前的冲劲；这个世界，不怕疯狂的人，因为人一疯狂，就会失去理智，最后自取灭亡。只有冷静又疯狂，才能在纷乱的变局中，找准问题的本质，以冷静柔软的力量，将危机化解！",
-      "forward": "1",
-      "love": "33",
-      "message": ""
-    }]
+    "detailItem": [
+      {
+        "id": "'0001'",
+        "img": "/static/image/avator6.png",
+        "name": "Vivi",
+        "review": "点评 ★★★★☆",
+        "reviewcontent": "每个人都有礼物等着给予或接受，每个人都有问题需要别人帮助或解决。不管自己现在处在什么层次，学会做一个给予者：开放、利他，有独到的眼光和解决问题的实际能力，在人脉生态圈里为别人带来或创造价值、互相增值。只有自己不断优秀了，人脉才叫人脉，不然那只能叫好友数量。",
+        "forward": "10",
+        "love": "134",
+        "message": "6"
+      },
+      {
+        "id": "0002",
+        "img": "/static/image/avator7.png",
+        "name": "孤独的寻觅者",
+        "review": "点评 ★★★★★'",
+        "reviewcontent": "在这个商业时代里，我们每个人都或多或少的需要别人的帮助或者被人需求。那么建立一个良好的人脉网络圈就非常的重要，《给予者》给我们指明了方式方法，让我们怎么去建立以及维护好自己高质量的人脉网络，它给我们分了三个级别，即:核心关系5人+关键关系50人+重要关系100人。",
+        "forward": "",
+        "love": "3",
+        "message": ""
+      },
+      {
+        "id": "0003",
+        "img": "/static/image/avator8.png",
+        "name": "R.I.W",
+        "review": "点评 ★★☆☆☆",
+        "reviewcontent": "生活中的每个圈子都是一个生态系统，进入到不同的生态系统可以得到不同的发展，在这些生态系统中同样是先要给予，其次才会有回报。自身的成长大多来自于自己付出的多少。",
+        "forward": "",
+        "love": "8",
+        "message": ""
+      },
+      {
+        "id": "0004",
+        "img": "/static/image/avator14.png",
+        "name": "邱静洁",
+        "review": "点评 ★★★★☆",
+        "reviewcontent": "其实，《给予者》就是一个连接者，即中间人，把两个不认识的又有同样需要的人链接起来并使之产生价值就是给予者最好的诠释。而且在给予的同时我们要明白是否是他们所需要的，给予的目标，时间和地点是否正确。",
+        "forward": "1",
+        "love": "",
+        "message": ""
+      },
+      {
+        "id": "0005",
+        "img": "/static/image/avator10.png",
+        "name": "诺诺",
+        "review": "点评 ★★★★☆",
+        "reviewcontent": "这个世界，最怕冷静又疯狂的人：这个世界，不怕冷静的人，因为人一冷静，骨子里的热血就会冷下来，少了勇往直前的冲劲；这个世界，不怕疯狂的人，因为人一疯狂，就会失去理智，最后自取灭亡。只有冷静又疯狂，才能在纷乱的变局中，找准问题的本质，以冷静柔软的力量，将危机化解！",
+        "forward": "1",
+        "love": "33",
+        "message": ""
+      }
+    ]
   }
 }

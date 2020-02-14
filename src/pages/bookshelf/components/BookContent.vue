@@ -36,7 +36,6 @@ export default {
   },
   methods: {
     selectItem (item) {
-      console.log(item.id)
       this.$router.replace({
         path: `/book/${item.id}`
       })
