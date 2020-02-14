@@ -1,6 +1,6 @@
 ###  **VUE开发微信读书** 
 
- 体验地址：[http://www.ljunfeng.com/](http://)
+ 体验地址：[http://www.ljunfeng.com/](http://www.ljunfeng.com/#/find)
 
 
 ![1](https://images.gitee.com/uploads/images/2019/0513/151619_cda90f75_4830588.gif "GIF1.gif")
