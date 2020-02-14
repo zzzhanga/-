@@ -1,6 +1,6 @@
 ###  **VUE开发微信读书** 
 
- **下载dist文件夹,把index.html和static文件夹放入服务器目录即可** 
+ **体验地址：www.ljunfeng.com** 
 
 
 ![1](https://images.gitee.com/uploads/images/2019/0513/151619_cda90f75_4830588.gif "GIF1.gif")
